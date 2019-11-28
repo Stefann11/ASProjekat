@@ -1,6 +1,7 @@
-package izgled;
+package view;
 
 import java.awt.Color;
+import java.awt.Dimension;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,15 +13,8 @@ public class MyToolbar extends JToolBar{
 	private static final long serialVersionUID = -2714410407038947655L;
 	
 	public MyToolbar() {
-		// u konstruktor natklase, tj kalse JToolbar prosleđuje
-		// se orijentacija toolbar-a, moguća i sa konstantom: SwingConstants.VERTICAL
-		super(SwingConstants.HORIZONTAL);
 		
-		JButton btnAdd = new JButton();
-		btnAdd.setToolTipText("Add");
-		btnAdd.setIcon(new ImageIcon("images/add-icon.png"));
-		//btnAdd.setPreferredSize(new Dimension(200, 200));
-		add(btnAdd);
+		super(SwingConstants.HORIZONTAL);
 
 
 		JButton btnEdit = new JButton();
@@ -28,6 +22,12 @@ public class MyToolbar extends JToolBar{
 		btnEdit.setIcon(new ImageIcon("images/edit-icon.png"));
 		//btnEdit.setPreferredSize(new Dimension(25, 25));
 		add(btnEdit);
+		
+		JButton btnAdd = new JButton();
+		btnAdd.setToolTipText("Add");
+		btnAdd.setIcon(new ImageIcon("images/add-icon.png"));
+		btnAdd.setPreferredSize(new Dimension(32, 32));
+		add(btnAdd);
 
 
 		JButton btnDelete = new JButton();
