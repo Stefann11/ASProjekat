@@ -12,6 +12,22 @@ public class Predmet {
 	public String getSifraPredmeta() {
 		return sifraPredmeta;
 	}
+	
+	
+	
+	public Predmet(String sifraPredmeta, String nazivPredmeta, int semestar, int godinaStudijaPredmet,
+			Profesor predmetniProfesor, ArrayList<Student> spisakStudenata) {
+		super();
+		this.sifraPredmeta = sifraPredmeta;
+		this.nazivPredmeta = nazivPredmeta;
+		this.semestar = semestar;
+		this.godinaStudijaPredmet = godinaStudijaPredmet;
+		this.predmetniProfesor = predmetniProfesor;
+		this.spisakStudenata = spisakStudenata;
+	}
+
+
+
 	public void setSifraPredmeta(String sifraPredmeta) {
 		this.sifraPredmeta = sifraPredmeta;
 	}

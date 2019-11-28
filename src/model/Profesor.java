@@ -17,6 +17,26 @@ public class Profesor {
 	public String getIme() {
 		return ime;
 	}
+	
+	public Profesor(String ime, String prezime, String datumRodjenja, String adresaStanovanja, String kontaktTelefon,
+			String emailAdresa, String adresaKancelarije, int brojLicneKarte, String titula, String zvanje,
+			ArrayList<Predmet> predmeti) {
+		super();
+		this.ime = ime;
+		this.prezime = prezime;
+		this.datumRodjenja = datumRodjenja;
+		this.adresaStanovanja = adresaStanovanja;
+		this.kontaktTelefon = kontaktTelefon;
+		this.emailAdresa = emailAdresa;
+		this.adresaKancelarije = adresaKancelarije;
+		this.brojLicneKarte = brojLicneKarte;
+		this.titula = titula;
+		this.zvanje = zvanje;
+		this.predmeti = predmeti;
+	}
+
+
+
 	public void setIme(String ime) {
 		this.ime = ime;
 	}
