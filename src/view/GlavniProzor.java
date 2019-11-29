@@ -1,16 +1,14 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.Toolkit;
 
-import javax.swing.JFrame;
-import java.awt.FlowLayout;
 import javax.swing.BoxLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
+import javax.swing.JFrame;
 
 public class GlavniProzor extends JFrame{
 
@@ -33,7 +31,7 @@ public class GlavniProzor extends JFrame{
         getContentPane().setBackground(Color.WHITE);
         GridBagLayout gridBagLayout = new GridBagLayout();
         gridBagLayout.columnWidths = new int[]{1422, 0};
-        gridBagLayout.rowHeights = new int[]{76, 0, 0};
+        gridBagLayout.rowHeights = new int[]{76, 483, 0};
         gridBagLayout.columnWeights = new double[]{1.0, Double.MIN_VALUE};
         gridBagLayout.rowWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
         getContentPane().setLayout(gridBagLayout);
@@ -51,11 +49,22 @@ public class GlavniProzor extends JFrame{
         tabbedPane.setForeground(new Color(0, 0, 0));
         tabbedPane.setBorder(null);
         GridBagConstraints gbc_tabbedPane = new GridBagConstraints();
-        gbc_tabbedPane.fill = GridBagConstraints.BOTH;
+        gbc_tabbedPane.anchor = GridBagConstraints.NORTH;
+        gbc_tabbedPane.fill = GridBagConstraints.HORIZONTAL;
         gbc_tabbedPane.gridx = 0;
         gbc_tabbedPane.gridy = 1;
         getContentPane().add(tabbedPane, gbc_tabbedPane);
         tabbedPane.setLayout(new BoxLayout(tabbedPane, BoxLayout.X_AXIS));
+        
+        
+		myStatusBar statusBar = new myStatusBar();
+		getContentPane().add(statusBar);
+        
+        
+		
+        MyMenuBar menu = new MyMenuBar();
+        this.setJMenuBar(menu);
+		
         
         setVisible(true);
         
