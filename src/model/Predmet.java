@@ -2,20 +2,20 @@ package model;
 
 import java.util.ArrayList;
 
+enum godinaPredmeta 
+{ 
+    PRVA, DRUGA, TRECA, CETVRTA; 
+}
+
 public class Predmet {
 	private String sifraPredmeta;
 	private String nazivPredmeta;
 	private int semestar;
-	private int godinaStudijaPredmet;
+	protected godinaPredmeta  godinaStudijaPredmet;
 	private Profesor predmetniProfesor;
 	private ArrayList<Student>spisakStudenata;
-	public String getSifraPredmeta() {
-		return sifraPredmeta;
-	}
 	
-	
-	
-	public Predmet(String sifraPredmeta, String nazivPredmeta, int semestar, int godinaStudijaPredmet,
+	public Predmet(String sifraPredmeta, String nazivPredmeta, int semestar, godinaPredmeta  godinaStudijaPredmet,
 			Profesor predmetniProfesor, ArrayList<Student> spisakStudenata) {
 		super();
 		this.sifraPredmeta = sifraPredmeta;
@@ -25,8 +25,19 @@ public class Predmet {
 		this.predmetniProfesor = predmetniProfesor;
 		this.spisakStudenata = spisakStudenata;
 	}
+	
+	//samo alternativno, treba obristati
+	public Predmet(String sifraPredmeta, String nazivPredmeta, int semestar, godinaPredmeta  godinaStudijaPredmet) {
+		super();
+		this.sifraPredmeta = sifraPredmeta;
+		this.nazivPredmeta = nazivPredmeta;
+		this.semestar = semestar;
+		this.godinaStudijaPredmet = godinaStudijaPredmet;
+	}
 
-
+	public String getSifraPredmeta() {
+		return sifraPredmeta;
+	}
 
 	public void setSifraPredmeta(String sifraPredmeta) {
 		this.sifraPredmeta = sifraPredmeta;
@@ -43,10 +54,10 @@ public class Predmet {
 	public void setSemestar(int semestar) {
 		this.semestar = semestar;
 	}
-	public int getGodinaStudijaPredmet() {
+	public godinaPredmeta  getGodinaStudijaPredmet() {
 		return godinaStudijaPredmet;
 	}
-	public void setGodinaStudijaPredmet(int godinaStudijaPredmet) {
+	public void setGodinaStudijaPredmet(godinaPredmeta  godinaStudijaPredmet) {
 		this.godinaStudijaPredmet = godinaStudijaPredmet;
 	}
 	public Profesor getPredmetniProfesor() {

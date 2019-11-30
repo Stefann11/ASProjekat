@@ -1,10 +1,18 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 
@@ -15,26 +23,58 @@ public class MyToolbar extends JToolBar{
 	public MyToolbar() {
 		
 		super(SwingConstants.HORIZONTAL);
-
+		
+		JPanel panelLeft = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel panelRight = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		
+		JButton btnAdd = new JButton();
+		btnAdd.setToolTipText("Add");
+		btnAdd.setIcon(new ImageIcon("images/add-icon.png"));
+		panelLeft.add(btnAdd);
 
 		JButton btnEdit = new JButton();
 		btnEdit.setToolTipText("Edit");
 		btnEdit.setIcon(new ImageIcon("images/edit-icon.png"));
 		//btnEdit.setPreferredSize(new Dimension(25, 25));
-		add(btnEdit);
-		
-		JButton btnAdd = new JButton();
-		btnAdd.setToolTipText("Add");
-		btnAdd.setIcon(new ImageIcon("images/add-icon.png"));
-		btnAdd.setPreferredSize(new Dimension(32, 32));
-		add(btnAdd);
-
+		panelLeft.add(btnEdit);
 
 		JButton btnDelete = new JButton();
 		btnDelete.setToolTipText("Delete");
 		btnDelete.setIcon(new ImageIcon("images/trash-icon.png"));
 		//btnDelete.setPreferredSize(new Dimension(25, 25));
-		add(btnDelete);
+		panelLeft.add(btnDelete);
+		
+		JTextField textField = new JTextField();
+        textField.setPreferredSize(new Dimension(200, 32));
+        panelRight.add(textField);
+		
+		JButton btnSearch = new JButton();
+		btnSearch.setToolTipText("Search");
+		btnSearch.setIcon(new ImageIcon("images/search-icon.png"));
+		//btnDelete.setPreferredSize(new Dimension(25, 25));
+		panelRight.add(btnSearch);
+		
+		add(panelLeft, BorderLayout.WEST);
+		add(panelRight, BorderLayout.EAST);
+		
+		btnAdd.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DodavanjePredmeta dp=new DodavanjePredmeta();
+				Toolkit kit = Toolkit.getDefaultToolkit();
+		        Dimension screenSize = kit.getScreenSize();
+		        int screenHeight = screenSize.height;
+		        int screenWidth = screenSize.width;
+				dp.setSize(screenWidth / 4, screenHeight / 4);
+		        dp.setLocationRelativeTo(null);
+				dp.setVisible(true);
+				
+			}
+		});
+		
+	
+		
 
 		setBackground(Color.WHITE);
 
