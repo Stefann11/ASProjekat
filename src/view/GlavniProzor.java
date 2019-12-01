@@ -31,7 +31,7 @@ public class GlavniProzor extends JFrame{
         getContentPane().setBackground(Color.WHITE);
         GridBagLayout gridBagLayout = new GridBagLayout();
         gridBagLayout.columnWidths = new int[]{1422, 0};
-        gridBagLayout.rowHeights = new int[]{76, 483, 0, 0, 0, 62, 58, 0};
+        gridBagLayout.rowHeights = new int[]{76, 483, 0, 0, 0, 82, 64, 0};
         gridBagLayout.columnWeights = new double[]{1.0, Double.MIN_VALUE};
         gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
         getContentPane().setLayout(gridBagLayout);
@@ -61,6 +61,8 @@ public class GlavniProzor extends JFrame{
 		
 		
 		myStatusBar statusBar = new myStatusBar();
+		statusBar.setBackground(Color.GRAY);
+		statusBar.setText("rr");
 		GridBagConstraints gbc_statusBar = new GridBagConstraints();
 		gbc_statusBar.insets = new Insets(0, 0, 5, 0);
 		gbc_statusBar.gridx = 0;

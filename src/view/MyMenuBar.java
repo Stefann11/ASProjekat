@@ -1,10 +1,14 @@
 package view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JRadioButtonMenuItem;
+import javax.swing.KeyStroke;
 
 public class MyMenuBar  extends JMenuBar {
 
@@ -16,7 +20,7 @@ public class MyMenuBar  extends JMenuBar {
 	public MyMenuBar() {
 
 		JMenu file = new JMenu("File");
-		file.setMnemonic('F'); // Create shortcut
+		file.setMnemonic(KeyEvent.VK_F); // Create shortcut
 		JMenu miNew = new JMenu("New");
 		JMenuItem miProject = new JMenuItem("Project");
 		JMenuItem miPackage = new JMenuItem("Package");
