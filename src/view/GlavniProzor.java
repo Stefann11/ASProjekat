@@ -3,12 +3,11 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 import java.awt.Toolkit;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
-import javax.swing.JTabbedPane;
+import java.awt.FlowLayout;
 
 public class GlavniProzor extends JFrame{
 
@@ -46,18 +45,9 @@ public class GlavniProzor extends JFrame{
         getContentPane().add(toolbar,BorderLayout.NORTH);
         
         MyTabbedPane tabbedPane = new MyTabbedPane();
-//        tabbedPane.setBackground(Color.WHITE);
-//        tabbedPane.setForeground(new Color(0, 0, 0));
-//        tabbedPane.setBorder(null);
-//        GridBagConstraints gbc_tabbedPane = new GridBagConstraints();
-//        gbc_tabbedPane.gridheight = 5;
-//        gbc_tabbedPane.insets = new Insets(0, 0, 5, 0);
-//        gbc_tabbedPane.anchor = GridBagConstraints.NORTH;
-//        gbc_tabbedPane.fill = GridBagConstraints.HORIZONTAL;
-//        gbc_tabbedPane.gridx = 0;
-//        gbc_tabbedPane.gridy = 1;
         getContentPane().add(tabbedPane, BorderLayout.CENTER);
-        //tabbedPane.setLayout(new BoxLayout(tabbedPane, BoxLayout.X_AXIS));
+        tabbedPane.setLayout(new BoxLayout(tabbedPane, BoxLayout.X_AXIS));
+        
 		
 		
 		myStatusBar statusBar = new myStatusBar();

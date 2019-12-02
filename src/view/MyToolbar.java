@@ -56,6 +56,7 @@ public class MyToolbar extends JToolBar{
 		
 		add(panelLeft, BorderLayout.WEST);
 		add(panelRight, BorderLayout.EAST);
+	
 		
 //		btnAdd.addActionListener(new ActionListener() {
 //			
@@ -73,34 +74,34 @@ public class MyToolbar extends JToolBar{
 //			}
 //		});
 		
-//btnAdd.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				DodavanjeStudenta dp=new DodavanjeStudenta();
-//				Toolkit kit = Toolkit.getDefaultToolkit();
-//		        Dimension screenSize = kit.getScreenSize();
-//		        int screenHeight = screenSize.height;
-//		        int screenWidth = screenSize.width;
-//				dp.setSize(screenWidth / 4, screenHeight / 2);
-//		        dp.setLocationRelativeTo(null);
-//				dp.setVisible(true);
-//				
-//			}
-//		});
-	
 btnAdd.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				BrisanjeStudenta dp=new BrisanjeStudenta();
+				DodavanjeStudenta dp=new DodavanjeStudenta();
 				Toolkit kit = Toolkit.getDefaultToolkit();
 		        Dimension screenSize = kit.getScreenSize();
 		        int screenHeight = screenSize.height;
 		        int screenWidth = screenSize.width;
 				dp.setSize(screenWidth / 4, screenHeight / 2);
-		        //dp.setLocationRelativeTo(null);
+		        dp.setLocationRelativeTo(null);
 				dp.setVisible(true);
+				
+			}
+		});
+	
+btnDelete.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				BrisanjeStudenta bs=new BrisanjeStudenta();
+				Toolkit kit = Toolkit.getDefaultToolkit();
+		        Dimension screenSize = kit.getScreenSize();
+		        int screenHeight = screenSize.height;
+		        int screenWidth = screenSize.width;
+				bs.setSize(screenWidth / 4, screenHeight / 2);
+		        //dp.setLocationRelativeTo(null);
+				bs.setVisible(true);
 				
 			}
 		});	

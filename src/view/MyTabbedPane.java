@@ -33,5 +33,6 @@ public class MyTabbedPane extends JPanel{
 		tabbedPane.add("Predmeti",thirdPanel);
 		add(tabbedPane);
 	}
+	
 
 }
