@@ -73,23 +73,37 @@ public class MyToolbar extends JToolBar{
 //			}
 //		});
 		
+//btnAdd.addActionListener(new ActionListener() {
+//			
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				DodavanjeStudenta dp=new DodavanjeStudenta();
+//				Toolkit kit = Toolkit.getDefaultToolkit();
+//		        Dimension screenSize = kit.getScreenSize();
+//		        int screenHeight = screenSize.height;
+//		        int screenWidth = screenSize.width;
+//				dp.setSize(screenWidth / 4, screenHeight / 2);
+//		        dp.setLocationRelativeTo(null);
+//				dp.setVisible(true);
+//				
+//			}
+//		});
+	
 btnAdd.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				DodavanjeStudenta dp=new DodavanjeStudenta();
+				BrisanjeStudenta dp=new BrisanjeStudenta();
 				Toolkit kit = Toolkit.getDefaultToolkit();
 		        Dimension screenSize = kit.getScreenSize();
 		        int screenHeight = screenSize.height;
 		        int screenWidth = screenSize.width;
 				dp.setSize(screenWidth / 4, screenHeight / 2);
-		        dp.setLocationRelativeTo(null);
+		        //dp.setLocationRelativeTo(null);
 				dp.setVisible(true);
 				
 			}
-		});
-	
-		
+		});	
 
 		setBackground(Color.WHITE);
 
