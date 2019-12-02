@@ -24,19 +24,21 @@ public class myStatusBar extends JPanel{
 //		panel3.add(status2);
 //        add(panel2, BorderLayout.WEST);
 //        add(panel3, BorderLayout.EAST);
+        //JLabel statusLabel = new JLabel("status");
+        //statusLabel.setHorizontalAlignment(SwingConstants.LEFT);
+        //add(statusLabel);    
+        
+        
         
         
         long eventMask = 0;
         long eventMask2 = 0;
-		//JLabel statusLabel = new JLabel("status");
-        //statusLabel.setHorizontalAlignment(SwingConstants.LEFT);
-        //add(statusLabel);
+		
         Date datum = new Date(eventMask);
         Date sat = new Date(eventMask2);
-        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-M-yyyy hh:mm");
         String strDate = formatter.format(datum);
-//        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
-//        String strDate = formatter.format(datum);
+
         setLayout(new BorderLayout(0,0));
         
         JLabel nazivLabel=new JLabel("Studentska služba");
@@ -45,12 +47,28 @@ public class myStatusBar extends JPanel{
         JPanel panel = new JPanel();
         add(panel, BorderLayout.EAST);
         
-        JLabel lblNewLabel_1 = new JLabel("New label");
-        panel.add(lblNewLabel_1);
+      //  JLabel lblNewLabel_1 = new JLabel("New label");
+       // panel.add(lblNewLabel_1);
         
         JLabel datumLabel = new JLabel(strDate);
         panel.add(datumLabel);
         
+//        JLabel nazivLabel=new JLabel("Studentska služba");
+//        add(nazivLabel, BorderLayout.WEST);
+//        
+//        long eventMask = 0;
+//        
+//        Date curDate = new Date(eventMask);
+//        
+//        SimpleDateFormat format = new SimpleDateFormat();
+//        String DateToStr = format.format(curDate);
+//        //System.out.println("Default pattern: " + DateToStr);
+//        format = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+//        DateToStr = format.format(curDate);
+//        JPanel panel = new JPanel();
+//        add(panel, BorderLayout.EAST);
+//        JLabel datumLabel = new JLabel(DateToStr);
+//        panel.add(datumLabel);
     }
 
 
