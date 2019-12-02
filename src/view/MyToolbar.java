@@ -89,6 +89,7 @@ btnAdd.addActionListener(new ActionListener() {
 				
 			}
 		});
+		
 	
 btnDelete.addActionListener(new ActionListener() {
 			
