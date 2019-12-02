@@ -7,7 +7,10 @@ import java.awt.Toolkit;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
+import javax.swing.JTabbedPane;
+
 import java.awt.FlowLayout;
+import java.awt.Font;
 
 public class GlavniProzor extends JFrame{
 
@@ -28,36 +31,32 @@ public class GlavniProzor extends JFrame{
         setLocationRelativeTo(null);
         // postavljamo boju pozadine
           getContentPane().setBackground(Color.WHITE);
-//        GridBagLayout gridBagLayout = new GridBagLayout();
-//        gridBagLayout.columnWidths = new int[]{1422, 0};
-//        gridBagLayout.rowHeights = new int[]{76, 483, 0, 0, 0, 82, 64, 0};
-//        gridBagLayout.columnWeights = new double[]{1.0, Double.MIN_VALUE};
-//        gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-//        getContentPane().setLayout(gridBagLayout);
+
         
         MyToolbar toolbar = new MyToolbar();
-//        GridBagConstraints gbc_toolbar = new GridBagConstraints();
-//        gbc_toolbar.fill = GridBagConstraints.HORIZONTAL;
-//        gbc_toolbar.insets = new Insets(0, 0, 5, 0);
-//        gbc_toolbar.anchor = GridBagConstraints.NORTH;
-//        gbc_toolbar.gridx = 0;
-//        gbc_toolbar.gridy = 0;
+
         getContentPane().add(toolbar,BorderLayout.NORTH);
         
-        MyTabbedPane tabbedPane = new MyTabbedPane();
+        MyTabbedPane tabbedPane = new MyTabbedPane(JTabbedPane.TOP);
+        tabbedPane.setFont(new Font("Tahoma", Font.PLAIN, 17));
         getContentPane().add(tabbedPane, BorderLayout.CENTER);
-        tabbedPane.setLayout(new BoxLayout(tabbedPane, BoxLayout.X_AXIS));
         
-		
+//        if (tabbedPane.getTab()==0) {
+//        	MyToolbar toolbar = new MyToolbar();
+//
+//            getContentPane().add(toolbar,BorderLayout.NORTH);
+//        }
+//        
+//        else {
+//        	PredmetToolBar toolbar = new PredmetToolBar();
+//
+//            getContentPane().add(toolbar,BorderLayout.NORTH);
+//        }
+        
+        
 		
 		myStatusBar statusBar = new myStatusBar();
 		statusBar.setBackground(Color.WHITE);
-//		statusBar.setBackground(Color.GRAY);
-//		statusBar.setText("rr");
-//		GridBagConstraints gbc_statusBar = new GridBagConstraints();
-//		gbc_statusBar.insets = new Insets(0, 0, 5, 0);
-//		gbc_statusBar.gridx = 0;
-//		gbc_statusBar.gridy = 6;
 		getContentPane().add(statusBar, BorderLayout.SOUTH);
         
         
