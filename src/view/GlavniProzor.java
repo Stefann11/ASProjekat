@@ -33,9 +33,9 @@ public class GlavniProzor extends JFrame{
           getContentPane().setBackground(Color.WHITE);
 
         
-        MyToolbar toolbar = new MyToolbar();
-
-        getContentPane().add(toolbar,BorderLayout.NORTH);
+//        MyToolbar toolbar = new MyToolbar();
+//
+//        getContentPane().add(toolbar,BorderLayout.NORTH);
         
         MyTabbedPane tabbedPane = new MyTabbedPane(JTabbedPane.TOP);
         tabbedPane.setFont(new Font("Tahoma", Font.PLAIN, 17));
@@ -48,9 +48,9 @@ public class GlavniProzor extends JFrame{
 //        }
 //        
 //        else {
-//        	PredmetToolBar toolbar = new PredmetToolBar();
-//
-//            getContentPane().add(toolbar,BorderLayout.NORTH);
+        	PredmetToolBar toolbar = new PredmetToolBar();
+
+            getContentPane().add(toolbar,BorderLayout.NORTH);
 //        }
         
         

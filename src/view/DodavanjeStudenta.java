@@ -20,9 +20,11 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import java.awt.Dialog.ModalExclusionType;
 
 public class DodavanjeStudenta extends JDialog{
 	public DodavanjeStudenta() {
+		setModal(true);
 		getContentPane().setBackground(Color.WHITE);
 		setTitle("Dodavanje Studenta");
 		getContentPane().setLayout(new BorderLayout(0, 0));

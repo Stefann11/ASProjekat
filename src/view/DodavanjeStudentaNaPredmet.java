@@ -11,12 +11,14 @@ public class DodavanjeStudentaNaPredmet extends JOptionPane{
 //	UIManager.put("OptionPane.okButtonText", "Potvrda");
 //
 //	UIManager.put("OptionPane.cancelButtonText", "Odustanak");
-	
-	String name = JOptionPane.showInputDialog( null, 
+	public DodavanjeStudentaNaPredmet() {
+		
+			String name = JOptionPane.showInputDialog( null, 
 	        "Indeks studenta*", 
 	        "Predmet - dodavanje studenta",
 	        JOptionPane.QUESTION_MESSAGE
 	        );
+	}
 
 	//JOptionPane.showMessageDialog(null, "Student obrisan!")
 

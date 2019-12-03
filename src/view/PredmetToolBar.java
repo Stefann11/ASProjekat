@@ -105,17 +105,32 @@ btnDelete.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				BrisanjeStudenta bs=new BrisanjeStudenta();
-				Toolkit kit = Toolkit.getDefaultToolkit();
-		        Dimension screenSize = kit.getScreenSize();
-		        int screenHeight = screenSize.height;
-		        int screenWidth = screenSize.width;
-				bs.setSize(screenWidth / 4, screenHeight / 2);
-		        //dp.setLocationRelativeTo(null);
-				bs.setVisible(true);
+				BrisanjePredmeta bp=new BrisanjePredmeta();
+		   
+				bp.setVisible(true);
 				
 			}
-		});	
+		});
+
+btnAddStudent.addActionListener(new ActionListener() {
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		DodavanjeStudentaNaPredmet ds=new DodavanjeStudentaNaPredmet();
+		ds.setVisible(true);
+		
+	}
+});
+
+btnAddProf.addActionListener(new ActionListener() {
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		DodavanjeProfesoraNaPredmet dp=new DodavanjeProfesoraNaPredmet();
+		dp.setVisible(true);
+		
+	}
+});
 
 		setBackground(Color.WHITE);
 

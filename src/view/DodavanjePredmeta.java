@@ -20,7 +20,7 @@ import java.awt.Dialog.ModalityType;
 
 public class DodavanjePredmeta extends JDialog{
 	public DodavanjePredmeta() {
-		setModalityType(ModalityType.APPLICATION_MODAL);
+		setModal(true);
 		setTitle("Dodavanje predmeta");
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		

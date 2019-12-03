@@ -93,13 +93,8 @@ btnDelete.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				BrisanjeStudenta bs=new BrisanjeStudenta();
-				Toolkit kit = Toolkit.getDefaultToolkit();
-		        Dimension screenSize = kit.getScreenSize();
-		        int screenHeight = screenSize.height;
-		        int screenWidth = screenSize.width;
-				bs.setSize(screenWidth / 4, screenHeight / 2);
-		        //dp.setLocationRelativeTo(null);
+				BrisanjeProfesora bs=new BrisanjeProfesora();
+
 				bs.setVisible(true);
 				
 			}
