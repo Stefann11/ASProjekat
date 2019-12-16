@@ -23,6 +23,16 @@ import java.awt.BorderLayout;
 import java.awt.Dialog.ModalExclusionType;
 
 public class DodavanjeStudenta extends JDialog{
+	
+	private static final long serialVersionUID = 1L;
+	private JTextField textFieldIme;
+	private JTextField textFieldPrezime;
+	private JTextField textFieldDatumRodjenja;
+	private JTextField textFieldAdresaStanovanja;
+	private JTextField textFieldBrojTelefona;
+	private JTextField textFieldBrojIndeksa;
+	private ButtonGroup buttonGroup = new ButtonGroup();
+	
 	public DodavanjeStudenta() {
 		setModal(true);
 		getContentPane().setBackground(Color.WHITE);
@@ -32,10 +42,6 @@ public class DodavanjeStudenta extends JDialog{
 		JPanel panel = new JPanel();
 		getContentPane().add(panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{0, 0, 0, 0, 0, 215, 0};
-		gbl_panel.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
 		JLabel lblIme = new JLabel("Ime*");
@@ -46,15 +52,15 @@ public class DodavanjeStudenta extends JDialog{
 		gbc_lblIme.gridy = 0;
 		panel.add(lblIme, gbc_lblIme);
 		
-		textField = new JTextField();
-		GridBagConstraints gbc_textField = new GridBagConstraints();
-		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField.gridwidth = 5;
-		gbc_textField.insets = new Insets(30, 10, 10, 30);
-		gbc_textField.gridx = 1;
-		gbc_textField.gridy = 0;
-		panel.add(textField, gbc_textField);
-		textField.setColumns(10);
+		textFieldIme = new JTextField();
+		GridBagConstraints gbc_textFieldIme = new GridBagConstraints();
+		gbc_textFieldIme.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textFieldIme.gridwidth = 5;
+		gbc_textFieldIme.insets = new Insets(30, 10, 10, 30);
+		gbc_textFieldIme.gridx = 1;
+		gbc_textFieldIme.gridy = 0;
+		panel.add(textFieldIme, gbc_textFieldIme);
+		textFieldIme.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Prezime*");
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
@@ -64,15 +70,15 @@ public class DodavanjeStudenta extends JDialog{
 		gbc_lblNewLabel.gridy = 2;
 		panel.add(lblNewLabel, gbc_lblNewLabel);
 		
-		textField_1 = new JTextField();
-		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
-		gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_1.gridwidth = 5;
-		gbc_textField_1.insets = new Insets(10, 10, 10, 30);
-		gbc_textField_1.gridx = 1;
-		gbc_textField_1.gridy = 2;
-		panel.add(textField_1, gbc_textField_1);
-		textField_1.setColumns(10);
+		textFieldPrezime = new JTextField();
+		GridBagConstraints gbc_textFieldPrezime = new GridBagConstraints();
+		gbc_textFieldPrezime.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textFieldPrezime.gridwidth = 5;
+		gbc_textFieldPrezime.insets = new Insets(10, 10, 10, 30);
+		gbc_textFieldPrezime.gridx = 1;
+		gbc_textFieldPrezime.gridy = 2;
+		panel.add(textFieldPrezime, gbc_textFieldPrezime);
+		textFieldPrezime.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Datum rodjenja*");
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
@@ -82,15 +88,15 @@ public class DodavanjeStudenta extends JDialog{
 		gbc_lblNewLabel_1.gridy = 4;
 		panel.add(lblNewLabel_1, gbc_lblNewLabel_1);
 		
-		textField_2 = new JTextField();
-		GridBagConstraints gbc_textField_2 = new GridBagConstraints();
-		gbc_textField_2.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_2.gridwidth = 5;
-		gbc_textField_2.insets = new Insets(10, 10, 10, 30);
-		gbc_textField_2.gridx = 1;
-		gbc_textField_2.gridy = 4;
-		panel.add(textField_2, gbc_textField_2);
-		textField_2.setColumns(10);
+		textFieldDatumRodjenja = new JTextField();
+		GridBagConstraints gbc_textFieldDatumRodjenja = new GridBagConstraints();
+		gbc_textFieldDatumRodjenja.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textFieldDatumRodjenja.gridwidth = 5;
+		gbc_textFieldDatumRodjenja.insets = new Insets(10, 10, 10, 30);
+		gbc_textFieldDatumRodjenja.gridx = 1;
+		gbc_textFieldDatumRodjenja.gridy = 4;
+		panel.add(textFieldDatumRodjenja, gbc_textFieldDatumRodjenja);
+		textFieldDatumRodjenja.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Adresa stanovanja*");
 		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
@@ -100,15 +106,15 @@ public class DodavanjeStudenta extends JDialog{
 		gbc_lblNewLabel_2.gridy = 6;
 		panel.add(lblNewLabel_2, gbc_lblNewLabel_2);
 		
-		textField_3 = new JTextField();
-		GridBagConstraints gbc_textField_3 = new GridBagConstraints();
-		gbc_textField_3.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_3.gridwidth = 5;
-		gbc_textField_3.insets = new Insets(10, 10, 10, 30);
-		gbc_textField_3.gridx = 1;
-		gbc_textField_3.gridy = 6;
-		panel.add(textField_3, gbc_textField_3);
-		textField_3.setColumns(10);
+		textFieldAdresaStanovanja = new JTextField();
+		GridBagConstraints gbc_textFieldAdresaStanovanja = new GridBagConstraints();
+		gbc_textFieldAdresaStanovanja.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textFieldAdresaStanovanja.gridwidth = 5;
+		gbc_textFieldAdresaStanovanja.insets = new Insets(10, 10, 10, 30);
+		gbc_textFieldAdresaStanovanja.gridx = 1;
+		gbc_textFieldAdresaStanovanja.gridy = 6;
+		panel.add(textFieldAdresaStanovanja, gbc_textFieldAdresaStanovanja);
+		textFieldAdresaStanovanja.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Broj telefona*");
 		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
@@ -118,15 +124,15 @@ public class DodavanjeStudenta extends JDialog{
 		gbc_lblNewLabel_3.gridy = 8;
 		panel.add(lblNewLabel_3, gbc_lblNewLabel_3);
 		
-		textField_4 = new JTextField();
-		GridBagConstraints gbc_textField_4 = new GridBagConstraints();
-		gbc_textField_4.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_4.gridwidth = 5;
-		gbc_textField_4.insets = new Insets(10, 10, 10, 30);
-		gbc_textField_4.gridx = 1;
-		gbc_textField_4.gridy = 8;
-		panel.add(textField_4, gbc_textField_4);
-		textField_4.setColumns(10);
+		textFieldBrojTelefona = new JTextField();
+		GridBagConstraints gbc_textFieldBrojTelefona = new GridBagConstraints();
+		gbc_textFieldBrojTelefona.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textFieldBrojTelefona.gridwidth = 5;
+		gbc_textFieldBrojTelefona.insets = new Insets(10, 10, 10, 30);
+		gbc_textFieldBrojTelefona.gridx = 1;
+		gbc_textFieldBrojTelefona.gridy = 8;
+		panel.add(textFieldBrojTelefona, gbc_textFieldBrojTelefona);
+		textFieldBrojTelefona.setColumns(10);
 		
 		JLabel lblNewLabel_4 = new JLabel("Broj indeksa*");
 		GridBagConstraints gbc_lblNewLabel_4 = new GridBagConstraints();
@@ -136,15 +142,15 @@ public class DodavanjeStudenta extends JDialog{
 		gbc_lblNewLabel_4.gridy = 10;
 		panel.add(lblNewLabel_4, gbc_lblNewLabel_4);
 		
-		textField_5 = new JTextField();
-		GridBagConstraints gbc_textField_5 = new GridBagConstraints();
-		gbc_textField_5.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_5.gridwidth = 5;
-		gbc_textField_5.insets = new Insets(10, 10, 10, 30);
-		gbc_textField_5.gridx = 1;
-		gbc_textField_5.gridy = 10;
-		panel.add(textField_5, gbc_textField_5);
-		textField_5.setColumns(10);
+		textFieldBrojIndeksa = new JTextField();
+		GridBagConstraints gbc_textFieldBrojIndeksa = new GridBagConstraints();
+		gbc_textFieldBrojIndeksa.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textFieldBrojIndeksa.gridwidth = 5;
+		gbc_textFieldBrojIndeksa.insets = new Insets(10, 10, 10, 30);
+		gbc_textFieldBrojIndeksa.gridx = 1;
+		gbc_textFieldBrojIndeksa.gridy = 10;
+		panel.add(textFieldBrojIndeksa, gbc_textFieldBrojIndeksa);
+		textFieldBrojIndeksa.setColumns(10);
 		
 		JLabel lblNewLabel_5 = new JLabel("Trenutna godina studija*");
 		GridBagConstraints gbc_lblNewLabel_5 = new GridBagConstraints();
@@ -206,13 +212,6 @@ public class DodavanjeStudenta extends JDialog{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private final ButtonGroup buttonGroup = new ButtonGroup();
+	
 
 }
