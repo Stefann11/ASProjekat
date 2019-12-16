@@ -11,6 +11,7 @@ import javax.swing.JTable;
 
 import model.PredmetTableModel;
 import model.ProfesorTableModel;
+import model.StudentTableModel;
 
 public class MyTabbedPane extends JTabbedPane{
 	
@@ -29,6 +30,16 @@ public class MyTabbedPane extends JTabbedPane{
 		
 		
 		
+		//ZA STUDENTA
+		
+		JScrollPane scrollStud= new JScrollPane();
+		JTable tabStud= new JTable(new StudentTableModel());
+		firstPanel.add(scrollStud);
+		scrollStud.setViewportView(tabStud);
+		
+		
+		//KRAJ STUDENTA
+		
 		//ZA PROFESORE
 		
 		JScrollPane scrollProf= new JScrollPane();
@@ -39,7 +50,7 @@ public class MyTabbedPane extends JTabbedPane{
 		
 		//KRAJ PROFESORA
 		
-		
+	
 		
 		
 		//ZA PREDMETE
