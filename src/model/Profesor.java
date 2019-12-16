@@ -18,6 +18,10 @@ public class Profesor {
 		return ime;
 	}
 	
+	public Profesor() {
+		
+	}
+	
 	public Profesor(String ime, String prezime, String datumRodjenja, String adresaStanovanja, String kontaktTelefon,
 			String emailAdresa, String adresaKancelarije, int brojLicneKarte, String titula, String zvanje,
 			ArrayList<Predmet> predmeti) {
@@ -35,7 +39,45 @@ public class Profesor {
 		this.predmeti = predmeti;
 	}
 
+	public Object toCell(int col) {
+		switch(col) {
+		case 0: return ime;
+		case 1: return prezime;
+		case 2: return datumRodjenja;
+		case 3: return adresaStanovanja;
+		case 4: return kontaktTelefon;
+		case 5: return emailAdresa;
+		case 6: return adresaKancelarije;
+		case 7: return brojLicneKarte;
+		case 8: return titula;
+		case 9: return zvanje;
+		default: return null;
+		}
+	}
 
+	public void set(int col, Object value) {
+		switch(col) {
+		case 0: ime = (String)value;
+		break;
+		case 1: prezime = (String)value;
+		break;
+		case 2: datumRodjenja = (String)value;
+		break;
+		case 3: adresaStanovanja = (String)value;
+		break;
+		case 4: kontaktTelefon = (String)value;
+		break;
+		case 5: emailAdresa = (String)value;
+		break;
+		case 6: adresaKancelarije = (String)value;
+		break;
+		case 7: brojLicneKarte = (int)value;
+		break;
+		case 8: titula = (String)value;
+		break;
+		case 9: zvanje = (String)value;
+		}
+	}
 
 	public void setIme(String ime) {
 		this.ime = ime;

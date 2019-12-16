@@ -26,6 +26,32 @@ public class Predmet {
 		this.spisakStudenata = spisakStudenata;
 	}
 	
+	public Object toCell(int col) {
+		switch(col) {
+		case 0: return sifraPredmeta;
+		case 1: return nazivPredmeta;
+		case 2: return semestar;
+		case 3: return godinaStudijaPredmet;
+		case 4: return predmetniProfesor;
+		case 5: return spisakStudenata;
+		default: return null;
+		}
+	}
+
+	public void set(int col, Object value) {
+		switch(col) {
+		case 0: sifraPredmeta = (String)value;
+		break;
+		case 1: nazivPredmeta = (String)value;
+		break;
+		case 2: semestar = (int)value;
+		break;
+		case 3: godinaStudijaPredmet = (godinaPredmeta)value;
+		break;
+		case 4: predmetniProfesor = (Profesor)value;
+		}
+	}
+	
 	//samo alternativno, treba obristati
 	public Predmet(String sifraPredmeta, String nazivPredmeta, int semestar, godinaPredmeta  godinaStudijaPredmet) {
 		super();

@@ -78,7 +78,7 @@ public class PredmetToolBar extends JToolBar{
 		        Dimension screenSize = kit.getScreenSize();
 		        int screenHeight = screenSize.height;
 		        int screenWidth = screenSize.width;
-				dp.setSize(screenWidth / 4, screenHeight / 4);
+				dp.setSize(screenWidth / 5, screenHeight / 4);
 		        dp.setLocationRelativeTo(null);
 				dp.setVisible(true);
 				

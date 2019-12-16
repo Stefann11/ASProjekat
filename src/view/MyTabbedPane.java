@@ -5,7 +5,12 @@ import java.awt.Component;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+
+import model.PredmetTableModel;
+import model.ProfesorTableModel;
 
 public class MyTabbedPane extends JTabbedPane{
 	
@@ -21,10 +26,30 @@ public class MyTabbedPane extends JTabbedPane{
 		thirdPanel.setBackground(Color.WHITE);
 		
 		JLabel firstLabel = new JLabel("First!");
-		JLabel secondLabel = new JLabel("Second!");
 		
-		firstPanel.add(firstLabel);
-		secondPanel.add(secondLabel);
+		
+		
+		//ZA PROFESORE
+		
+		JScrollPane scrollProf= new JScrollPane();
+		JTable tabProf= new JTable(new ProfesorTableModel());
+		secondPanel.add(scrollProf);
+		scrollProf.setViewportView(tabProf);
+		
+		
+		//KRAJ PROFESORA
+		
+		
+		
+		
+		//ZA PREDMETE
+
+		JScrollPane scrollPred= new JScrollPane();
+		JTable tabPred= new JTable(new PredmetTableModel());
+		thirdPanel.add(scrollPred);
+		scrollPred.setViewportView(tabPred);
+		
+		//KRAJ PREDMETA
 		
 		this.addTab("Studenti", firstPanel);
 		this.addTab("Profesori", secondPanel);
@@ -32,15 +57,6 @@ public class MyTabbedPane extends JTabbedPane{
 		
 		this.setTabPlacement(pozicija);
 		
-	
-		//JTabbedPane tabbedPane = new JTabbedPane();
-	
-		
-//		tabbedPane.add("Studenti",firstPanel);
-//		tabbedPane.add("Profesori",secondPanel);
-//		tabbedPane.add("Predmeti",thirdPanel);
-//		
-//		add(tabbedPane);
 	}
 	
 		@Override
