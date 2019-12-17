@@ -22,31 +22,22 @@ public class DodavanjePredmeta extends JDialog{
 	public DodavanjePredmeta() {
 		setModal(true);
 		setTitle("Dodavanje predmeta");
-		getContentPane().setLayout(new BorderLayout(0, 0));
-		
-//		JPanel empty = new JPanel();
-//		Dimension d = new Dimension(50,50);
-//		empty.setMinimumSize(d);
-//		getContentPane().add(empty, BorderLayout.WEST);
-//		
-//		JPanel empty2 = new JPanel();
-//		empty.setMinimumSize(d);
-//		getContentPane().add(empty2, BorderLayout.NORTH);
+		getContentPane().setLayout(new BorderLayout());
 		
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.CENTER);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{0, 0, 0, 0, 44, 115, 0};
-		gbl_panel.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+//		gbl_panel.columnWidths = new int[]{0, 0, 0, 0, 44, 115, 0};
+//		gbl_panel.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+//		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+//		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
 		JLabel lblNewLabel = new JLabel("\u0160ifra predmeta *");
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel.gridwidth = 2;
-		gbc_lblNewLabel.insets = new Insets(20, 30, 5, 5);
+		gbc_lblNewLabel.insets = new Insets(20, 10, 5, 5);
 		gbc_lblNewLabel.gridx = 0;
 		gbc_lblNewLabel.gridy = 0;
 		panel.add(lblNewLabel, gbc_lblNewLabel);
@@ -65,7 +56,7 @@ public class DodavanjePredmeta extends JDialog{
 		GridBagConstraints gbc_lblNazivPredmeta = new GridBagConstraints();
 		gbc_lblNazivPredmeta.anchor = GridBagConstraints.WEST;
 		gbc_lblNazivPredmeta.gridwidth = 2;
-		gbc_lblNazivPredmeta.insets = new Insets(5, 30, 5, 5);
+		gbc_lblNazivPredmeta.insets = new Insets(5, 10, 5, 5);
 		gbc_lblNazivPredmeta.gridx = 0;
 		gbc_lblNazivPredmeta.gridy = 2;
 		panel.add(lblNazivPredmeta, gbc_lblNazivPredmeta);
@@ -84,7 +75,7 @@ public class DodavanjePredmeta extends JDialog{
 		GridBagConstraints gbc_lblSemestarPredmeta = new GridBagConstraints();
 		gbc_lblSemestarPredmeta.anchor = GridBagConstraints.WEST;
 		gbc_lblSemestarPredmeta.gridwidth = 2;
-		gbc_lblSemestarPredmeta.insets = new Insets(5, 30, 5, 5);
+		gbc_lblSemestarPredmeta.insets = new Insets(5, 10, 5, 5);
 		gbc_lblSemestarPredmeta.gridx = 0;
 		gbc_lblSemestarPredmeta.gridy = 4;
 		panel.add(lblSemestarPredmeta, gbc_lblSemestarPredmeta);
@@ -103,7 +94,7 @@ public class DodavanjePredmeta extends JDialog{
 		GridBagConstraints gbc_lblGodinaStudija = new GridBagConstraints();
 		gbc_lblGodinaStudija.anchor = GridBagConstraints.WEST;
 		gbc_lblGodinaStudija.gridwidth = 2;
-		gbc_lblGodinaStudija.insets = new Insets(5, 30, 5, 5);
+		gbc_lblGodinaStudija.insets = new Insets(5, 10, 5, 5);
 		gbc_lblGodinaStudija.gridx = 0;
 		gbc_lblGodinaStudija.gridy = 6;
 		panel.add(lblGodinaStudija, gbc_lblGodinaStudija);
@@ -123,7 +114,7 @@ public class DodavanjePredmeta extends JDialog{
 		GridBagConstraints gbc_lblPredmetniProfesor = new GridBagConstraints();
 		gbc_lblPredmetniProfesor.anchor = GridBagConstraints.WEST;
 		gbc_lblPredmetniProfesor.gridwidth = 2;
-		gbc_lblPredmetniProfesor.insets = new Insets(5, 30, 5, 5);
+		gbc_lblPredmetniProfesor.insets = new Insets(5, 10, 5, 5);
 		gbc_lblPredmetniProfesor.gridx = 0;
 		gbc_lblPredmetniProfesor.gridy = 8;
 		panel.add(lblPredmetniProfesor, gbc_lblPredmetniProfesor);
@@ -142,7 +133,7 @@ public class DodavanjePredmeta extends JDialog{
 		GridBagConstraints gbc_lblSpisakStudenata = new GridBagConstraints();
 		gbc_lblSpisakStudenata.anchor = GridBagConstraints.WEST;
 		gbc_lblSpisakStudenata.gridwidth = 2;
-		gbc_lblSpisakStudenata.insets = new Insets(5, 30, 0, 5);
+		gbc_lblSpisakStudenata.insets = new Insets(5, 10, 20, 5);
 		gbc_lblSpisakStudenata.gridx = 0;
 		gbc_lblSpisakStudenata.gridy = 10;
 		panel.add(lblSpisakStudenata, gbc_lblSpisakStudenata);
@@ -151,6 +142,7 @@ public class DodavanjePredmeta extends JDialog{
 		GridBagConstraints gbc_textField_5 = new GridBagConstraints();
 		gbc_textField_5.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textField_5.gridwidth = 3;
+		gbc_textField_5.insets = new Insets(0, 0, 20, 0);
 		gbc_textField_5.gridx = 3;
 		gbc_textField_5.gridy = 10;
 		panel.add(textField_5, gbc_textField_5);

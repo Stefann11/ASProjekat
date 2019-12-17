@@ -3,11 +3,12 @@ package view;
 import java.awt.Color;
 import java.awt.Component;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import model.PredmetTableModel;
 import model.ProfesorTableModel;
@@ -25,9 +26,6 @@ public class MyTabbedPane extends JTabbedPane{
 		firstPanel.setBackground(Color.WHITE);
 		secondPanel.setBackground(Color.WHITE);
 		thirdPanel.setBackground(Color.WHITE);
-		
-		JLabel firstLabel = new JLabel("First!");
-		
 		
 		
 		//ZA STUDENTA
@@ -68,6 +66,10 @@ public class MyTabbedPane extends JTabbedPane{
 		
 		this.setTabPlacement(pozicija);
 		
+		//ZA SELEKCIJU TABA
+		
+		
+		
 	}
 	
 		@Override
@@ -75,9 +77,6 @@ public class MyTabbedPane extends JTabbedPane{
 			super.addTab(title, component);
 		}
 		
-		public int getTab() {
-			return this.getSelectedIndex();
-		}
-	
+
 
 }

@@ -67,6 +67,8 @@ public class PredmetToolBar extends JToolBar{
 		
 		add(panelLeft, BorderLayout.WEST);
 		add(panelRight, BorderLayout.EAST);
+		
+		
 	
 		
 		btnAdd.addActionListener(new ActionListener() {

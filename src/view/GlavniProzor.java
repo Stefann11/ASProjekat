@@ -8,6 +8,8 @@ import java.awt.Toolkit;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -41,6 +43,48 @@ public class GlavniProzor extends JFrame{
         tabbedPane.setFont(new Font("Tahoma", Font.PLAIN, 17));
         getContentPane().add(tabbedPane, BorderLayout.CENTER);
         
+        MyToolbar toolbar = new MyToolbar();
+        getContentPane().add(toolbar,BorderLayout.NORTH);
+        ProfToolbar proftoolbar=new ProfToolbar();
+        PredmetToolBar predmettoolbar = new PredmetToolBar();
+        
+        tabbedPane.addChangeListener(new ChangeListener() {
+			@SuppressWarnings("deprecation")
+			public void stateChanged(ChangeEvent evt) {
+
+			    JTabbedPane tabbedPane = (JTabbedPane)evt.getSource();
+
+			    
+
+			    // Get current tab
+
+			    int tab = tabbedPane.getSelectedIndex();
+
+			    if (tab==0) {
+			    	proftoolbar.hide();
+			    	predmettoolbar.hide();
+			    	toolbar.show();
+			    	//MyToolbar toolbar=new MyToolbar();
+			    	getContentPane().add(toolbar,BorderLayout.NORTH);
+			    } else if (tab==1) {
+			    	predmettoolbar.hide();
+			    	toolbar.hide();
+			    	proftoolbar.show();
+			    	//ProfToolbar proftoolbar=new ProfToolbar();
+			    	getContentPane().add(proftoolbar,BorderLayout.NORTH);
+			    }
+			    else {
+			    	toolbar.hide();
+			    	proftoolbar.hide();
+			    	predmettoolbar.show();
+			    	//PredmetToolBar predmettoolbar = new PredmetToolBar();
+		            getContentPane().add(predmettoolbar,BorderLayout.NORTH);
+			    }
+
+			}
+
+		    });
+        
 //        if (tabbedPane.getTab()==0) {
 //        	MyToolbar toolbar = new MyToolbar();
 //
@@ -48,9 +92,9 @@ public class GlavniProzor extends JFrame{
 //        }
 //        
 //        else {
-        	PredmetToolBar toolbar = new PredmetToolBar();
-
-            getContentPane().add(toolbar,BorderLayout.NORTH);
+//        	PredmetToolBar toolbar = new PredmetToolBar();
+//
+//            getContentPane().add(toolbar,BorderLayout.NORTH);
 //        }
         
         
