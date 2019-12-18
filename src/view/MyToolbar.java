@@ -28,18 +28,18 @@ public class MyToolbar extends JToolBar{
 		JPanel panelRight = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		
 		JButton btnAdd = new JButton();
-		btnAdd.setToolTipText("Add");
+		btnAdd.setToolTipText("Dodaj Studenta");
 		btnAdd.setIcon(new ImageIcon("images/add-icon.png"));
 		panelLeft.add(btnAdd);
 
 		JButton btnEdit = new JButton();
-		btnEdit.setToolTipText("Edit");
+		btnEdit.setToolTipText("Izmeni Studenta");
 		btnEdit.setIcon(new ImageIcon("images/edit-icon.png"));
 		//btnEdit.setPreferredSize(new Dimension(25, 25));
 		panelLeft.add(btnEdit);
 
 		JButton btnDelete = new JButton();
-		btnDelete.setToolTipText("Delete");
+		btnDelete.setToolTipText("Obrisi Studenta");
 		btnDelete.setIcon(new ImageIcon("images/trash-icon.png"));
 		//btnDelete.setPreferredSize(new Dimension(25, 25));
 		panelLeft.add(btnDelete);
@@ -49,30 +49,13 @@ public class MyToolbar extends JToolBar{
         panelRight.add(textField);
 		
 		JButton btnSearch = new JButton();
-		btnSearch.setToolTipText("Search");
+		btnSearch.setToolTipText("Trazi Studenta");
 		btnSearch.setIcon(new ImageIcon("images/search-icon.png"));
 		//btnDelete.setPreferredSize(new Dimension(25, 25));
 		panelRight.add(btnSearch);
 		
 		add(panelLeft, BorderLayout.WEST);
 		add(panelRight, BorderLayout.EAST);
-	
-		
-//		btnAdd.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				DodavanjePredmeta dp=new DodavanjePredmeta();
-//				Toolkit kit = Toolkit.getDefaultToolkit();
-//		        Dimension screenSize = kit.getScreenSize();
-//		        int screenHeight = screenSize.height;
-//		        int screenWidth = screenSize.width;
-//				dp.setSize(screenWidth / 4, screenHeight / 4);
-//		        dp.setLocationRelativeTo(null);
-//				dp.setVisible(true);
-//				
-//			}
-//		});
 		
 btnAdd.addActionListener(new ActionListener() {
 			
