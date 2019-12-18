@@ -7,18 +7,18 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.TableCellRenderer;
 
-public class PredJTable extends JTable{
+public class ProfJTable extends JTable{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -5783153125839014016L;
+	private static final long serialVersionUID = 2533834450510741160L;
 	
-	public PredJTable() {
+	public ProfJTable() {
 		this.setRowSelectionAllowed(true);
 		this.setColumnSelectionAllowed(true);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		this.setModel(new PredAbstractTable());
+		this.setModel(new ProfAbstractTable());
 		
 	}
 

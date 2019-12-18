@@ -1,10 +1,13 @@
-package model;
+package view;
 
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
+
+import model.Predmet;
+import model.Profesor;
 
 
 

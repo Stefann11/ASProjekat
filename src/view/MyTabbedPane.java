@@ -9,7 +9,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 
-import model.ProfesorTableModel;
 import model.StudentTableModel;
 
 public class MyTabbedPane extends JTabbedPane{
@@ -17,6 +16,7 @@ public class MyTabbedPane extends JTabbedPane{
 	private static final long serialVersionUID = 5282778494633945639L;
 	
 	private JTable tabelaPredmeta; 
+	private JTable tabelaProfesora;
 	
 	public MyTabbedPane(int pozicija) {
 		JPanel firstPanel = new JPanel();
@@ -40,10 +40,19 @@ public class MyTabbedPane extends JTabbedPane{
 		
 		//ZA PROFESORE
 		
-		JScrollPane scrollProf= new JScrollPane();
-		JTable tabProf= new JTable(new ProfesorTableModel());
-		secondPanel.add(scrollProf);
-		scrollProf.setViewportView(tabProf);
+//		JScrollPane scrollProf= new JScrollPane();
+//		JTable tabProf= new JTable(new ProfesorTableModel());
+//		secondPanel.add(scrollProf);
+//		scrollProf.setViewportView(tabProf);
+		
+		tabelaProfesora = new ProfJTable();
+
+		JScrollPane scrollProf = new JScrollPane(tabelaProfesora);
+		secondPanel.add(scrollProf, BorderLayout.CENTER);
+		
+		ProfAbstractTable modelProf = (ProfAbstractTable) tabelaProfesora.getModel();
+		modelProf.fireTableDataChanged();
+		validate();
 		
 		
 		//KRAJ PROFESORA
