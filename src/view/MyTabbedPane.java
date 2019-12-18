@@ -50,9 +50,9 @@ public class MyTabbedPane extends JTabbedPane{
 		JScrollPane scrollProf = new JScrollPane(tabelaProfesora);
 		secondPanel.add(scrollProf, BorderLayout.CENTER);
 		
-		ProfAbstractTable modelProf = (ProfAbstractTable) tabelaProfesora.getModel();
-		modelProf.fireTableDataChanged();
-		validate();
+//		ProfAbstractTable modelProf = (ProfAbstractTable) tabelaProfesora.getModel();
+//		modelProf.fireTableDataChanged();
+//		validate();
 		
 		
 		//KRAJ PROFESORA
@@ -73,9 +73,9 @@ public class MyTabbedPane extends JTabbedPane{
 		JScrollPane scrollPred = new JScrollPane(tabelaPredmeta);
 		thirdPanel.add(scrollPred, BorderLayout.CENTER);
 		
-		PredAbstractTable model = (PredAbstractTable) tabelaPredmeta.getModel();
-		model.fireTableDataChanged();
-		validate();
+//		PredAbstractTable model = (PredAbstractTable) tabelaPredmeta.getModel();
+//		model.fireTableDataChanged();
+//		validate();
 
 		//this.azurirajPrikaz(null, -1);
 		
