@@ -1,9 +1,14 @@
-package model;
+package view;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
+
+import model.GodinaStudija;
+import model.Predmet;
+import model.Profesor;
+import model.Student;
 
 public class PredmetTableModel extends AbstractTableModel{
 
@@ -20,9 +25,9 @@ public class PredmetTableModel extends AbstractTableModel{
 	private ArrayList<Student>studenti = new ArrayList<Student>();
 	
 	public PredmetTableModel() {
-		data.add(new Predmet("WP-E2", "Web programiranje", 3, godinaPredmeta.DRUGA, profesor, studenti));
-		data.add(new Predmet("OP-E2", "Objektno programiranje", 2, godinaPredmeta.PRVA, profesor, studenti));
-		data.add(new Predmet("VI-E3", "Vestacka inteligencija", 5, godinaPredmeta.TRECA, profesor, studenti));
+		data.add(new Predmet("WP-E2", "Web programiranje", 3, GodinaStudija.DRUGA));
+		data.add(new Predmet("OP-E2", "Objektno programiranje", 2, GodinaStudija.PRVA));
+		data.add(new Predmet("VI-E3", "Vestacka inteligencija", 5, GodinaStudija.TREĆA));
 
 	}
 
@@ -54,11 +59,15 @@ public class PredmetTableModel extends AbstractTableModel{
 	
 	@Override
 	public void setValueAt(Object value, int row, int col) {
-		Predmet predmet = data.get(row);
-		predmet.set(col, value);
-		data.set(row, predmet);
+			Predmet predmet = data.get(row);
+			predmet.set(col, value);
+			data.set(row, predmet);
 		// prijavimo da smo promenili vrednost u tabeli
 		// fireTableCellUpdated(row, col);
+			
+			
 	}
+	
+	
 
 }

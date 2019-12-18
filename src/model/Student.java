@@ -2,10 +2,6 @@ package model;
 
 import java.util.ArrayList;
 
-enum godinaStudija 
-{ 
-    PRVA, DRUGA, TRECA, CETVRTA; 
-} 
 
 enum enumStatus 
 { 
@@ -22,7 +18,7 @@ public class Student {
 	protected  String emailAdresa;
 	protected String brojIndeksa;
 	protected String datumUpisa;
-	protected godinaStudija trenutnaGodinaStudija;
+	protected GodinaStudija trenutnaGodinaStudija;
 	protected enumStatus status;
 	protected double prosecnaOcena;
 	protected  ArrayList<Predmet>predmeti;
@@ -35,7 +31,7 @@ public class Student {
 
 
 	public Student(String ime, String prezime, String datumRodjenja, String adresaStanovanja, String kontaktTelefon,
-			String emailAdresa, String brojIndeksa, String datumUpisa, godinaStudija trenutnaGodinaStudija, enumStatus status,
+			String emailAdresa, String brojIndeksa, String datumUpisa, GodinaStudija trenutnaGodinaStudija, enumStatus status,
 			double prosecnaOcena, ArrayList<Predmet> predmeti) {
 		super();
 		this.ime = ime;
@@ -53,7 +49,7 @@ public class Student {
 	}
 	
 	
-	public Student(String brojIndeksa,String ime, String prezime, godinaStudija trenutnaGodinaStudija,
+	public Student(String brojIndeksa,String ime, String prezime, GodinaStudija trenutnaGodinaStudija,
 			enumStatus status, double prosecnaOcena) {
 		this.brojIndeksa = brojIndeksa;
 		this.ime = ime;
@@ -83,7 +79,7 @@ public class Student {
 		break;
 		case 2: prezime = (String)value;
 		break;
-		case 3: trenutnaGodinaStudija = (godinaStudija)value;
+		case 3: trenutnaGodinaStudija = (GodinaStudija)value;
 		break;
 		case 4: status = (enumStatus)value;
 		break;
@@ -181,12 +177,12 @@ public class Student {
 	}
 
 
-	public godinaStudija getTrenutnaGodinaStudija() {
+	public GodinaStudija getTrenutnaGodinaStudija() {
 		return trenutnaGodinaStudija;
 	}
 
 
-	public void setTrenutnaGodinaStudija(godinaStudija trenutnaGodinaStudija) {
+	public void setTrenutnaGodinaStudija(GodinaStudija trenutnaGodinaStudija) {
 		this.trenutnaGodinaStudija = trenutnaGodinaStudija;
 	}
 

@@ -13,19 +13,25 @@ public class ProfesorTableModel extends AbstractTableModel{
 	private static final long serialVersionUID = 8802202392787526904L;
 	
 	private String[] columnNames = { "Ime", "Prezime", "Datum rodjenja",
-			"Adresa stanovanja", "Kontakt telefon", "Email adresa", "Adresa kancelarije",
-			"Broj licne karte", "Titula", "Zvanje"};
+			"Broj licne karte"};
 	
 	private List<Profesor> data = new ArrayList<Profesor>();
 	private ArrayList<Predmet>predmeti = new ArrayList<Predmet>();
 	
+//	public ProfesorTableModel() {
+//		data.add(new Profesor("Marko", "Markovic", "04-08-1970", "Futoska bb, 21000 Novi Sad", "+38162 1234567",
+//				"marko.markovic@gmail.com", "Veljka Petrovica 20", 123456789, "Docent", "Doktor nauka", predmeti));
+//		data.add(new Profesor("Nikola", "Nikolic", "12-12-1968", "Bulevar Jase Tomica 13, 21000 Novi Sad", "+38164 7654321",
+//				"nikola.nikolic@gmail.com", "Veljka Petrovica 20", 987654321, "Docent", "Doktor nauka", predmeti));
+//		data.add(new Profesor("Zdravko", "Petkovic", "02-06-1960", "Kisacka 23, 21000 Novi Sad", "+38162 3322117",
+//				"zdravko.petkovic@gmail.com", "Veljka Petrovica 20", 131214987, "Docent", "Doktor nauka", predmeti));
+//
+//	}
+	
 	public ProfesorTableModel() {
-		data.add(new Profesor("Marko", "Markovic", "04-08-1970", "Futoska bb, 21000 Novi Sad", "+38162 1234567",
-				"marko.markovic@gmail.com", "Veljka Petrovica 20", 123456789, "Docent", "Doktor nauka", predmeti));
-		data.add(new Profesor("Nikola", "Nikolic", "12-12-1968", "Bulevar Jase Tomica 13, 21000 Novi Sad", "+38164 7654321",
-				"nikola.nikolic@gmail.com", "Veljka Petrovica 20", 987654321, "Docent", "Doktor nauka", predmeti));
-		data.add(new Profesor("Zdravko", "Petkovic", "02-06-1960", "Kisacka 23, 21000 Novi Sad", "+38162 3322117",
-				"zdravko.petkovic@gmail.com", "Veljka Petrovica 20", 131214987, "Docent", "Doktor nauka", predmeti));
+		data.add(new Profesor("Marko", "Markovic", "04-08-1970", 123456789));
+		data.add(new Profesor("Nikola", "Nikolic", "12-12-1968", 987654321));
+		data.add(new Profesor("Zdravko", "Petkovic", "02-06-1960", 131214987));
 
 	}
 

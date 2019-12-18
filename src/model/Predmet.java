@@ -2,20 +2,24 @@ package model;
 
 import java.util.ArrayList;
 
-enum godinaPredmeta 
-{ 
-    PRVA, DRUGA, TRECA, CETVRTA; 
-}
+//enum godinaPredmeta 
+//{ 
+//    PRVA, DRUGA, TRECA, CETVRTA; 
+//}
 
 public class Predmet {
 	private String sifraPredmeta;
 	private String nazivPredmeta;
 	private int semestar;
-	protected godinaPredmeta  godinaStudijaPredmet;
+	public GodinaStudija  godinaStudijaPredmet;
 	private Profesor predmetniProfesor;
 	private ArrayList<Student>spisakStudenata;
 	
-	public Predmet(String sifraPredmeta, String nazivPredmeta, int semestar, godinaPredmeta  godinaStudijaPredmet,
+	public Predmet() {
+		
+	}
+	
+	public Predmet(String sifraPredmeta, String nazivPredmeta, int semestar, GodinaStudija  godinaStudijaPredmet,
 			Profesor predmetniProfesor, ArrayList<Student> spisakStudenata) {
 		super();
 		this.sifraPredmeta = sifraPredmeta;
@@ -25,6 +29,15 @@ public class Predmet {
 		this.predmetniProfesor = predmetniProfesor;
 		this.spisakStudenata = spisakStudenata;
 	}
+	
+	//samo alternativno, treba obristati
+		public Predmet(String sifraPredmeta, String nazivPredmeta, int semestar, GodinaStudija  godinaStudijaPredmet) {
+			super();
+			this.sifraPredmeta = sifraPredmeta;
+			this.nazivPredmeta = nazivPredmeta;
+			this.semestar = semestar;
+			this.godinaStudijaPredmet = godinaStudijaPredmet;
+		}
 	
 	public Object toCell(int col) {
 		switch(col) {
@@ -46,20 +59,13 @@ public class Predmet {
 		break;
 		case 2: semestar = (int)value;
 		break;
-		case 3: godinaStudijaPredmet = (godinaPredmeta)value;
+		case 3: godinaStudijaPredmet = (GodinaStudija)value;
 		break;
 		case 4: predmetniProfesor = (Profesor)value;
 		}
 	}
 	
-	//samo alternativno, treba obristati
-	public Predmet(String sifraPredmeta, String nazivPredmeta, int semestar, godinaPredmeta  godinaStudijaPredmet) {
-		super();
-		this.sifraPredmeta = sifraPredmeta;
-		this.nazivPredmeta = nazivPredmeta;
-		this.semestar = semestar;
-		this.godinaStudijaPredmet = godinaStudijaPredmet;
-	}
+	
 
 	public String getSifraPredmeta() {
 		return sifraPredmeta;
@@ -80,10 +86,10 @@ public class Predmet {
 	public void setSemestar(int semestar) {
 		this.semestar = semestar;
 	}
-	public godinaPredmeta  getGodinaStudijaPredmet() {
+	public GodinaStudija  getGodinaStudijaPredmet() {
 		return godinaStudijaPredmet;
 	}
-	public void setGodinaStudijaPredmet(godinaPredmeta  godinaStudijaPredmet) {
+	public void setGodinaStudijaPredmet(GodinaStudija  godinaStudijaPredmet) {
 		this.godinaStudijaPredmet = godinaStudijaPredmet;
 	}
 	public Profesor getPredmetniProfesor() {

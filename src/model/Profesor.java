@@ -38,19 +38,21 @@ public class Profesor {
 		this.zvanje = zvanje;
 		this.predmeti = predmeti;
 	}
+	
+	public Profesor(String ime, String prezime, String datumRodjenja, int brojLicneKarte) {
+		super();
+		this.ime = ime;
+		this.prezime = prezime;
+		this.datumRodjenja = datumRodjenja;
+		this.brojLicneKarte = brojLicneKarte;
+	}
 
 	public Object toCell(int col) {
 		switch(col) {
 		case 0: return ime;
 		case 1: return prezime;
 		case 2: return datumRodjenja;
-		case 3: return adresaStanovanja;
-		case 4: return kontaktTelefon;
-		case 5: return emailAdresa;
-		case 6: return adresaKancelarije;
-		case 7: return brojLicneKarte;
-		case 8: return titula;
-		case 9: return zvanje;
+		case 3: return brojLicneKarte;
 		default: return null;
 		}
 	}
@@ -63,19 +65,7 @@ public class Profesor {
 		break;
 		case 2: datumRodjenja = (String)value;
 		break;
-		case 3: adresaStanovanja = (String)value;
-		break;
-		case 4: kontaktTelefon = (String)value;
-		break;
-		case 5: emailAdresa = (String)value;
-		break;
-		case 6: adresaKancelarije = (String)value;
-		break;
-		case 7: brojLicneKarte = (int)value;
-		break;
-		case 8: titula = (String)value;
-		break;
-		case 9: zvanje = (String)value;
+		case 3: brojLicneKarte = (int)value;
 		}
 	}
 

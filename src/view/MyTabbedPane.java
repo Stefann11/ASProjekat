@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 
@@ -7,16 +8,15 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
-import model.PredmetTableModel;
 import model.ProfesorTableModel;
 import model.StudentTableModel;
 
 public class MyTabbedPane extends JTabbedPane{
 	
 	private static final long serialVersionUID = 5282778494633945639L;
+	
+	private JTable tabelaPredmeta; 
 	
 	public MyTabbedPane(int pozicija) {
 		JPanel firstPanel = new JPanel();
@@ -53,10 +53,22 @@ public class MyTabbedPane extends JTabbedPane{
 		
 		//ZA PREDMETE
 
-		JScrollPane scrollPred= new JScrollPane();
-		JTable tabPred= new JTable(new PredmetTableModel());
-		thirdPanel.add(scrollPred);
-		scrollPred.setViewportView(tabPred);
+//		JScrollPane scrollPred= new JScrollPane();
+//		JTable tabPred= new JTable(new PredmetTableModel());
+//		thirdPanel.add(scrollPred);
+//		scrollPred.setViewportView(tabPred);
+//		tabPred.setAutoCreateRowSorter(true);
+		
+		tabelaPredmeta = new PredJTable();
+
+		JScrollPane scrollPred = new JScrollPane(tabelaPredmeta);
+		thirdPanel.add(scrollPred, BorderLayout.CENTER);
+		
+		PredAbstractTable model = (PredAbstractTable) tabelaPredmeta.getModel();
+		model.fireTableDataChanged();
+		validate();
+
+		//this.azurirajPrikaz(null, -1);
 		
 		//KRAJ PREDMETA
 		
@@ -66,7 +78,7 @@ public class MyTabbedPane extends JTabbedPane{
 		
 		this.setTabPlacement(pozicija);
 		
-		//ZA SELEKCIJU TABA
+		
 		
 		
 		

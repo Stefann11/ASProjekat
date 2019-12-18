@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -11,14 +13,14 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Dialog.ModalityType;
+import javax.swing.JTextField;
+
+import model.GodinaStudija;
+import model.Predmet;
 
 public class DodavanjePredmeta extends JDialog{
+	
 	public DodavanjePredmeta() {
 		setModal(true);
 		setTitle("Dodavanje predmeta");
@@ -27,13 +29,9 @@ public class DodavanjePredmeta extends JDialog{
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.CENTER);
 		GridBagLayout gbl_panel = new GridBagLayout();
-//		gbl_panel.columnWidths = new int[]{0, 0, 0, 0, 44, 115, 0};
-//		gbl_panel.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-//		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-//		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
-		JLabel lblNewLabel = new JLabel("\u0160ifra predmeta *");
+		JLabel lblNewLabel = new JLabel("Šifra predmeta *");
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel.gridwidth = 2;
@@ -107,46 +105,46 @@ public class DodavanjePredmeta extends JDialog{
 		gbc_comboBox.gridx = 3;
 		gbc_comboBox.gridy = 6;
 		panel.add(comboBox, gbc_comboBox);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"I (prva)", "II (druga)", "III (tre\u0107a)", "IV (\u010Detvrta)"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"PRVA", "DRUGA", "TREĆA", "ČETVRTA"}));
 		comboBox.setToolTipText("");
 		
-		JLabel lblPredmetniProfesor = new JLabel("Predmetni profesor *");
-		GridBagConstraints gbc_lblPredmetniProfesor = new GridBagConstraints();
-		gbc_lblPredmetniProfesor.anchor = GridBagConstraints.WEST;
-		gbc_lblPredmetniProfesor.gridwidth = 2;
-		gbc_lblPredmetniProfesor.insets = new Insets(5, 10, 5, 5);
-		gbc_lblPredmetniProfesor.gridx = 0;
-		gbc_lblPredmetniProfesor.gridy = 8;
-		panel.add(lblPredmetniProfesor, gbc_lblPredmetniProfesor);
-		
-		textField_4 = new JTextField();
-		GridBagConstraints gbc_textField_4 = new GridBagConstraints();
-		gbc_textField_4.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_4.gridwidth = 3;
-		gbc_textField_4.insets = new Insets(0, 0, 5, 0);
-		gbc_textField_4.gridx = 3;
-		gbc_textField_4.gridy = 8;
-		panel.add(textField_4, gbc_textField_4);
-		textField_4.setColumns(10);
-		
-		JLabel lblSpisakStudenata = new JLabel("Spisak studenata *");
-		GridBagConstraints gbc_lblSpisakStudenata = new GridBagConstraints();
-		gbc_lblSpisakStudenata.anchor = GridBagConstraints.WEST;
-		gbc_lblSpisakStudenata.gridwidth = 2;
-		gbc_lblSpisakStudenata.insets = new Insets(5, 10, 20, 5);
-		gbc_lblSpisakStudenata.gridx = 0;
-		gbc_lblSpisakStudenata.gridy = 10;
-		panel.add(lblSpisakStudenata, gbc_lblSpisakStudenata);
-		
-		textField_5 = new JTextField();
-		GridBagConstraints gbc_textField_5 = new GridBagConstraints();
-		gbc_textField_5.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_5.gridwidth = 3;
-		gbc_textField_5.insets = new Insets(0, 0, 20, 0);
-		gbc_textField_5.gridx = 3;
-		gbc_textField_5.gridy = 10;
-		panel.add(textField_5, gbc_textField_5);
-		textField_5.setColumns(10);
+//		JLabel lblPredmetniProfesor = new JLabel("Predmetni profesor *");
+//		GridBagConstraints gbc_lblPredmetniProfesor = new GridBagConstraints();
+//		gbc_lblPredmetniProfesor.anchor = GridBagConstraints.WEST;
+//		gbc_lblPredmetniProfesor.gridwidth = 2;
+//		gbc_lblPredmetniProfesor.insets = new Insets(5, 10, 5, 5);
+//		gbc_lblPredmetniProfesor.gridx = 0;
+//		gbc_lblPredmetniProfesor.gridy = 8;
+//		panel.add(lblPredmetniProfesor, gbc_lblPredmetniProfesor);
+//		
+//		textField_4 = new JTextField();
+//		GridBagConstraints gbc_textField_4 = new GridBagConstraints();
+//		gbc_textField_4.fill = GridBagConstraints.HORIZONTAL;
+//		gbc_textField_4.gridwidth = 3;
+//		gbc_textField_4.insets = new Insets(0, 0, 5, 0);
+//		gbc_textField_4.gridx = 3;
+//		gbc_textField_4.gridy = 8;
+//		panel.add(textField_4, gbc_textField_4);
+//		textField_4.setColumns(10);
+//		
+//		JLabel lblSpisakStudenata = new JLabel("Spisak studenata *");
+//		GridBagConstraints gbc_lblSpisakStudenata = new GridBagConstraints();
+//		gbc_lblSpisakStudenata.anchor = GridBagConstraints.WEST;
+//		gbc_lblSpisakStudenata.gridwidth = 2;
+//		gbc_lblSpisakStudenata.insets = new Insets(5, 10, 20, 5);
+//		gbc_lblSpisakStudenata.gridx = 0;
+//		gbc_lblSpisakStudenata.gridy = 10;
+//		panel.add(lblSpisakStudenata, gbc_lblSpisakStudenata);
+//		
+//		textField_5 = new JTextField();
+//		GridBagConstraints gbc_textField_5 = new GridBagConstraints();
+//		gbc_textField_5.fill = GridBagConstraints.HORIZONTAL;
+//		gbc_textField_5.gridwidth = 3;
+//		gbc_textField_5.insets = new Insets(0, 0, 20, 0);
+//		gbc_textField_5.gridx = 3;
+//		gbc_textField_5.gridy = 10;
+//		panel.add(textField_5, gbc_textField_5);
+//		textField_5.setColumns(10);
 		
 		JPanel panelDugm = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		getContentPane().add(panelDugm, BorderLayout.SOUTH);
@@ -157,6 +155,21 @@ public class DodavanjePredmeta extends JDialog{
 		
 		panelDugm.add(btnOdustanak);
 		panelDugm.add(btnPotvrda);
+		
+		btnPotvrda.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String sifra=textField.getText();
+				String naziv=textField_1.getText();
+				int semestar=Integer.parseInt(textField_2.getText());
+				String g=comboBox.getSelectedItem().toString();
+				GodinaStudija god=GodinaStudija.valueOf(g);
+				Predmet p=new Predmet(sifra,naziv,semestar,god);
+				System.out.println(p);
+				dispose();
+			}
+		});
 		
 		btnOdustanak.addActionListener(new ActionListener() {
 			
@@ -174,8 +187,8 @@ public class DodavanjePredmeta extends JDialog{
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	//private JTextField textField_4;
+	//private JTextField textField_5;
 	
 
 }
