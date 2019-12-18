@@ -1,2 +1,7 @@
 eclipse.preferences.version=1
+encoding//src/model/BazaPredmeta.java=UTF-8
+encoding//src/model/GodinaStudija.java=UTF-8
+encoding//src/model/StudentTableModel.java=UTF-8
+encoding//src/view/DodavanjePredmeta.java=UTF-8
 encoding//src/view/MyToolbar.java=UTF-8
+encoding//src/view/PredmetTableModel.java=UTF-8

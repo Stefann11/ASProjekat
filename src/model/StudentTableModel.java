@@ -18,9 +18,9 @@ public class StudentTableModel extends AbstractTableModel{
 	private ArrayList<Predmet>predmeti = new ArrayList<Predmet>();
 	
 	public StudentTableModel() {
-		data.add(new Student( "RA22-2019","Petar", "Petrovic",godinaStudija.PRVA, enumStatus.S,6.94));
-		data.add(new Student( "RA12-2018","Nikolina", "Peric",godinaStudija.DRUGA, enumStatus.B,8.50));
-		data.add(new Student( "RA32-2016","Nemanja", "Kolovic",godinaStudija.CETVRTA, enumStatus.B,9.46));
+		data.add(new Student( "RA22-2019","Petar", "Petrovic",GodinaStudija.PRVA, enumStatus.S,6.94));
+		data.add(new Student( "RA12-2018","Nikolina", "Peric",GodinaStudija.DRUGA, enumStatus.B,8.50));
+		data.add(new Student( "RA32-2016","Nemanja", "Kolovic",GodinaStudija.ČETVRTA, enumStatus.B,9.46));
 	}
 	@Override
 	public int getColumnCount() {
