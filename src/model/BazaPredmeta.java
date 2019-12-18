@@ -21,10 +21,10 @@ public class BazaPredmeta {
 		initPredmete();
 
 		this.kolone = new ArrayList<String>();
-		this.kolone.add("ŠIFRA PREDMETA");
-		this.kolone.add("NAZIV PREDMETA");
-		this.kolone.add("SEMESTAR");
-		this.kolone.add("GODINA STUDIJA PREDMETA");
+		this.kolone.add("Šifra");
+		this.kolone.add("Naziv");
+		this.kolone.add("Semestar");
+		this.kolone.add("Godina studija predmeta");
 //		this.kolone.add("PREDMETNI PROFESOR");
 //		this.kolone.add("SPISAK STUDENATA");
 	}
