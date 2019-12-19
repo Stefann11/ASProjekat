@@ -40,7 +40,8 @@ public class MyTabbedPane extends JTabbedPane{
 
 		JScrollPane scrollStud1 = new JScrollPane(tabelaStudenata);
 		//firstPanel.add(scrollStud, BorderLayout.CENTER);
-		scrollStud1.setViewportView(tabelaStudenata); 
+		//scrollStud1.setViewportView(tabelaStudenata); 
+		tabelaStudenata.setAutoCreateRowSorter(true);
 		
 		//KRAJ STUDENTA
 		
@@ -50,7 +51,7 @@ public class MyTabbedPane extends JTabbedPane{
 		tabelaProfesora = new ProfJTable();
 
 		JScrollPane scrollProf = new JScrollPane(tabelaProfesora);
-		
+		tabelaProfesora.setAutoCreateRowSorter(true);
 //		ProfAbstractTable modelProf = (ProfAbstractTable) tabelaProfesora.getModel();
 //		modelProf.fireTableDataChanged();
 //		validate();
