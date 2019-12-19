@@ -19,20 +19,12 @@ public class MyTabbedPane extends JTabbedPane{
 	private JTable tabelaProfesora;
 	
 	public MyTabbedPane(int pozicija) {
-		JPanel firstPanel = new JPanel();
-		JPanel secondPanel = new JPanel();
-		JPanel thirdPanel = new JPanel();
-		
-		firstPanel.setBackground(Color.WHITE);
-		secondPanel.setBackground(Color.WHITE);
-		thirdPanel.setBackground(Color.WHITE);
-		
 		
 		//ZA STUDENTA
 		
 		JScrollPane scrollStud= new JScrollPane();
 		JTable tabStud= new JTable(new StudentTableModel());
-		firstPanel.add(scrollStud);
+		//firstPanel.add(scrollStud);
 		scrollStud.setViewportView(tabStud);
 		
 		
@@ -40,38 +32,23 @@ public class MyTabbedPane extends JTabbedPane{
 		
 		//ZA PROFESORE
 		
-//		JScrollPane scrollProf= new JScrollPane();
-//		JTable tabProf= new JTable(new ProfesorTableModel());
-//		secondPanel.add(scrollProf);
-//		scrollProf.setViewportView(tabProf);
 		
 		tabelaProfesora = new ProfJTable();
 
 		JScrollPane scrollProf = new JScrollPane(tabelaProfesora);
-		secondPanel.add(scrollProf, BorderLayout.CENTER);
 		
 //		ProfAbstractTable modelProf = (ProfAbstractTable) tabelaProfesora.getModel();
 //		modelProf.fireTableDataChanged();
 //		validate();
 		
 		
-		//KRAJ PROFESORA
-		
-	
-		
+		//KRAJ PROFESORA	
 		
 		//ZA PREDMETE
-
-//		JScrollPane scrollPred= new JScrollPane();
-//		JTable tabPred= new JTable(new PredmetTableModel());
-//		thirdPanel.add(scrollPred);
-//		scrollPred.setViewportView(tabPred);
-//		tabPred.setAutoCreateRowSorter(true);
 		
 		tabelaPredmeta = new PredJTable();
 
 		JScrollPane scrollPred = new JScrollPane(tabelaPredmeta);
-		thirdPanel.add(scrollPred, BorderLayout.CENTER);
 		
 //		PredAbstractTable model = (PredAbstractTable) tabelaPredmeta.getModel();
 //		model.fireTableDataChanged();
@@ -81,9 +58,9 @@ public class MyTabbedPane extends JTabbedPane{
 		
 		//KRAJ PREDMETA
 		
-		this.addTab("Studenti", firstPanel);
-		this.addTab("Profesori", secondPanel);
-		this.addTab("Predmeti", thirdPanel);
+		this.addTab("Studenti", scrollStud);
+		this.addTab("Profesori", scrollProf);
+		this.addTab("Predmeti", scrollPred);
 		
 		this.setTabPlacement(pozicija);
 		

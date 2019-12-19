@@ -76,7 +76,7 @@ public class BazaProfesora {
 		this.profesori.add(new Profesor(ime,prezime,datumRodjenja,br));
 	}
 
-	public void izbrisiPredmet(int id) {
+	public void izbrisiProfesora(int id) {
 		for (Profesor p: profesori) {
 			if (p.getBrojLicneKarte()==id) {
 				profesori.remove(p);

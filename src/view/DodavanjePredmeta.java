@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import model.BazaPredmeta;
 import model.GodinaStudija;
 import model.Predmet;
 
@@ -165,8 +166,13 @@ public class DodavanjePredmeta extends JDialog{
 				int semestar=Integer.parseInt(textField_2.getText());
 				String g=comboBox.getSelectedItem().toString();
 				GodinaStudija god=GodinaStudija.valueOf(g);
-				Predmet p=new Predmet(sifra,naziv,semestar,god);
-				System.out.println(p);
+
+				BazaPredmeta.getInstance().dodajPredmet(sifra, naziv, semestar, god);
+				
+				for (Predmet pr: BazaPredmeta.getInstance().getPredmeti())
+					System.out.println(pr);
+				
+				
 				dispose();
 			}
 		});
