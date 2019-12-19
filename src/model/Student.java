@@ -3,10 +3,10 @@ package model;
 import java.util.ArrayList;
 
 
-enum enumStatus 
-{ 
-    B,S; 
-} 
+//enum enumStatus 
+//{ 
+//    B,S; 
+//} 
 
 
 public class Student {
@@ -19,7 +19,7 @@ public class Student {
 	protected String brojIndeksa;
 	protected String datumUpisa;
 	protected GodinaStudija trenutnaGodinaStudija;
-	protected enumStatus status;
+	protected Status status;
 	protected double prosecnaOcena;
 	protected  ArrayList<Predmet>predmeti;
 	
@@ -31,7 +31,7 @@ public class Student {
 
 
 	public Student(String ime, String prezime, String datumRodjenja, String adresaStanovanja, String kontaktTelefon,
-			String emailAdresa, String brojIndeksa, String datumUpisa, GodinaStudija trenutnaGodinaStudija, enumStatus status,
+			String emailAdresa, String brojIndeksa, String datumUpisa, GodinaStudija trenutnaGodinaStudija, Status status,
 			double prosecnaOcena, ArrayList<Predmet> predmeti) {
 		super();
 		this.ime = ime;
@@ -50,7 +50,7 @@ public class Student {
 	
 	
 	public Student(String brojIndeksa,String ime, String prezime, GodinaStudija trenutnaGodinaStudija,
-			enumStatus status, double prosecnaOcena) {
+			Status status, double prosecnaOcena) {
 		this.brojIndeksa = brojIndeksa;
 		this.ime = ime;
 		this.prezime = prezime;
@@ -81,18 +81,18 @@ public class Student {
 		break;
 		case 3: trenutnaGodinaStudija = (GodinaStudija)value;
 		break;
-		case 4: status = (enumStatus)value;
+		case 4: status = (Status)value;
 		break;
 		case 5: prosecnaOcena = (double)value;
 		}
 	}
 
-	public enumStatus getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 
 
-	public void setStatus(enumStatus status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 

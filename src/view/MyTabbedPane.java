@@ -17,16 +17,30 @@ public class MyTabbedPane extends JTabbedPane{
 	
 	private JTable tabelaPredmeta; 
 	private JTable tabelaProfesora;
+	private JTable tabelaStudenata;
 	
 	public MyTabbedPane(int pozicija) {
 		
 		//ZA STUDENTA
+
 		
 		JScrollPane scrollStud= new JScrollPane();
 		JTable tabStud= new JTable(new StudentTableModel());
 		//firstPanel.add(scrollStud);
 		scrollStud.setViewportView(tabStud);
 		
+
+//		
+//		JScrollPane scrollStud= new JScrollPane();
+//		JTable tabStud= new JTable(new StudentTableModel());
+//		firstPanel.add(scrollStud);
+//		scrollStud.setViewportView(tabStud);
+//		
+		tabelaStudenata = new StudJTable();
+
+		JScrollPane scrollStud1 = new JScrollPane(tabelaStudenata);
+		//firstPanel.add(scrollStud, BorderLayout.CENTER);
+		scrollStud1.setViewportView(tabelaStudenata); 
 		
 		//KRAJ STUDENTA
 		
@@ -58,7 +72,7 @@ public class MyTabbedPane extends JTabbedPane{
 		
 		//KRAJ PREDMETA
 		
-		this.addTab("Studenti", scrollStud);
+		this.addTab("Studenti", scrollStud1);
 		this.addTab("Profesori", scrollProf);
 		this.addTab("Predmeti", scrollPred);
 		
