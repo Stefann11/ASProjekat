@@ -18,11 +18,14 @@ public class ProfAbstractTable extends AbstractTableModel{
 	
 	@Override
 	public int getColumnCount() {
-		return BazaProfesora.getInstance().getColumnCount();
+		return BazaProfesora.getInstance().getColumnCount() + 1;
 	}
 	
 	@Override
 	public String getColumnName(int column) {
+		if (column >= BazaProfesora.getInstance().getColumnCount()) {
+			return "Predmeti";
+		}
 		return BazaProfesora.getInstance().getColumnName(column);
 	}
 
@@ -33,7 +36,7 @@ public class ProfAbstractTable extends AbstractTableModel{
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		if (columnIndex < 4)
+		if (columnIndex < 10)
 			return BazaProfesora.getInstance().getValueAt(rowIndex, columnIndex);
 		return null;
 	}

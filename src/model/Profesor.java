@@ -1,29 +1,27 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Profesor {
 	private String ime;
 	private String prezime;
-	private String datumRodjenja;
+	private Date datumRodjenja;
 	private String adresaStanovanja;
 	private String kontaktTelefon;
 	private String emailAdresa;
 	private String adresaKancelarije;
 	private int brojLicneKarte;
-	private String titula;
-	private String zvanje;
+	private Titula titula;
+	private Zvanje zvanje;
 	private ArrayList<Predmet>predmeti;
-	public String getIme() {
-		return ime;
-	}
 	
 	public Profesor() {
 		
 	}
 	
-	public Profesor(String ime, String prezime, String datumRodjenja, String adresaStanovanja, String kontaktTelefon,
-			String emailAdresa, String adresaKancelarije, int brojLicneKarte, String titula, String zvanje,
+	public Profesor(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, String kontaktTelefon,
+			String emailAdresa, String adresaKancelarije, int brojLicneKarte, Titula titula, Zvanje zvanje,
 			ArrayList<Predmet> predmeti) {
 		super();
 		this.ime = ime;
@@ -39,20 +37,42 @@ public class Profesor {
 		this.predmeti = predmeti;
 	}
 	
-	public Profesor(String ime, String prezime, String datumRodjenja, int brojLicneKarte) {
+	//za tabelu
+	public Profesor(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, String kontaktTelefon,
+			String emailAdresa, String adresaKancelarije, int brojLicneKarte, Titula titula, Zvanje zvanje) {
 		super();
 		this.ime = ime;
 		this.prezime = prezime;
 		this.datumRodjenja = datumRodjenja;
+		this.adresaStanovanja = adresaStanovanja;
+		this.kontaktTelefon = kontaktTelefon;
+		this.emailAdresa = emailAdresa;
+		this.adresaKancelarije = adresaKancelarije;
 		this.brojLicneKarte = brojLicneKarte;
+		this.titula = titula;
+		this.zvanje = zvanje;
 	}
+	
+//	public Profesor(String ime, String prezime, Date datumRodjenja, int brojLicneKarte) {
+//		super();
+//		this.ime = ime;
+//		this.prezime = prezime;
+//		this.datumRodjenja = datumRodjenja;
+//		this.brojLicneKarte = brojLicneKarte;
+//	}
 
 	public Object toCell(int col) {
 		switch(col) {
 		case 0: return ime;
 		case 1: return prezime;
 		case 2: return datumRodjenja;
-		case 3: return brojLicneKarte;
+		case 3: return adresaStanovanja;
+		case 4: return kontaktTelefon;
+		case 5: return emailAdresa;
+		case 6: return adresaKancelarije;
+		case 7: return brojLicneKarte;
+		case 8: return titula;
+		case 9: return zvanje;
 		default: return null;
 		}
 	}
@@ -63,12 +83,28 @@ public class Profesor {
 		break;
 		case 1: prezime = (String)value;
 		break;
-		case 2: datumRodjenja = (String)value;
+		case 2: datumRodjenja = (Date)value;
 		break;
 		case 3: brojLicneKarte = (int)value;
+		break;
+		case 4: kontaktTelefon = (String)value;
+		break;
+		case 5: emailAdresa = (String)value;
+		break;
+		case 6: adresaKancelarije = (String)value;
+		break;
+		case 7: brojLicneKarte=(int)value;
+		break;
+		case 8: titula=(Titula)value;
+		break;
+		case 9: zvanje=(Zvanje)value;
 		}
 	}
-
+	
+	public String getIme() {
+		return ime;
+	}
+	
 	public void setIme(String ime) {
 		this.ime = ime;
 	}
@@ -78,10 +114,11 @@ public class Profesor {
 	public void setPrezime(String prezime) {
 		this.prezime = prezime;
 	}
-	public String getDatumRodjenja() {
+	public Date getDatumRodjenja() {
 		return datumRodjenja;
 	}
-	public void setDatumRodjenja(String datumRodjenja) {
+	
+	public void setDatumRodjenja(Date datumRodjenja) {
 		this.datumRodjenja = datumRodjenja;
 	}
 	public String getAdresaStanovanja() {
@@ -114,16 +151,16 @@ public class Profesor {
 	public void setBrojLicneKarte(int brojLicneKarte) {
 		this.brojLicneKarte = brojLicneKarte;
 	}
-	public String getTitula() {
+	public Titula getTitula() {
 		return titula;
 	}
-	public void setTitula(String titula) {
+	public void setTitula(Titula titula) {
 		this.titula = titula;
 	}
-	public String getZvanje() {
+	public Zvanje getZvanje() {
 		return zvanje;
 	}
-	public void setZvanje(String zvanje) {
+	public void setZvanje(Zvanje zvanje) {
 		this.zvanje = zvanje;
 	}
 	

@@ -2,10 +2,6 @@ package model;
 
 import java.util.ArrayList;
 
-//enum godinaPredmeta 
-//{ 
-//    PRVA, DRUGA, TRECA, CETVRTA; 
-//}
 
 public class Predmet {
 	private String sifraPredmeta;
@@ -30,7 +26,7 @@ public class Predmet {
 		this.spisakStudenata = spisakStudenata;
 	}
 	
-	//samo alternativno, treba obristati
+	//za tabelu
 		public Predmet(String sifraPredmeta, String nazivPredmeta, int semestar, GodinaStudija  godinaStudijaPredmet) {
 			super();
 			this.sifraPredmeta = sifraPredmeta;
