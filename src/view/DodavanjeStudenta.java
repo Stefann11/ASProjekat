@@ -36,7 +36,7 @@ public class DodavanjeStudenta extends JDialog{
 	public DodavanjeStudenta() {
 		setModal(true);
 		getContentPane().setBackground(Color.WHITE);
-		setTitle("Dodavanje Studenta");
+		setTitle("Dodavanje studenta");
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
@@ -168,7 +168,7 @@ public class DodavanjeStudenta extends JDialog{
 		gbc_comboBox.gridx = 2;
 		gbc_comboBox.gridy = 12;
 		panel.add(comboBox, gbc_comboBox);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"I (prva)", "II (druga)", "III (tre\u0107a)", "IV (\u010Detvrta)"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"PRVA", "DRUGA", "TRECA", "CETVRTA"}));
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Bud\u017Eet");
 		GridBagConstraints gbc_rdbtnNewRadioButton = new GridBagConstraints();

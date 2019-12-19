@@ -265,7 +265,7 @@ public class DodavanjeProfesora extends JDialog{
 public DodavanjeProfesora() {
 		setModal(true);
 		getContentPane().setBackground(Color.WHITE);
-		setTitle("Dodavanje Studenta");
+		setTitle("Dodavanje profesora");
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();

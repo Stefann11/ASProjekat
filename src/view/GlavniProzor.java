@@ -17,6 +17,7 @@ import java.awt.Font;
 public class GlavniProzor extends JFrame{
 
 	private static final long serialVersionUID = 2150977017400959913L;
+	public static int otvoreniTab=0;
 	
 	public GlavniProzor() {
 		Toolkit kit = Toolkit.getDefaultToolkit();
@@ -64,12 +65,14 @@ public class GlavniProzor extends JFrame{
 			    	proftoolbar.hide();
 			    	predmettoolbar.hide();
 			    	toolbar.show();
+			    	otvoreniTab=0;
 			    	//MyToolbar toolbar=new MyToolbar();
 			    	getContentPane().add(toolbar,BorderLayout.NORTH);
 			    } else if (tab==1) {
 			    	predmettoolbar.hide();
 			    	toolbar.hide();
 			    	proftoolbar.show();
+			    	otvoreniTab=1;
 			    	//ProfToolbar proftoolbar=new ProfToolbar();
 			    	getContentPane().add(proftoolbar,BorderLayout.NORTH);
 			    }
@@ -77,6 +80,7 @@ public class GlavniProzor extends JFrame{
 			    	toolbar.hide();
 			    	proftoolbar.hide();
 			    	predmettoolbar.show();
+			    	otvoreniTab=2;
 			    	//PredmetToolBar predmettoolbar = new PredmetToolBar();
 		            getContentPane().add(predmettoolbar,BorderLayout.NORTH);
 			    }
