@@ -39,7 +39,7 @@ public class GlavniProzor extends JFrame{
 //
 //        getContentPane().add(toolbar,BorderLayout.NORTH);
         
-        MyTabbedPane tabbedPane = new MyTabbedPane(JTabbedPane.TOP);
+        MyTabbedPane tabbedPane = new MyTabbedPane();
         tabbedPane.setFont(new Font("Tahoma", Font.PLAIN, 17));
         getContentPane().add(tabbedPane, BorderLayout.CENTER);
         
