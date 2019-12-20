@@ -1,10 +1,7 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Component;
 
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
@@ -15,11 +12,20 @@ public class MyTabbedPane extends JTabbedPane{
 	
 	private static final long serialVersionUID = 5282778494633945639L;
 	
-	private JTable tabelaPredmeta; 
-	private JTable tabelaProfesora;
-	private JTable tabelaStudenata;
+	private static MyTabbedPane instance = null;
+
+	public static MyTabbedPane getInstance() {
+		if (instance == null) {
+			instance = new MyTabbedPane();
+		}
+		return instance;
+	}
 	
-	public MyTabbedPane(int pozicija) {
+	public JTable tabelaPredmeta; 
+	public JTable tabelaProfesora;
+	public JTable tabelaStudenata;
+	
+	public MyTabbedPane() {
 		
 		//ZA STUDENTA
 
@@ -65,6 +71,8 @@ public class MyTabbedPane extends JTabbedPane{
 
 		JScrollPane scrollPred = new JScrollPane(tabelaPredmeta);
 		
+		tabelaPredmeta.setAutoCreateRowSorter(true);
+		
 //		PredAbstractTable model = (PredAbstractTable) tabelaPredmeta.getModel();
 //		model.fireTableDataChanged();
 //		validate();
@@ -76,8 +84,6 @@ public class MyTabbedPane extends JTabbedPane{
 		this.addTab("Studenti", scrollStud1);
 		this.addTab("Profesori", scrollProf);
 		this.addTab("Predmeti", scrollPred);
-		
-		this.setTabPlacement(pozicija);
 		
 		
 		
