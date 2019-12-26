@@ -28,7 +28,7 @@ public class myStatusBar extends JPanel{
         
         Date date2=new Date();
         SimpleDateFormat datum_format = new SimpleDateFormat("HH:mm  dd.MM.yyyy. ");
-        Label timedate=new Label(datum_format(date2));
+        Label timedate=new Label();
         
         Timer timer = new Timer(1000, new ActionListener() {
       		@Override
@@ -49,8 +49,5 @@ public class myStatusBar extends JPanel{
 
 
 
-	private String datum_format(Date date2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 }
