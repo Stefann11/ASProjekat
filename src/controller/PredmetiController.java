@@ -26,7 +26,7 @@ public class PredmetiController {
 			MyTabbedPane.getInstance().validate();
 		}
 		
-		public void IzbrisiIgraca(int rowSelectedIndex) {
+		public void IzbrisiPredmet(int rowSelectedIndex) {
 			
 			if (rowSelectedIndex < 0) {
 				return;

@@ -4,6 +4,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
+import controller.ProfesoriController;
+
 public class BrisanjeProfesora extends JOptionPane{
 
 	private static final long serialVersionUID = 7356169157162363400L;
@@ -16,9 +18,9 @@ public class BrisanjeProfesora extends JOptionPane{
 		int choice =JOptionPane.showConfirmDialog(
                 null,
                 "Da li ste sigurni da želite da obrišete profesora?",
-                "Brisanje Predmeta",YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,icon);
+                "Brisanje Profesora",YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,icon);
 		if (choice == JOptionPane.YES_OPTION) {
-
+			ProfesoriController.getInstance().IzbrisiProfesora(MyTabbedPane.getInstance().tabelaProfesora.getSelectedRow());
 			JOptionPane.showMessageDialog(null, "Profesor obrisan!");
 		} else {
 
