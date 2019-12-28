@@ -2,6 +2,7 @@ package controller;
 
 import model.BazaPredmeta;
 import model.GodinaStudija;
+import model.Predmet;
 import view.MyTabbedPane;
 import view.PredAbstractTable;
 
@@ -20,6 +21,18 @@ public class PredmetiController {
 		
 		public void DodajPredmet(String sifra, String naziv, int semestar, GodinaStudija god ) {
 			BazaPredmeta.getInstance().dodajPredmet(sifra, naziv, semestar, god);
+			PredAbstractTable model = (PredAbstractTable) MyTabbedPane.getInstance().tabelaPredmeta.getModel();
+			model.fireTableDataChanged();
+			MyTabbedPane.getInstance().validate();
+		}
+		
+		public void IzbrisiIgraca(int rowSelectedIndex) {
+			
+			if (rowSelectedIndex < 0) {
+				return;
+			}
+			Predmet predmet = BazaPredmeta.getInstance().getRow(rowSelectedIndex);
+			BazaPredmeta.getInstance().izbrisiPredmet(predmet.getSifraPredmeta());
 			PredAbstractTable model = (PredAbstractTable) MyTabbedPane.getInstance().tabelaPredmeta.getModel();
 			model.fireTableDataChanged();
 			MyTabbedPane.getInstance().validate();

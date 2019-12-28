@@ -4,6 +4,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
+import controller.PredmetiController;
+
 public class BrisanjePredmeta extends JOptionPane{
 
 	/**
@@ -21,7 +23,7 @@ public class BrisanjePredmeta extends JOptionPane{
                 "Da li ste sigurni da želite da obrišete predmet?",
                 "Brisanje Predmeta",YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,icon);
 		if (choice == JOptionPane.YES_OPTION) {
-
+			PredmetiController.getInstance().IzbrisiIgraca(MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow());
 			JOptionPane.showMessageDialog(null, "Predmet obrisan!");
 		} else {
 
