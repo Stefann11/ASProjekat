@@ -110,43 +110,6 @@ public class DodavanjePredmeta extends JDialog{
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"PRVA", "DRUGA", "TREĆA", "ČETVRTA"}));
 		comboBox.setToolTipText("");
 		
-//		JLabel lblPredmetniProfesor = new JLabel("Predmetni profesor *");
-//		GridBagConstraints gbc_lblPredmetniProfesor = new GridBagConstraints();
-//		gbc_lblPredmetniProfesor.anchor = GridBagConstraints.WEST;
-//		gbc_lblPredmetniProfesor.gridwidth = 2;
-//		gbc_lblPredmetniProfesor.insets = new Insets(5, 10, 5, 5);
-//		gbc_lblPredmetniProfesor.gridx = 0;
-//		gbc_lblPredmetniProfesor.gridy = 8;
-//		panel.add(lblPredmetniProfesor, gbc_lblPredmetniProfesor);
-//		
-//		textField_4 = new JTextField();
-//		GridBagConstraints gbc_textField_4 = new GridBagConstraints();
-//		gbc_textField_4.fill = GridBagConstraints.HORIZONTAL;
-//		gbc_textField_4.gridwidth = 3;
-//		gbc_textField_4.insets = new Insets(0, 0, 5, 0);
-//		gbc_textField_4.gridx = 3;
-//		gbc_textField_4.gridy = 8;
-//		panel.add(textField_4, gbc_textField_4);
-//		textField_4.setColumns(10);
-//		
-//		JLabel lblSpisakStudenata = new JLabel("Spisak studenata *");
-//		GridBagConstraints gbc_lblSpisakStudenata = new GridBagConstraints();
-//		gbc_lblSpisakStudenata.anchor = GridBagConstraints.WEST;
-//		gbc_lblSpisakStudenata.gridwidth = 2;
-//		gbc_lblSpisakStudenata.insets = new Insets(5, 10, 20, 5);
-//		gbc_lblSpisakStudenata.gridx = 0;
-//		gbc_lblSpisakStudenata.gridy = 10;
-//		panel.add(lblSpisakStudenata, gbc_lblSpisakStudenata);
-//		
-//		textField_5 = new JTextField();
-//		GridBagConstraints gbc_textField_5 = new GridBagConstraints();
-//		gbc_textField_5.fill = GridBagConstraints.HORIZONTAL;
-//		gbc_textField_5.gridwidth = 3;
-//		gbc_textField_5.insets = new Insets(0, 0, 20, 0);
-//		gbc_textField_5.gridx = 3;
-//		gbc_textField_5.gridy = 10;
-//		panel.add(textField_5, gbc_textField_5);
-//		textField_5.setColumns(10);
 		
 		JPanel panelDugm = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		getContentPane().add(panelDugm, BorderLayout.SOUTH);
@@ -170,8 +133,6 @@ public class DodavanjePredmeta extends JDialog{
 				
 				PredmetiController.getInstance().DodajPredmet(sifra, naziv, semestar, god);
 				
-				for (Predmet pr: BazaPredmeta.getInstance().getPredmeti())
-					System.out.println(pr);
 				
 				
 				dispose();

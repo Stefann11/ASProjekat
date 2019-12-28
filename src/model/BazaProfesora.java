@@ -56,7 +56,7 @@ public class BazaProfesora {
 			e.printStackTrace();
 		}
 		
-		profesori.add(new Profesor("Marko", "Markovic", date1, "Futoska bb, 21000 Novi Sad", "+38162 1234567",
+		profesori.add(new Profesor("Marko", "Markovic", (Date) date1, "Futoska bb, 21000 Novi Sad", "+38162 1234567",
 				"marko.markovic@gmail.com", "Veljka Petrovica 20", 123456789, Titula.DOKTOR, Zvanje.ASISTENT));
 		profesori.add(new Profesor("Nikola", "Nikolic", date2, "Bulevar Jase Tomica 13, 21000 Novi Sad", "+38164 7654321",
 				"nikola.nikolic@gmail.com", "Veljka Petrovica 20", 987654321, Titula.MAGISTAR, Zvanje.PROFESOR));

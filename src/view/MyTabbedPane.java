@@ -25,7 +25,7 @@ public class MyTabbedPane extends JTabbedPane{
 	public JTable tabelaProfesora;
 	public JTable tabelaStudenata;
 	
-	public MyTabbedPane() {
+	private MyTabbedPane() {
 		
 		//ZA STUDENTA
 
