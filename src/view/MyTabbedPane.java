@@ -6,8 +6,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 
-import model.StudentTableModel;
-
 public class MyTabbedPane extends JTabbedPane{
 	
 	private static final long serialVersionUID = 5282778494633945639L;
@@ -30,10 +28,10 @@ public class MyTabbedPane extends JTabbedPane{
 		//ZA STUDENTA
 
 		
-		JScrollPane scrollStud= new JScrollPane();
-		JTable tabStud= new JTable(new StudentTableModel());
+//		JScrollPane scrollStud= new JScrollPane();
+//		JTable tabStud= new JTable(new StudentTableModel());
 		//firstPanel.add(scrollStud);
-		scrollStud.setViewportView(tabStud);
+	//	scrollStud.setViewportView(tabStud);
 		
 
 //		

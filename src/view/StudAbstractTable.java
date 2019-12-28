@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.table.AbstractTableModel;
 
+import model.BazaProfesora;
 import model.BazaStudenta;
 
 
@@ -19,11 +20,14 @@ public class StudAbstractTable extends AbstractTableModel{
 	
 	@Override
 	public int getColumnCount() {
-		return BazaStudenta.getInstance().getColumnCount();
+		return BazaStudenta.getInstance().getColumnCount() + 1;
 	}
 	
 	@Override
 	public String getColumnName(int column) {
+		if (column >= BazaStudenta.getInstance().getColumnCount()) {
+			return "Predmeti";
+		}
 		return BazaStudenta.getInstance().getColumnName(column);
 	}
 
@@ -34,9 +38,9 @@ public class StudAbstractTable extends AbstractTableModel{
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		//if (columnIndex < 6)
+		if (columnIndex < 11)
 			return BazaStudenta.getInstance().getValueAt(rowIndex, columnIndex);
-		//return null;
+		return null;
 	}
 	
 	@Override

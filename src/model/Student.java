@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Date;
 import java.util.ArrayList;
 
 
@@ -12,12 +13,12 @@ import java.util.ArrayList;
 public class Student {
 	protected String ime;
 	protected  String prezime;
-	protected String datumRodjenja;
+	protected Date datumRodjenja;
 	protected String adresaStanovanja;
 	protected String kontaktTelefon;
 	protected  String emailAdresa;
 	protected String brojIndeksa;
-	protected String datumUpisa;
+	protected Date datumUpisa;
 	protected GodinaStudija trenutnaGodinaStudija;
 	protected Status status;
 	protected double prosecnaOcena;
@@ -30,8 +31,8 @@ public class Student {
 	}
 
 
-	public Student(String ime, String prezime, String datumRodjenja, String adresaStanovanja, String kontaktTelefon,
-			String emailAdresa, String brojIndeksa, String datumUpisa, GodinaStudija trenutnaGodinaStudija, Status status,
+	public Student(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, String kontaktTelefon,
+			String emailAdresa, String brojIndeksa, Date datumUpisa, GodinaStudija trenutnaGodinaStudija, Status status,
 			double prosecnaOcena, ArrayList<Predmet> predmeti) {
 		super();
 		this.ime = ime;
@@ -49,11 +50,17 @@ public class Student {
 	}
 	
 	
-	public Student(String brojIndeksa,String ime, String prezime, GodinaStudija trenutnaGodinaStudija,
-			Status status, double prosecnaOcena) {
-		this.brojIndeksa = brojIndeksa;
+	public Student(String ime, String prezime, Date date1, String adresaStanovanja, String kontaktTelefon,
+			String emailAdresa, String brojIndeksa, Date date12, GodinaStudija trenutnaGodinaStudija, Status status,
+			double prosecnaOcena) {
 		this.ime = ime;
 		this.prezime = prezime;
+		this.datumRodjenja = date1;
+		this.adresaStanovanja = adresaStanovanja;
+		this.kontaktTelefon = kontaktTelefon;
+		this.emailAdresa = emailAdresa;
+		this.brojIndeksa = brojIndeksa;
+		this.datumUpisa = date12;
 		this.trenutnaGodinaStudija = trenutnaGodinaStudija;
 		this.status = status;
 		this.prosecnaOcena = prosecnaOcena;
@@ -64,9 +71,15 @@ public class Student {
 		case 0: return brojIndeksa;
 		case 1: return ime;
 		case 2: return prezime;
-		case 3: return trenutnaGodinaStudija;
-		case 4: return status;
-		case 5: return prosecnaOcena;
+		case 3: return datumRodjenja;
+		case 4: return adresaStanovanja;
+		case 5: return kontaktTelefon;
+		case 6: return emailAdresa;
+		case 7: return datumUpisa;
+		case 8: return trenutnaGodinaStudija;
+		case 9: return status;
+		case 10: return prosecnaOcena;
+		
 		default: return null;
 		}
 	}
@@ -75,16 +88,25 @@ public class Student {
 		switch(col) {
 		case 0: brojIndeksa = (String)value;
 		break;
-		case 1: ime = (String)value;
+		case 1:  ime = (String)value;
 		break;
-		case 2: prezime = (String)value;
+		case 2:  prezime = (String)value;
 		break;
-		case 3: trenutnaGodinaStudija = (GodinaStudija)value;
+		case 3:  datumRodjenja = (Date)value;
 		break;
-		case 4: status = (Status)value;
+		case 4:  adresaStanovanja = (String)value;
 		break;
-		case 5: prosecnaOcena = (double)value;
-		}
+		case 5: kontaktTelefon = (String)value;
+		break;
+		case 6:  emailAdresa = (String)value;
+		break;
+		case 7:  datumUpisa = (Date)value;
+		break;
+		case 8:  trenutnaGodinaStudija = (GodinaStudija)value;
+		break;
+		case 9:  status = (Status)value;
+		break;
+		case 10:  prosecnaOcena = (double)value;		}
 	}
 
 	public Status getStatus() {
@@ -117,12 +139,12 @@ public class Student {
 	}
 
 
-	public String getDatumRodjenja() {
+	public Date getDatumRodjenja() {
 		return datumRodjenja;
 	}
 
 
-	public void setDatumRodjenja(String datumRodjenja) {
+	public void setDatumRodjenja(Date datumRodjenja) {
 		this.datumRodjenja = datumRodjenja;
 	}
 
@@ -167,12 +189,12 @@ public class Student {
 	}
 
 
-	public String getDatumUpisa() {
+	public Date getDatumUpisa() {
 		return datumUpisa;
 	}
 
 
-	public void setDatumUpisa(String datumUpisa) {
+	public void setDatumUpisa(Date datumUpisa) {
 		this.datumUpisa = datumUpisa;
 	}
 

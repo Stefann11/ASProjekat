@@ -66,7 +66,7 @@ btnAdd.addActionListener(new ActionListener() {
 		        Dimension screenSize = kit.getScreenSize();
 		        int screenHeight = screenSize.height;
 		        int screenWidth = screenSize.width;
-				dp.setSize(screenWidth / 4, screenHeight / 2);
+				dp.setSize(screenWidth / 3, 670 );
 		        dp.setLocationRelativeTo(null);
 				dp.setVisible(true);
 				
