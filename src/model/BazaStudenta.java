@@ -57,7 +57,7 @@ public class BazaStudenta {
 			e.printStackTrace();
 		}
 		
-		studenti.add(new Student("Petar", "Petrovic",(Date) date1,"Novi Sad","+38163444555","bla.bla@gmail.com","RA12-2017",(Date) date1,GodinaStudija.TREÆA, Status.S,6.94));
+		studenti.add(new Student("Petar", "Petrovic",(Date) date1,"Novi Sad","+38163444555","bla.bla@gmail.com","RA12-2017",(Date) date1,GodinaStudija.TREÄ†A, Status.S,6.94));
 		studenti.add(new Student("Andrija", "Markovic",(Date) date1,"Novi Sad","+38163333252","andrijamar@gmail.com","RA13-2018",(Date) date1,GodinaStudija.DRUGA, Status.B,7.94));
 		studenti.add(new Student("Jovana", "Ristic",(Date) date1,"Novi Sad","+38163444555","bla.bla@gmail.com","RA12-2019",(Date) date1,GodinaStudija.PRVA, Status.B,8.80));
 		

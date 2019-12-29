@@ -1,6 +1,9 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -9,6 +12,9 @@ import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
+
+import model.BazaStudenta;
+import model.Student;
 
 public class ButtonColumnPredmeti extends AbstractCellEditor
 implements TableCellRenderer, TableCellEditor, MouseListener{
@@ -39,16 +45,22 @@ implements TableCellRenderer, TableCellEditor, MouseListener{
 
 		// dugme koje ce biti iscrtavanp
 		this.renderButton = new JButton("Prikaži");
+		renderButton.setBackground(Color.WHITE);
 		this.editorButton = new JButton("Prikaži");
+		editorButton.setBackground(Color.WHITE);
 		
-//		this.editorButton.addActionListener(new ActionListener() {
-//			// mozemo odavde pozvati nas kontroler da se nesto smisleno odradi
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				fireEditingStopped();
-//				JOptionPane.showMessageDialog(table, "Selektovan je igrac u redu: " + table.getSelectedRow());
-//			}
-//		});
+		this.editorButton.addActionListener(new ActionListener() {
+			// mozemo odavde pozvati nas kontroler da se nesto smisleno odradi
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				fireEditingStopped();
+				
+				for (Student student: BazaStudenta.getInstance().getStudenti()) {
+					System.out.println(student);
+				}
+				
+			}
+		});
 
 		this.isEditorActive = false;
 	}
@@ -81,13 +93,18 @@ implements TableCellRenderer, TableCellEditor, MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
+		if (table.isEditing() && table.getCellEditor() == this) {
+			this.isEditorActive = true;
+		}
 		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
+		if (isEditorActive && table.isEditing()) {
+			table.getCellEditor().stopCellEditing();
+		}
+		isEditorActive = false;
 		
 	}
 
