@@ -2,10 +2,12 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
@@ -50,6 +52,16 @@ public DodavanjeProfesora() {
 		setModal(true);
 		getContentPane().setBackground(Color.WHITE);
 		setTitle("Dodavanje profesora");
+		
+		
+		Toolkit kit = Toolkit.getDefaultToolkit();
+        Dimension screenSize = kit.getScreenSize();
+        int screenHeight = screenSize.height;
+        int screenWidth = screenSize.width;
+		setSize(screenWidth / 4, screenHeight / 2);
+        setLocationRelativeTo(null);
+		
+		
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();

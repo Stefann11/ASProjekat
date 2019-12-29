@@ -30,36 +30,18 @@ public class MyMenuBar  extends JMenuBar {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (GlavniProzor.otvoreniTab==0) {
-				DodavanjeStudenta dp=new DodavanjeStudenta();
-				Toolkit kit = Toolkit.getDefaultToolkit();
-		        Dimension screenSize = kit.getScreenSize();
-		        int screenHeight = screenSize.height;
-		        int screenWidth = screenSize.width;
-				dp.setSize(screenWidth / 4, screenHeight / 2);
-		        dp.setLocationRelativeTo(null);
+				DodavanjeStudenta dp=new DodavanjeStudenta();			
 				dp.setVisible(true);
 				}
 				
 				
 				else if(GlavniProzor.otvoreniTab==1) {
 					DodavanjeProfesora dp=new DodavanjeProfesora();
-					Toolkit kit = Toolkit.getDefaultToolkit();
-			        Dimension screenSize = kit.getScreenSize();
-			        int screenHeight = screenSize.height;
-			        int screenWidth = screenSize.width;
-					dp.setSize(screenWidth / 4, screenHeight / 2);
-			        dp.setLocationRelativeTo(null);
 					dp.setVisible(true);
 				}
 				
 				else {
 					DodavanjePredmeta dp=new DodavanjePredmeta();
-					Toolkit kit = Toolkit.getDefaultToolkit();
-			        Dimension screenSize = kit.getScreenSize();
-			        int screenHeight = screenSize.height;
-			        int screenWidth = screenSize.width;
-					dp.setSize(screenWidth / 5, screenHeight / 4);
-			        dp.setLocationRelativeTo(null);
 					dp.setVisible(true);
 				}
 			}

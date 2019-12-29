@@ -62,12 +62,6 @@ btnAdd.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				DodavanjeStudenta dp=new DodavanjeStudenta();
-				Toolkit kit = Toolkit.getDefaultToolkit();
-		        Dimension screenSize = kit.getScreenSize();
-		        int screenHeight = screenSize.height;
-		        int screenWidth = screenSize.width;
-				dp.setSize(screenWidth / 3, 670 );
-		        dp.setLocationRelativeTo(null);
 				dp.setVisible(true);
 				
 			}
