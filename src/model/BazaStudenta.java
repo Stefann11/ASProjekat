@@ -126,5 +126,29 @@ public class BazaStudenta {
 			}
 		}
 	}
+	
+	public void izmeniStudenta(int selectedRow, String ime, String prezime, Date date1, String adresaStanovanja, String kontaktTelefon,
+			String emailAdresa, String brojIndeksa, Date date12, GodinaStudija trenutnaGodinaStudija, Status status,
+			double prosecnaOcena) {
+		int i = 0;
+		for (Student s : studenti) {
+			if (i==selectedRow) {
+				s.ime = ime;
+				s.prezime = prezime;
+				s.datumRodjenja = date1;
+				s.adresaStanovanja = adresaStanovanja;
+				s.kontaktTelefon = kontaktTelefon;
+				s.emailAdresa = emailAdresa;
+				s.brojIndeksa = brojIndeksa;
+				s.datumUpisa = date12;
+				s.trenutnaGodinaStudija = trenutnaGodinaStudija;
+				s.status = status;
+				s.prosecnaOcena = prosecnaOcena;
+			}
+			i++;
+		}
+	}
+
+	
 
 }

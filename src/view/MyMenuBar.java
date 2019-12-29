@@ -70,19 +70,60 @@ public class MyMenuBar  extends JMenuBar {
 		JMenu edit = new JMenu("Edit");
 		edit.setMnemonic('E'); // Create shortcut
 		JMenuItem miEdit = new JMenuItem("Edit");
+		miEdit.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (GlavniProzor.otvoreniTab==0) {
+				IzmenaStudenta dp=new IzmenaStudenta();			
+				dp.setVisible(true);
+				}
+				
+				
+				else if(GlavniProzor.otvoreniTab==1) {
+					IzmenaProfesora dp=new IzmenaProfesora();
+					dp.setVisible(true);
+				}
+				
+				else {
+					IzmenaPredmeta dp=new IzmenaPredmeta();
+					dp.setVisible(true);
+				}
+			}
+		});	
+		
+		
+		
 		miEdit.setMnemonic(KeyEvent.VK_E);
 		miEdit.setAccelerator(KeyStroke.getKeyStroke(
 		        KeyEvent.VK_E, ActionEvent.CTRL_MASK));
 		JMenuItem miDelete = new JMenuItem("Delete");
-		miDelete.addActionListener(new ActionListener() {	
+		miDelete.addActionListener(new ActionListener() {
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				BrisanjeStudenta bs=new BrisanjeStudenta();
+				if (GlavniProzor.otvoreniTab==0) {
+				BrisanjeStudenta dp=new BrisanjeStudenta();			
+				dp.setVisible(true);
+				}
 				
-				bs.setVisible(true);
 				
+				else if(GlavniProzor.otvoreniTab==1) {
+					BrisanjeProfesora dp=new BrisanjeProfesora();
+					dp.setVisible(true);
+				}
+				
+				else {
+					BrisanjePredmeta dp=new BrisanjePredmeta();
+					dp.setVisible(true);
+				}
 			}
 		});	
+		
+		
+		
+		
+		
 		miDelete.setMnemonic(KeyEvent.VK_D);
 		miDelete.setAccelerator(KeyStroke.getKeyStroke(
 		        KeyEvent.VK_D, ActionEvent.CTRL_MASK));

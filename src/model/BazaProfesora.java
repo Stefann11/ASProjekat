@@ -128,4 +128,25 @@ public class BazaProfesora {
 		}
 	}
 
+	public void izmeniProfesora(int selectedRow, String ime, String prezime, Date datumRodjenja, 
+			String adresaStanovanja, String kontaktTelefon, String email, 
+			String adresaKancelarije, int br, Titula titula, Zvanje zvanje) {
+		int i = 0;
+		for (Profesor p : profesori) {
+			if (i==selectedRow) {
+				p.ime = ime;
+				p.prezime = prezime;
+				p.datumRodjenja = datumRodjenja;
+				p.adresaStanovanja = adresaStanovanja;
+				p.kontaktTelefon = kontaktTelefon;
+				p.emailAdresa = email;
+				p.adresaKancelarije = adresaKancelarije;
+				p.brojLicneKarte = br;
+				p.titula = titula;
+				p.zvanje = zvanje;
+			}
+			i++;
+		}
+	}
+	
 }

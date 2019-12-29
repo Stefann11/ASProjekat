@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package view;
 
 import java.awt.BorderLayout;
@@ -10,6 +13,7 @@ import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,21 +24,27 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import controller.StudentiController;
+import model.BazaStudenta;
 import model.GodinaStudija;
 import model.Status;
+import model.Student;
 
-public class DodavanjeStudenta extends JDialog{
-	
-	
+/**
+ * @author Aleksa Santrac
+ *
+ */
+public class IzmenaStudenta extends JDialog{
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 3388919070489145497L;
+	private static final long serialVersionUID = 3265940316685847482L;
 	
 	private JTextField textFieldIme;
 	private JTextField textFieldPrezime;
@@ -48,10 +58,10 @@ public class DodavanjeStudenta extends JDialog{
 	private String placaFaks;
 	private ButtonGroup buttonGroup = new ButtonGroup();
 	
-	public DodavanjeStudenta() {
+	public IzmenaStudenta() {
 		setModal(true);
 		getContentPane().setBackground(Color.WHITE);
-		setTitle("Dodavanje studenta");
+		setTitle("Izmena studenta");
 		
 		Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screenSize = kit.getScreenSize();
@@ -292,6 +302,31 @@ public class DodavanjeStudenta extends JDialog{
 	    });
 		
 		
+		//POPUNJENA POLJA TABELE STUDENT
+				int selektovaniRed = MyTabbedPane.getInstance().tabelaStudenata.getSelectedRow();
+				
+				if (selektovaniRed < 0) {
+					JOptionPane.showMessageDialog(this, "Niste izabrali studenta");
+					
+					
+				} else {
+					Student student = BazaStudenta.getInstance().getRow(selektovaniRed);
+					textFieldIme.setText(student.getIme());
+					textFieldPrezime.setText(student.getPrezime());
+					 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); 
+					textFieldDatumRodjenja.setText(dateFormat.format(student.getDatumRodjenja()));
+					textFieldDatumUpisa.setText(dateFormat.format(student.getDatumUpisa()));
+					textFieldAdresaStanovanja.setText(student.getAdresaStanovanja());
+					textFieldBrojIndeksa.setText(student.getBrojIndeksa());
+					textFieldBrojTelefona.setText(student.getKontaktTelefon());
+					comboBox.setSelectedItem(student.getTrenutnaGodinaStudija());
+					textFieldEmail.setText(student.getEmailAdresa());
+					placaFaks = student.getStatus().toString();
+					textFieldProsek.setText(Double.toString(student.getProsecnaOcena()));
+				}
+		
+		
+		
 		JPanel panelZaDugmice = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		getContentPane().add(panelZaDugmice, BorderLayout.SOUTH);
 		
@@ -318,17 +353,13 @@ public class DodavanjeStudenta extends JDialog{
 				String adresaStanovanja=textFieldAdresaStanovanja.getText();
 				String telefon=textFieldBrojTelefona.getText();
 				String brojIndeksa=textFieldBrojIndeksa.getText();
-				//String adresaKancelarije=textFieldKancelarija.getText();
-				//int brojLicneKarte=Integer.parseInt(textFieldBrojLicne.getText());
 				String g=comboBox.getSelectedItem().toString();
 				GodinaStudija trenutnaGodStud=GodinaStudija.valueOf(g);
-				//String g2=comboBox2.getSelectedItem().toString();
-				//Zvanje zvanje=Zvanje.valueOf(g2);
 				String email = textFieldEmail.getText();
 				Status status = Status.valueOf(placaFaks);
 				double prosecnaOcena = Double.parseDouble(textFieldProsek.getText());
 					
-				StudentiController.getInstance().DodajStudenta(ime,prezime,DatumRodjenja,adresaStanovanja, telefon, email, brojIndeksa,DatumUpisa,trenutnaGodStud, status,prosecnaOcena);
+				StudentiController.getInstance().izmeniStudenta(selektovaniRed, ime,prezime,DatumRodjenja,adresaStanovanja, telefon, email, brojIndeksa,DatumUpisa,trenutnaGodStud, status,prosecnaOcena);
 				
 				
 			} catch (ParseException e1) {
@@ -358,9 +389,5 @@ public class DodavanjeStudenta extends JDialog{
 		});
 	}
 
-	/**
-	 * 
-	 */
-	
 
 }

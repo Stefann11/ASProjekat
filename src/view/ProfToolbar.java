@@ -77,9 +77,22 @@ btnDelete.addActionListener(new ActionListener() {
 			}
 		});	
 
+btnEdit.addActionListener(new ActionListener() {
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		IzmenaProfesora dp=new IzmenaProfesora();
+		
+		dp.setVisible(true);
+		
+	}
+});
+
+
 		setBackground(Color.WHITE);
 
 	}
-
+	
+	
 }
 

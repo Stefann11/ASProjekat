@@ -255,15 +255,6 @@ public DodavanjeProfesora() {
 		
 		
 		
-//		textFieldZvanje = new JTextField();
-//		GridBagConstraints gbc_textFieldZvanje= new GridBagConstraints();
-//		gbc_textFieldZvanje.fill = GridBagConstraints.HORIZONTAL;
-//		gbc_textFieldZvanje.gridwidth = 5;
-//		gbc_textFieldZvanje.insets = new Insets(10, 10, 10, 30);
-//		gbc_textFieldZvanje.gridx = 1;
-//		gbc_textFieldZvanje.gridy = 18;
-//		panel.add(textFieldZvanje, gbc_textFieldZvanje);
-//		textFieldZvanje.setColumns(10);
 		
 		JPanel panelZaDugmice = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		getContentPane().add(panelZaDugmice, BorderLayout.SOUTH);

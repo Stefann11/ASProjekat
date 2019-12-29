@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Profesor {
-	private String ime;
-	private String prezime;
-	private Date datumRodjenja;
-	private String adresaStanovanja;
-	private String kontaktTelefon;
-	private String emailAdresa;
-	private String adresaKancelarije;
-	private int brojLicneKarte;
-	private Titula titula;
-	private Zvanje zvanje;
-	private ArrayList<Predmet>predmeti;
+	protected String ime;
+	protected String prezime;
+	protected Date datumRodjenja;
+	protected String adresaStanovanja;
+	protected String kontaktTelefon;
+	protected String emailAdresa;
+	protected String adresaKancelarije;
+	protected int brojLicneKarte;
+	protected Titula titula;
+	protected Zvanje zvanje;
+	protected ArrayList<Predmet>predmeti;
 	
 	public Profesor() {
 		
