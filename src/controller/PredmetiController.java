@@ -51,19 +51,18 @@ public class PredmetiController {
 		}
 		
 		public void dodavanjeProfesoraNaPredmet(int selektovaniRed, int broj) {
-//			Predmet predmet = BazaPredmeta.getInstance().getRow(selektovaniRed);
-//			for (Profesor profesor : BazaProfesora.getInstance().getProfesori()) {
-//				if (profesor.getBrojLicneKarte()==broj) {
-//					predmet.setPredmetniProfesor(profesor);
-					BazaPredmeta.getInstance().dodajProfesoraNaPredmet(selektovaniRed, broj);
-					PredAbstractTable model = (PredAbstractTable) MyTabbedPane.getInstance().tabelaPredmeta.getModel();
-					//model.setValueAt(profesor, selektovaniRed, 4);
-					model.fireTableDataChanged();
-					MyTabbedPane.getInstance().validate();
-					//break;
-//				}
-//			}
-			//System.out.println(predmet);
+			BazaPredmeta.getInstance().dodajProfesoraNaPredmet(selektovaniRed, broj);
+			PredAbstractTable model = (PredAbstractTable) MyTabbedPane.getInstance().tabelaPredmeta.getModel();
+			model.fireTableDataChanged();
+			MyTabbedPane.getInstance().validate();
+		}
+		
+		public void obrisiProfesoraSaPredmeta() {
+			int selektovaniRed=MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow();
+			BazaPredmeta.getInstance().obrisiProfesoraSaPredmeta(selektovaniRed);
+			PredAbstractTable model = (PredAbstractTable) MyTabbedPane.getInstance().tabelaPredmeta.getModel();
+			model.fireTableDataChanged();
+			MyTabbedPane.getInstance().validate();
 		}
 		
 		

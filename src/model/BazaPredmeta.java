@@ -112,7 +112,11 @@ public class BazaPredmeta {
 				break;
 			}
 		}
-		System.out.println(predmet);
+	}
+	
+	public void obrisiProfesoraSaPredmeta(int selectedRow) {
+		Predmet predmet = BazaPredmeta.getInstance().getRow(selectedRow);
+		predmet.setPredmetniProfesor(null);
 	}
 
 

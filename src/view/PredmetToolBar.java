@@ -15,6 +15,8 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 
+import controller.PredmetiController;
+
 public class PredmetToolBar extends JToolBar{
 
 	private static final long serialVersionUID = -2714410407038947655L;
@@ -34,26 +36,32 @@ public class PredmetToolBar extends JToolBar{
 		JButton btnEdit = new JButton();
 		btnEdit.setToolTipText("Izmeni predmet");
 		btnEdit.setIcon(new ImageIcon("images/edit-icon.png"));
-		//btnEdit.setPreferredSize(new Dimension(25, 25));
 		panelLeft.add(btnEdit);
 
 		JButton btnDelete = new JButton();
 		btnDelete.setToolTipText("Obrisi predmet");
 		btnDelete.setIcon(new ImageIcon("images/trash-icon.png"));
-		//btnDelete.setPreferredSize(new Dimension(25, 25));
 		panelLeft.add(btnDelete);
 		
 		JButton btnAddStudent = new JButton();
 		btnAddStudent.setToolTipText("Dodaj studenta na predmet");
 		btnAddStudent.setIcon(new ImageIcon("images/add-icon.png"));
-		//btnDelete.setPreferredSize(new Dimension(25, 25));
 		panelLeft.add(btnAddStudent);
+		
+		JButton btnDeleteStudent = new JButton();
+		btnDeleteStudent.setToolTipText("Obrisi studenta sa predmeta");
+		btnDeleteStudent.setIcon(new ImageIcon("images/delete-student.png"));
+		panelLeft.add(btnDeleteStudent);
 		
 		JButton btnAddProf = new JButton();
 		btnAddProf.setToolTipText("Dodaj profesora na predmet");
-		btnAddProf.setIcon(new ImageIcon("images/prof-icon.png"));
-		//btnDelete.setPreferredSize(new Dimension(25, 25));
+		btnAddProf.setIcon(new ImageIcon("images/prof-icon.png"));	
 		panelLeft.add(btnAddProf);
+		
+		JButton btnDeleteProf = new JButton();
+		btnDeleteProf.setToolTipText("Obrisi profesora sa predmeta");
+		btnDeleteProf.setIcon(new ImageIcon("images/delete-profesor.png"));	
+		panelLeft.add(btnDeleteProf);
 		
 		JTextField textField = new JTextField();
         textField.setPreferredSize(new Dimension(200, 32));
@@ -62,7 +70,6 @@ public class PredmetToolBar extends JToolBar{
 		JButton btnSearch = new JButton();
 		btnSearch.setToolTipText("Trazi predmet");
 		btnSearch.setIcon(new ImageIcon("images/search-icon.png"));
-		//btnDelete.setPreferredSize(new Dimension(25, 25));
 		panelRight.add(btnSearch);
 		
 		add(panelLeft, BorderLayout.WEST);
@@ -121,9 +128,19 @@ btnAddProf.addActionListener(new ActionListener() {
 		
 	}
 });
+	btnDeleteProf.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			PredmetiController.getInstance().obrisiProfesoraSaPredmeta();
+			
+		}
+	});
 
 		setBackground(Color.WHITE);
 
 	}
+	
+	
 
 }
