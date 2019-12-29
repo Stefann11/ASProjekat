@@ -76,12 +76,6 @@ public class PredmetToolBar extends JToolBar{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				DodavanjePredmeta dp=new DodavanjePredmeta();
-				Toolkit kit = Toolkit.getDefaultToolkit();
-		        Dimension screenSize = kit.getScreenSize();
-		        int screenHeight = screenSize.height;
-		        int screenWidth = screenSize.width;
-				dp.setSize(screenWidth / 5, screenHeight / 4);
-		        dp.setLocationRelativeTo(null);
 				dp.setVisible(true);
 				
 			}
@@ -92,12 +86,6 @@ public class PredmetToolBar extends JToolBar{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				IzmenaPredmeta dp=new IzmenaPredmeta();
-				Toolkit kit = Toolkit.getDefaultToolkit();
-		        Dimension screenSize = kit.getScreenSize();
-		        int screenHeight = screenSize.height;
-		        int screenWidth = screenSize.width;
-				dp.setSize(screenWidth / 5, screenHeight / 4);
-		        dp.setLocationRelativeTo(null);
 				dp.setVisible(true);
 				
 			}

@@ -1,5 +1,6 @@
 package view;
 
+import javax.swing.JButton;
 import javax.swing.table.AbstractTableModel;
 
 import model.BazaProfesora;
@@ -13,7 +14,7 @@ public class ProfAbstractTable extends AbstractTableModel{
 
 	@Override
 	public boolean isCellEditable(int rowIndex, int columnIndex) {
-		return false;
+		return columnIndex>=10;
 	}
 	
 	@Override
@@ -33,11 +34,37 @@ public class ProfAbstractTable extends AbstractTableModel{
 	public int getRowCount() {
 		return BazaProfesora.getInstance().getProfesori().size();
 	}
+	
+	//da bismo mogli prikazati dugme
+			@Override
+			public Class<?> getColumnClass(int columnIndex) {
+				switch (columnIndex) {
+				case 0:
+				case 1:
+				case 2:
+				case 3:
+				case 4:
+				case 5:
+				case 6:
+				case 7:
+				case 8:
+				case 9:
+					return String.class;
+				case 10:
+					return JButton.class;
+				default:
+					return null;
+				}
+			}
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		if (columnIndex < 10)
+		if (columnIndex < 10) {
 			return BazaProfesora.getInstance().getValueAt(rowIndex, columnIndex);
+		} else if (columnIndex == 10) {
+			JButton btn = new JButton("" + rowIndex);
+			return btn;
+		}
 		return null;
 	}
 	

@@ -19,7 +19,7 @@ public class ProfJTable extends JTable{
 		this.setColumnSelectionAllowed(true);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.setModel(new ProfAbstractTable());
-		
+		new ButtonColumnPredmeti(this, 10);
 	}
 
 	@Override

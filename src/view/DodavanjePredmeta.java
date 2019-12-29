@@ -1,10 +1,12 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -28,6 +30,12 @@ public class DodavanjePredmeta extends JDialog{
 	public DodavanjePredmeta() {
 		setModal(true);
 		setTitle("Dodavanje predmeta");
+		Toolkit kit = Toolkit.getDefaultToolkit();
+        Dimension screenSize = kit.getScreenSize();
+        int screenHeight = screenSize.height;
+        int screenWidth = screenSize.width;
+        setSize(screenWidth / 5, screenHeight / 4);
+        setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());
 		
 		JPanel panel = new JPanel();

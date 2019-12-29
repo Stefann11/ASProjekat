@@ -67,6 +67,12 @@ public class BazaPredmeta {
 			return Integer.toString(predmet.getSemestar());
 		case 3:
 			return predmet.getGodinaStudijaPredmet().toString();
+		case 4:
+			if (predmet.getPredmetniProfesor()!=null) {
+				String imeprz= (predmet.getPredmetniProfesor().getIme() + " " + predmet.getPredmetniProfesor().getPrezime());
+				return imeprz;
+			} else
+				return null;
 		default:
 			return null;
 		}
@@ -96,6 +102,17 @@ public class BazaPredmeta {
 			}
 			i++;
 		}
+	}
+	
+	public void dodajProfesoraNaPredmet(int selectedRow, int broj) {
+		Predmet predmet = BazaPredmeta.getInstance().getRow(selectedRow);
+		for (Profesor profesor : BazaProfesora.getInstance().getProfesori()) {
+			if (profesor.getBrojLicneKarte()==broj) {
+				predmet.setPredmetniProfesor(profesor);
+				break;
+			}
+		}
+		System.out.println(predmet);
 	}
 
 

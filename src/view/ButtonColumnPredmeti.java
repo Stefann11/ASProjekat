@@ -2,6 +2,7 @@ package view;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -46,6 +47,8 @@ implements TableCellRenderer, TableCellEditor, MouseListener{
 		// dugme koje ce biti iscrtavanp
 		this.renderButton = new JButton("Prikaži");
 		renderButton.setBackground(Color.WHITE);
+
+		
 		this.editorButton = new JButton("Prikaži");
 		editorButton.setBackground(Color.WHITE);
 		
@@ -55,8 +58,12 @@ implements TableCellRenderer, TableCellEditor, MouseListener{
 			public void actionPerformed(ActionEvent e) {
 				fireEditingStopped();
 				
-				for (Student student: BazaStudenta.getInstance().getStudenti()) {
-					System.out.println(student);
+				if (GlavniProzor.otvoreniTab==0) {
+					System.out.println("Za studente");
+				} else if (GlavniProzor.otvoreniTab==1) {
+					PrikazivanjeSpiskaPredmetaZaProfesora pp = new PrikazivanjeSpiskaPredmetaZaProfesora();
+				} else {
+					PrikazivanjeSpiskaStudenata pss = new PrikazivanjeSpiskaStudenata();
 				}
 				
 			}

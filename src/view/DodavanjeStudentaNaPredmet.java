@@ -2,6 +2,8 @@ package view;
 
 import javax.swing.JOptionPane;
 
+import model.BazaStudenta;
+
 public class DodavanjeStudentaNaPredmet extends JOptionPane{
 	/**
 	 * 
@@ -12,6 +14,8 @@ public class DodavanjeStudentaNaPredmet extends JOptionPane{
 //
 //	UIManager.put("OptionPane.cancelButtonText", "Odustanak");
 	public DodavanjeStudentaNaPredmet() {
+			
+			
 		
 			String name = JOptionPane.showInputDialog( null, 
 	        "Indeks studenta*", 

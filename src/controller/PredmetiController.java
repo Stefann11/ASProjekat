@@ -1,8 +1,10 @@
 package controller;
 
 import model.BazaPredmeta;
+import model.BazaProfesora;
 import model.GodinaStudija;
 import model.Predmet;
+import model.Profesor;
 import view.MyTabbedPane;
 import view.PredAbstractTable;
 
@@ -46,6 +48,22 @@ public class PredmetiController {
 			PredAbstractTable model = (PredAbstractTable) MyTabbedPane.getInstance().tabelaPredmeta.getModel();
 			model.fireTableDataChanged();
 			MyTabbedPane.getInstance().validate();		
+		}
+		
+		public void dodavanjeProfesoraNaPredmet(int selektovaniRed, int broj) {
+//			Predmet predmet = BazaPredmeta.getInstance().getRow(selektovaniRed);
+//			for (Profesor profesor : BazaProfesora.getInstance().getProfesori()) {
+//				if (profesor.getBrojLicneKarte()==broj) {
+//					predmet.setPredmetniProfesor(profesor);
+					BazaPredmeta.getInstance().dodajProfesoraNaPredmet(selektovaniRed, broj);
+					PredAbstractTable model = (PredAbstractTable) MyTabbedPane.getInstance().tabelaPredmeta.getModel();
+					//model.setValueAt(profesor, selektovaniRed, 4);
+					model.fireTableDataChanged();
+					MyTabbedPane.getInstance().validate();
+					//break;
+//				}
+//			}
+			//System.out.println(predmet);
 		}
 		
 		

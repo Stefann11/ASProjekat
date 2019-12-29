@@ -172,7 +172,7 @@ public class Profesor {
 	}
 	@Override
 	public String toString() {
-		return "Profesor [ime=" + ime + ", prezime=" + prezime + ", datumRodjenja=" + datumRodjenja
+		return "Profesor: ime=" + ime + ", prezime=" + prezime + ", datumRodjenja=" + datumRodjenja
 				+ ", adresaStanovanja=" + adresaStanovanja + ", kontaktTelefon=" + kontaktTelefon + ", emailAdresa="
 				+ emailAdresa + ", adresaKancelarije=" + adresaKancelarije + ", brojLicneKarte=" + brojLicneKarte
 				+ ", titula=" + titula + ", zvanje=" + zvanje + ", predmeti=" + predmeti + "]";
