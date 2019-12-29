@@ -13,21 +13,28 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.PredmetiController;
+import model.BazaPredmeta;
 import model.GodinaStudija;
+import model.Predmet;
 
-public class DodavanjePredmeta extends JDialog{
-	private static final long serialVersionUID = -7228140508317519762L;
+public class IzmenaPredmeta extends JDialog{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7304417891182958440L;
 	private JTextField textFieldSifra;
 	private JTextField textFieldNaziv;
 	private JTextField textFieldSemestar;
 	
-	public DodavanjePredmeta() {
+	public IzmenaPredmeta() {
 		setModal(true);
-		setTitle("Dodavanje predmeta");
+		setTitle("Izmena predmeta");
 		getContentPane().setLayout(new BorderLayout());
 		
 		JPanel panel = new JPanel();
@@ -113,6 +120,22 @@ public class DodavanjePredmeta extends JDialog{
 		comboBox.setToolTipText("");
 		
 		
+		
+		//za popunjena polja u tabeli predmet
+		int selektovaniRed = MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow();
+		
+		if (selektovaniRed < 0) {
+			JOptionPane.showMessageDialog(this, "Niste izabrali predmet");
+			
+		} else {
+			Predmet predmet = BazaPredmeta.getInstance().getRow(selektovaniRed);
+			textFieldSifra.setText(predmet.getSifraPredmeta());
+			textFieldNaziv.setText(predmet.getNazivPredmeta());
+			textFieldSemestar.setText(Integer.toString(predmet.getSemestar()));
+			comboBox.setSelectedItem(predmet.getGodinaStudijaPredmet());
+		}
+		
+		
 		JPanel panelDugm = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		getContentPane().add(panelDugm, BorderLayout.SOUTH);
 
@@ -133,27 +156,12 @@ public class DodavanjePredmeta extends JDialog{
 				String g=comboBox.getSelectedItem().toString();
 				GodinaStudija god=GodinaStudija.valueOf(g);
 				
-				PredmetiController.getInstance().DodajPredmet(sifra, naziv, semestar, god);
-				
+				PredmetiController.getInstance().IzmeniPredmet(selektovaniRed, sifra, naziv, semestar, god);
 				
 				
 				dispose();
 			}
 		});
-		
-		btnOdustanak.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				
-			}
-		});
-		
 	}
-
-	
-
-	
 
 }

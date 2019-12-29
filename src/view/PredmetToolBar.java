@@ -86,6 +86,22 @@ public class PredmetToolBar extends JToolBar{
 				
 			}
 		});
+		
+		btnEdit.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				IzmenaPredmeta dp=new IzmenaPredmeta();
+				Toolkit kit = Toolkit.getDefaultToolkit();
+		        Dimension screenSize = kit.getScreenSize();
+		        int screenHeight = screenSize.height;
+		        int screenWidth = screenSize.width;
+				dp.setSize(screenWidth / 5, screenHeight / 4);
+		        dp.setLocationRelativeTo(null);
+				dp.setVisible(true);
+				
+			}
+		});
 	
 btnDelete.addActionListener(new ActionListener() {
 			

@@ -38,6 +38,16 @@ public class PredmetiController {
 			MyTabbedPane.getInstance().validate();
 		}
 		
+		public void IzmeniPredmet(int rowSelectedIndex, String sifra, String naziv, int semestar, GodinaStudija godina) {
+			if (rowSelectedIndex < 0) {
+				return;
+			}
+			BazaPredmeta.getInstance().izmeniPredmet(rowSelectedIndex, sifra, naziv, semestar, godina);
+			PredAbstractTable model = (PredAbstractTable) MyTabbedPane.getInstance().tabelaPredmeta.getModel();
+			model.fireTableDataChanged();
+			MyTabbedPane.getInstance().validate();		
+		}
+		
 		
 
 }

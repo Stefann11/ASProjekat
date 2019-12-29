@@ -25,8 +25,7 @@ public class BazaPredmeta {
 		this.kolone.add("Naziv");
 		this.kolone.add("Semestar");
 		this.kolone.add("Godina studija predmeta");
-//		this.kolone.add("PREDMETNI PROFESOR");
-//		this.kolone.add("SPISAK STUDENATA");
+
 	}
 
 	private void initPredmete() {
@@ -83,6 +82,19 @@ public class BazaPredmeta {
 				predmeti.remove(p);
 				break;
 			}
+		}
+	}
+	
+	public void izmeniPredmet(int selectedRow, String sifra, String naziv, int semestar, GodinaStudija godina) {
+		int i = 0;
+		for (Predmet p : predmeti) {
+			if (i==selectedRow) {
+				p.setSifraPredmeta(sifra);
+				p.setNazivPredmeta(naziv);
+				p.setSemestar(semestar);
+				p.setGodinaStudijaPredmet(godina);
+			}
+			i++;
 		}
 	}
 
