@@ -19,7 +19,7 @@ public class PrikazivanjeSpiskaPredmetaZaProfesora extends JDialog{
 	 */
 	private static final long serialVersionUID = 952930433661889650L;
 	
-	public PrikazivanjeSpiskaPredmetaZaProfesora() {
+	public PrikazivanjeSpiskaPredmetaZaProfesora(){
 		setModal(false);
 		setTitle("Spisak predmeta");
 		Toolkit kit = Toolkit.getDefaultToolkit();
@@ -33,20 +33,21 @@ public class PrikazivanjeSpiskaPredmetaZaProfesora extends JDialog{
 		
 		StringBuilder string = new StringBuilder();
 		
-		int selektovaniRed = MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow();
-		Profesor profesor = BazaProfesora.getInstance().getRow(selektovaniRed);
+		int selektovaniRed = MyTabbedPane.getInstance().tabelaProfesora.getSelectedRow();
+		if (selektovaniRed<0)
+			return;
+		else {
+			Profesor profesor = BazaProfesora.getInstance().getRow(selektovaniRed);
 		
-		for (Predmet predmet : BazaPredmeta.getInstance().getPredmeti()) {
-			if (predmet.getPredmetniProfesor()==null) {
-				string.append("Nema predmeta.");
-				break;
-			} else {
-				if (predmet.getPredmetniProfesor().getBrojLicneKarte()==profesor.getBrojLicneKarte()) {
-					string.append(profesor);
+			if (profesor.getPredmeti()==null) {
+				string.append("Nema predmeta");
+			}else {
+				for (Predmet predmet: profesor.getPredmeti()) {
+					string.append(predmet);
 				}
 			}
-			
 		}
+		
 		
 		spisak.setText(string.toString());
 		

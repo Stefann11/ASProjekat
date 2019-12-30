@@ -1,9 +1,14 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BazaPredmeta {
+public class BazaPredmeta implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3956135050364689494L;
 	private static BazaPredmeta instance = null;
 
 	public static BazaPredmeta getInstance() {
@@ -109,6 +114,7 @@ public class BazaPredmeta {
 		for (Profesor profesor : BazaProfesora.getInstance().getProfesori()) {
 			if (profesor.getBrojLicneKarte()==broj) {
 				predmet.setPredmetniProfesor(profesor);
+				profesor.getPredmeti().add(predmet);
 				break;
 			}
 		}

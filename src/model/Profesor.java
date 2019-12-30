@@ -51,6 +51,7 @@ public class Profesor {
 		this.brojLicneKarte = brojLicneKarte;
 		this.titula = titula;
 		this.zvanje = zvanje;
+		this.predmeti=new ArrayList<Predmet>();
 	}
 	
 //	public Profesor(String ime, String prezime, Date datumRodjenja, int brojLicneKarte) {
@@ -175,7 +176,7 @@ public class Profesor {
 		return "Profesor: ime=" + ime + ", prezime=" + prezime + ", datumRodjenja=" + datumRodjenja
 				+ ", adresaStanovanja=" + adresaStanovanja + ", kontaktTelefon=" + kontaktTelefon + ", emailAdresa="
 				+ emailAdresa + ", adresaKancelarije=" + adresaKancelarije + ", brojLicneKarte=" + brojLicneKarte
-				+ ", titula=" + titula + ", zvanje=" + zvanje + ", predmeti=" + predmeti + "]";
+				+ ", titula=" + titula + ", zvanje=" + zvanje + "]";
 	}
 	
 	
