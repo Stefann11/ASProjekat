@@ -1,5 +1,6 @@
 package view;
 
+import javax.swing.JButton;
 import javax.swing.table.AbstractTableModel;
 
 import model.BazaPredmeta;
@@ -13,7 +14,7 @@ public class PredAbstractTable extends AbstractTableModel{
 	
 	@Override
 	public boolean isCellEditable(int rowIndex, int columnIndex) {
-		return false;
+		return columnIndex>=5;
 	}
 
 	@Override
@@ -35,29 +36,34 @@ public class PredAbstractTable extends AbstractTableModel{
 	}
 	
 	// da bismo mogli prikazati dugme
-//		@Override
-//		public Class<?> getColumnClass(int columnIndex) {
-//			switch (columnIndex) {
-//			case 0:
-//			case 1:
-//			case 2:
-//			case 3:
-//				return String.class;
-//			case 4:
-//				return JButton.class;
-//			default:
-//				return null;
-//			}
-//		}
+		@Override
+		public Class<?> getColumnClass(int columnIndex) {
+			switch (columnIndex) {
+			case 0:
+			case 1:
+			case 2:
+			case 3:
+			case 4:
+				return String.class;
+			case 5:
+				return JButton.class;
+			default:
+				return null;
+			}
+		}
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		if (columnIndex < 4)
+		if (columnIndex < 5)
 			return BazaPredmeta.getInstance().getValueAt(rowIndex, columnIndex);
 //		else if (columnIndex == 4) {
 //			JButton btn = new JButton("Prikazi" + rowIndex);
 //			return btn;
 //		}
+		else if (columnIndex==5) {
+			JButton btn = new JButton("" + rowIndex);
+			return btn;
+		}
 		return null;
 		
 		

@@ -115,6 +115,7 @@ public class BazaPredmeta implements Serializable{
 			if (profesor.getBrojLicneKarte()==broj) {
 				predmet.setPredmetniProfesor(profesor);
 				profesor.getPredmeti().add(predmet);
+				
 				break;
 			}
 		}

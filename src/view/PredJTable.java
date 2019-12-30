@@ -19,6 +19,7 @@ public class PredJTable extends JTable{
 		this.setColumnSelectionAllowed(true);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.setModel(new PredAbstractTable());
+		new ButtonColumnPredmeti(this, 5);
 		
 	}
 
