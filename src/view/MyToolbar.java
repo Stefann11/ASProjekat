@@ -4,17 +4,19 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
+import javax.swing.RowFilter;
 import javax.swing.SwingConstants;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 public class MyToolbar extends JToolBar{
 
@@ -57,6 +59,23 @@ public class MyToolbar extends JToolBar{
 		add(panelLeft, BorderLayout.WEST);
 		add(panelRight, BorderLayout.EAST);
 		
+btnSearch.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			    TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((AbstractTableModel) MyTabbedPane.getInstance().tabelaStudenata.getModel())); 
+			    sorter.setRowFilter(RowFilter.regexFilter(textField.getText()));
+
+			    MyTabbedPane.getInstance().tabelaStudenata.setRowSorter(sorter);
+				
+			}
+		});
+		
+		
+		
+		
+
+		
 btnAdd.addActionListener(new ActionListener() {
 			
 			@Override
@@ -95,6 +114,8 @@ btnDelete.addActionListener(new ActionListener() {
 		setBackground(Color.WHITE);
 
 	}
+	
+
 	
 	
 

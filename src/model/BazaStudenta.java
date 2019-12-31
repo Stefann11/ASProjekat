@@ -119,8 +119,15 @@ public class BazaStudenta {
 		this.studenti.add(new Student(ime, prezime, date1, adresaStanovanja, kontaktTelefon, emailAdresa, brojIndeksa, date12, trenutnaGodinaStudija, status,prosecnaOcena));
 	}
 	public void izbrisiStudenta(String id) {
-		for (Student s: studenti) {
-			if (s.getBrojIndeksa()==id) {
+	for (Student s: BazaStudenta.getInstance().getStudenti()) {
+		if (s.getBrojIndeksa().equals(id)) {
+//				for(Predmet p : BazaPredmeta.getInstance().getPredmeti()) {
+//					for(Student s2 : p.getSpisakStudenata()) {
+//						if(s2.getBrojIndeksa().equals(id)) {
+//						p.getSpisakStudenata().remove(s2);	
+//						}
+//					}
+//				}
 				studenti.remove(s);
 				break;
 			}

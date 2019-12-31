@@ -109,6 +109,29 @@ public class BazaPredmeta implements Serializable{
 		}
 	}
 	
+	
+	public void dodajStudentaNaPredmet(int selectedRow, String indeks) {
+		Predmet predmet = BazaPredmeta.getInstance().getRow(selectedRow);
+		for (Student student : BazaStudenta.getInstance().getStudenti()) {
+			if (student.getBrojIndeksa().equals(indeks)) {
+				predmet.getSpisakStudenata().add(student);
+				student.getPredmeti().add(predmet);
+				for (Student s : predmet.getSpisakStudenata()) {
+					System.out.println(s);
+				}
+				
+				break;
+			}
+		}
+	}
+	
+//	public void obrisiStudentaSaPredmeta(int selectedRow) {
+//		Predmet predmet = BazaPredmeta.getInstance().getRow(selectedRow);
+//		predmet.getSpisakStudenata().remove(index)
+//		
+//	}
+
+	
 	public void dodajProfesoraNaPredmet(int selectedRow, int broj) {
 		Predmet predmet = BazaPredmeta.getInstance().getRow(selectedRow);
 		for (Profesor profesor : BazaProfesora.getInstance().getProfesori()) {

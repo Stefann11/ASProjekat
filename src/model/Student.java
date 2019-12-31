@@ -64,6 +64,7 @@ public class Student {
 		this.trenutnaGodinaStudija = trenutnaGodinaStudija;
 		this.status = status;
 		this.prosecnaOcena = prosecnaOcena;
+		this.predmeti = new ArrayList<Predmet>();
 	}
 
 	public Object toCell(int col) {

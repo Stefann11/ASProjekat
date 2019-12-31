@@ -19,7 +19,7 @@ public class StudJTable extends JTable{
 		this.setColumnSelectionAllowed(true);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.setModel(new StudAbstractTable());
-		
+		new ButtonColumnPredmeti(this, 11);
 	}
 	
 	@Override

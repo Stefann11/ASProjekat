@@ -38,6 +38,7 @@ public class Predmet implements Serializable{
 			this.nazivPredmeta = nazivPredmeta;
 			this.semestar = semestar;
 			this.godinaStudijaPredmet = godinaStudijaPredmet;
+			this.spisakStudenata = new ArrayList<Student>();
 		}
 	
 	public Object toCell(int col) {
