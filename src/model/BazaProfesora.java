@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -13,7 +14,11 @@ import java.util.List;
 
 import controller.ProfesoriController;
 
-public class BazaProfesora {
+public class BazaProfesora implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 279232732756839093L;
 	private static BazaProfesora instance = null;
 
 	public static BazaProfesora getInstance() {
