@@ -10,6 +10,7 @@ import javax.swing.JDialog;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import model.BazaProfesora;
 import model.BazaStudenta;
 import model.Predmet;
 import model.Student;
@@ -24,6 +25,7 @@ public class PrikazivanjeSpiskaPredmetaZaStudenta extends JDialog{
 	 * 
 	 */
 	private static final long serialVersionUID = -2228091571772686610L;
+	
 
 public PrikazivanjeSpiskaPredmetaZaStudenta(){
 		setModal(false);

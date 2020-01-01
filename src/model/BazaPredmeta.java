@@ -12,6 +12,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import controller.PredmetiController;
+import view.PrikazivanjeSpiskaStudenata;
 
 public class BazaPredmeta implements Serializable{
 	/**
@@ -132,21 +133,26 @@ public class BazaPredmeta implements Serializable{
 		for (Student student : BazaStudenta.getInstance().getStudenti()) {
 			if (student.getBrojIndeksa().equals(indeks)) {
 				predmet.getSpisakStudenata().add(student);
-				student.getPredmeti().add(predmet);
-				for (Student s : predmet.getSpisakStudenata()) {
-					System.out.println(s);
-				}
-				
+	
+				PrikazivanjeSpiskaStudenata.getInstance().dodajStudentaNaCombobox(student);
+				student.getPredmeti().add(predmet);			
 				break;
 			}
 		}
 	}
 	
-//	public void obrisiStudentaSaPredmeta(int selectedRow) {
-//		Predmet predmet = BazaPredmeta.getInstance().getRow(selectedRow);
-//		predmet.getSpisakStudenata().remove(index)
-//		
-//	}
+	public void obrisiStudentaSaPredmeta(int selectedRow, String index) {
+		Predmet predmet = BazaPredmeta.getInstance().getRow(selectedRow);
+		index = index.trim();
+		for(Student s : BazaStudenta.getInstance().getStudenti()) {
+			if(s.getBrojIndeksa().equals(index)) {
+				predmet.getSpisakStudenata().remove(s);
+				s.getPredmeti().remove(predmet);
+				break;
+			}
+			
+		}
+	}
 
 	
 	public void dodajProfesoraNaPredmet(int selectedRow, int broj) {

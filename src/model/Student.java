@@ -233,11 +233,7 @@ public class Student implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Student: " + ime + ", " + prezime + ", " + datumRodjenja
-				+ ", " + adresaStanovanja + ", " + kontaktTelefon + ", "
-				+ emailAdresa + ",brojIndeksa=" + brojIndeksa + ", " + datumUpisa
-				+ ", " + trenutnaGodinaStudija + ", " + status + ", "
-				+ prosecnaOcena + "\n";
+		return brojIndeksa + "\n";
 	}
 
 	
