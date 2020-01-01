@@ -1,10 +1,17 @@
 package model;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
+
+import controller.PredmetiController;
 
 public class BazaPredmeta implements Serializable{
 	/**
@@ -93,7 +100,13 @@ public class BazaPredmeta implements Serializable{
 		for (Predmet p : predmeti) {
 			if (p.getSifraPredmeta().equals(id)) {
 				Profesor profesor = p.getPredmetniProfesor();
-				profesor.getPredmeti().remove(p);
+//				for (Predmet predmet : profesor.getPredmeti()) {
+//					if (predmet.getSifraPredmeta().equals(p.getSifraPredmeta())) {
+//						profesor.getPredmeti().remove(p);
+//					}
+//				}
+					
+				
 				predmeti.remove(p);
 				break;
 			}
@@ -158,6 +171,36 @@ public class BazaPredmeta implements Serializable{
 		Profesor profesor = predmet.getPredmetniProfesor();
 		predmet.setPredmetniProfesor(null);
 		profesor.getPredmeti().remove(predmet);
+	}
+	
+	public void serijalizacijaPredmeta() {
+		try {
+			FileOutputStream file = new FileOutputStream("predmeti.dat");
+			ObjectOutputStream out = new ObjectOutputStream(file);
+			out.writeObject(BazaPredmeta.getInstance().getPredmeti());
+			
+			out.close();
+			file.close();
+		}catch (IOException ie) {
+			ie.printStackTrace();
+		}
+	}
+
+	public void deserijalizacijaPredmeta() {
+		try {
+			FileInputStream file = new FileInputStream("predmeti.dat");
+			ObjectInputStream in= new ObjectInputStream(file);
+			ArrayList<Predmet> predmeti = (ArrayList<Predmet>) in.readObject();
+			BazaPredmeta.getInstance().setPredmeti(predmeti);
+			PredmetiController.getInstance().promeniIzgled();
+			
+			in.close();
+			file.close();
+		}catch (IOException ie) {
+			ie.printStackTrace();
+		}catch (ClassNotFoundException c) {
+			c.printStackTrace();
+		}
 	}
 
 

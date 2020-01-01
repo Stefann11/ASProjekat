@@ -65,6 +65,10 @@ public class PredmetiController {
 			MyTabbedPane.getInstance().validate();
 		}
 		
-		
+		public void promeniIzgled() {
+			PredAbstractTable model = (PredAbstractTable) MyTabbedPane.getInstance().tabelaPredmeta.getModel();
+			
+			model.fireTableDataChanged();
+		}
 
 }

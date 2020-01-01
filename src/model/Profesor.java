@@ -1,9 +1,18 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Profesor {
+public class Profesor implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3600748962808056769L;
+	/**
+	 * 
+	 */
+	
 	protected String ime;
 	protected String prezime;
 	protected Date datumRodjenja;
