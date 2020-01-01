@@ -9,6 +9,7 @@ import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -19,15 +20,28 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.PredmetiController;
+import model.BazaPredmeta;
 import model.GodinaStudija;
+import model.MyFocusListener;
+import model.MyKeyListener;
 
 public class DodavanjePredmeta extends JDialog{
 	private static final long serialVersionUID = -7228140508317519762L;
 	private JTextField textFieldSifra;
 	private JTextField textFieldNaziv;
 	private JTextField textFieldSemestar;
+	public JButton btnPotvrda = new JButton("Potvrda");
 	
-	public DodavanjePredmeta() {
+	private static DodavanjePredmeta instance = null;
+
+	public static DodavanjePredmeta getInstance() {
+		if (instance == null) {
+			instance = new DodavanjePredmeta();
+		}
+		return instance;
+	}
+	
+	private DodavanjePredmeta() {
 		setModal(true);
 		setTitle("Dodavanje predmeta");
 		Toolkit kit = Toolkit.getDefaultToolkit();
@@ -126,10 +140,26 @@ public class DodavanjePredmeta extends JDialog{
 
 		
 		JButton btnOdustanak = new JButton("Odustanak");
-		JButton btnPotvrda = new JButton("Potvrda");
+		//JButton btnPotvrda = new JButton("Potvrda");
+		
 		
 		panelDugm.add(btnOdustanak);
 		panelDugm.add(btnPotvrda);
+		
+		
+		textFieldSifra.setName("textFieldSifra");
+		textFieldNaziv.setName("textFieldNaziv");
+		textFieldSemestar.setName("textFieldSemestar");
+		
+		//btnPotvrda.setEnabled(false);
+		
+		MyFocusListener focusListener = new MyFocusListener();
+		KeyListener keyListener=new MyKeyListener();
+		textFieldSifra.addFocusListener(focusListener);
+		textFieldNaziv.addFocusListener(focusListener);
+		textFieldSemestar.addKeyListener(keyListener);
+		
+		//za disable-ovanje dugmeta dok nisu popunjeti text fieldovi
 		
 		btnPotvrda.addActionListener(new ActionListener() {
 			

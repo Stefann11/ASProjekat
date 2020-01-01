@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 public class BazaPredmeta implements Serializable{
 	/**
 	 * 
@@ -90,6 +92,8 @@ public class BazaPredmeta implements Serializable{
 	public void izbrisiPredmet(String id) {
 		for (Predmet p : predmeti) {
 			if (p.getSifraPredmeta().equals(id)) {
+				Profesor profesor = p.getPredmetniProfesor();
+				profesor.getPredmeti().remove(p);
 				predmeti.remove(p);
 				break;
 			}
@@ -134,19 +138,26 @@ public class BazaPredmeta implements Serializable{
 	
 	public void dodajProfesoraNaPredmet(int selectedRow, int broj) {
 		Predmet predmet = BazaPredmeta.getInstance().getRow(selectedRow);
+		int i = 0;
 		for (Profesor profesor : BazaProfesora.getInstance().getProfesori()) {
+			i++;
 			if (profesor.getBrojLicneKarte()==broj) {
+				
 				predmet.setPredmetniProfesor(profesor);
 				profesor.getPredmeti().add(predmet);
 				
 				break;
+			} else if(i==BazaProfesora.getInstance().getProfesori().size()) {
+				JOptionPane.showMessageDialog(null, "Ne postoji profesor sa tim indeksom");
 			}
 		}
 	}
 	
 	public void obrisiProfesoraSaPredmeta(int selectedRow) {
 		Predmet predmet = BazaPredmeta.getInstance().getRow(selectedRow);
+		Profesor profesor = predmet.getPredmetniProfesor();
 		predmet.setPredmetniProfesor(null);
+		profesor.getPredmeti().remove(predmet);
 	}
 
 

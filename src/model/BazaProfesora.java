@@ -122,6 +122,9 @@ public class BazaProfesora {
 	public void izbrisiProfesora(int id) {
 		for (Profesor p: profesori) {
 			if (p.getBrojLicneKarte()==id) {
+				for (Predmet predmet : p.getPredmeti()) {
+					predmet.setPredmetniProfesor(null);
+				}
 				profesori.remove(p);
 				break;
 			}

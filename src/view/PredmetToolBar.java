@@ -82,7 +82,7 @@ public class PredmetToolBar extends JToolBar{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				DodavanjePredmeta dp=new DodavanjePredmeta();
+				DodavanjePredmeta dp=DodavanjePredmeta.getInstance();
 				dp.setVisible(true);
 				
 			}
