@@ -59,4 +59,9 @@ public class ProfesoriController {
 		model.fireTableDataChanged();
 		MyTabbedPane.getInstance().validate();		
 	}
+	
+	public void promeniIzgled() {
+		ProfAbstractTable model = (ProfAbstractTable) MyTabbedPane.getInstance().tabelaProfesora.getModel();
+		model.fireTableDataChanged();
+	}
 }

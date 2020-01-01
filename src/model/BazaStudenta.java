@@ -1,12 +1,22 @@
 package model;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class BazaStudenta {
+import controller.PredmetiController;
+import controller.StudentiController;
+
+public class BazaStudenta implements Serializable{
+	
 	private static BazaStudenta instance = null;
 
 	public static BazaStudenta getInstance() {
@@ -156,6 +166,35 @@ public class BazaStudenta {
 		}
 	}
 
+	public void serijalizacijaStudenta() {
+		try {
+			FileOutputStream file = new FileOutputStream("studenti.dat");
+			ObjectOutputStream out = new ObjectOutputStream(file);
+			out.writeObject(BazaStudenta.getInstance().getStudenti());
+			
+			out.close();
+			file.close();
+		}catch (IOException ie) {
+			ie.printStackTrace();
+		}
+	}
+
+	public void deserijalizacijaStudenta() {
+		try {
+			FileInputStream file = new FileInputStream("studenti.dat");
+			ObjectInputStream in= new ObjectInputStream(file);
+			ArrayList<Student> studenti = (ArrayList<Student>) in.readObject();
+			BazaStudenta.getInstance().setStudenti(studenti);
+			StudentiController.getInstance().promeniIzgled();
+			
+			in.close();
+			file.close();
+		}catch (IOException ie) {
+			ie.printStackTrace();
+		}catch (ClassNotFoundException c) {
+			c.printStackTrace();
+		}
+	}
 	
 
 }

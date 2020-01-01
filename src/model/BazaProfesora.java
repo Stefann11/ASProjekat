@@ -1,10 +1,17 @@
 package model;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import controller.ProfesoriController;
 
 public class BazaProfesora {
 	private static BazaProfesora instance = null;
@@ -149,6 +156,36 @@ public class BazaProfesora {
 				p.zvanje = zvanje;
 			}
 			i++;
+		}
+	}
+	
+	public void serijalizacijaProfesora() {
+		try {
+			FileOutputStream file = new FileOutputStream("profesori.dat");
+			ObjectOutputStream out = new ObjectOutputStream(file);
+			out.writeObject(BazaProfesora.getInstance().getProfesori());
+			
+			out.close();
+			file.close();
+		}catch (IOException ie) {
+			ie.printStackTrace();
+		}
+	}
+
+	public void deserijalizacijaProfesora() {
+		try {
+			FileInputStream file = new FileInputStream("profesori.dat");
+			ObjectInputStream in= new ObjectInputStream(file);
+			ArrayList<Profesor> profesori = (ArrayList<Profesor>) in.readObject();
+			BazaProfesora.getInstance().setProfesori(profesori);
+			ProfesoriController.getInstance().promeniIzgled();
+			
+			in.close();
+			file.close();
+		}catch (IOException ie) {
+			ie.printStackTrace();
+		}catch (ClassNotFoundException c) {
+			c.printStackTrace();
 		}
 	}
 	

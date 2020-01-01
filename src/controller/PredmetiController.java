@@ -50,6 +50,14 @@ public class PredmetiController {
 			MyTabbedPane.getInstance().validate();		
 		}
 		
+		
+		public void dodavanjeStudentaNaPredmet(int selektovaniRed, String indeks) {
+			BazaPredmeta.getInstance().dodajStudentaNaPredmet(selektovaniRed, indeks);
+			PredAbstractTable model = (PredAbstractTable) MyTabbedPane.getInstance().tabelaPredmeta.getModel();
+			model.fireTableDataChanged();
+			MyTabbedPane.getInstance().validate();
+		}
+		
 		public void dodavanjeProfesoraNaPredmet(int selektovaniRed, int broj) {
 			BazaPredmeta.getInstance().dodajProfesoraNaPredmet(selektovaniRed, broj);
 			PredAbstractTable model = (PredAbstractTable) MyTabbedPane.getInstance().tabelaPredmeta.getModel();

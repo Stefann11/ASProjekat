@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Date;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 //} 
 
 
-public class Student {
+public class Student implements Serializable{
 	protected String ime;
 	protected  String prezime;
 	protected Date datumRodjenja;

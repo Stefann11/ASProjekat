@@ -14,6 +14,8 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import model.BazaPredmeta;
+import model.BazaProfesora;
+import model.BazaStudenta;
 
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -121,6 +123,8 @@ public class GlavniProzor extends JFrame{
 			@Override
 			public void windowOpened(WindowEvent arg0) {
 				BazaPredmeta.getInstance().deserijalizacijaPredmeta();
+				BazaStudenta.getInstance().deserijalizacijaStudenta();
+				BazaProfesora.getInstance().deserijalizacijaProfesora();
 				
 			}
 			
@@ -145,6 +149,8 @@ public class GlavniProzor extends JFrame{
 			@Override
 			public void windowClosing(WindowEvent arg0) {
 				BazaPredmeta.getInstance().serijalizacijaPredmeta();
+				BazaStudenta.getInstance().serijalizacijaStudenta();
+				BazaProfesora.getInstance().serijalizacijaProfesora();
 				
 			}
 			

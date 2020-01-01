@@ -5,14 +5,11 @@ package controller;
 
 import java.util.Date;
 
-import model.BazaPredmeta;
-import model.BazaProfesora;
 import model.BazaStudenta;
 import model.GodinaStudija;
 import model.Status;
 import model.Student;
 import view.MyTabbedPane;
-import view.PredAbstractTable;
 import view.StudAbstractTable;
 
 /**
@@ -63,6 +60,12 @@ public class StudentiController {
 		StudAbstractTable model = (StudAbstractTable) MyTabbedPane.getInstance().tabelaStudenata.getModel();
 		model.fireTableDataChanged();
 		MyTabbedPane.getInstance().validate();		
+	}
+	
+	public void promeniIzgled() {
+		StudAbstractTable model = (StudAbstractTable) MyTabbedPane.getInstance().tabelaStudenata.getModel();
+		
+		model.fireTableDataChanged();
 	}
 	
 }
