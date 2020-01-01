@@ -41,7 +41,7 @@ public class MyMenuBar  extends JMenuBar {
 				}
 				
 				else {
-					DodavanjePredmeta dp=new DodavanjePredmeta();
+					DodavanjePredmeta dp= DodavanjePredmeta.getInstance();
 					dp.setVisible(true);
 				}
 			}
