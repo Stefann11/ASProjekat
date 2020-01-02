@@ -24,7 +24,7 @@ public class MyStatusBar extends JPanel{
         super();
         setLayout(new BorderLayout());
         
-        Label studentskaSluzba=new Label("Studentska sluzba");
+        Label studentskaSluzba=new Label("Studentska služba");
         
    
         SimpleDateFormat datumFormat = new SimpleDateFormat("HH:mm  dd.MM.yyyy. ");

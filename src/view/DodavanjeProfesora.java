@@ -10,6 +10,8 @@ import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,7 +28,7 @@ import controller.ProfesoriController;
 import model.Titula;
 import model.Zvanje;
 
-public class DodavanjeProfesora extends JDialog{
+public class DodavanjeProfesora extends JDialog implements FocusListener{
 //	public DodavanjeProfesora() {
 //	}
 
@@ -45,6 +47,20 @@ public class DodavanjeProfesora extends JDialog{
 	private JTextField textFieldTitula;
 	private JTextField textFieldZvanje;
 	private JTextField textFieldBrojLicne;
+	JButton btnPotvrda = new JButton("Potvrda");
+	JButton btnOdustanak = new JButton("Odustanak");
+	
+	
+	
+	private static DodavanjeProfesora instance = null;
+
+	public static DodavanjeProfesora getInstance() {
+		if (instance == null) {
+			instance = new DodavanjeProfesora();
+		}
+		return instance;
+	}
+	
 
 	
 	
@@ -260,12 +276,10 @@ public DodavanjeProfesora() {
 		getContentPane().add(panelZaDugmice, BorderLayout.SOUTH);
 		
 		
-		JButton btnOdustanak = new JButton("Odustanak");
 		
-		
-		JButton btnPotvrda = new JButton("Potvrda");
 		panelZaDugmice.add(btnOdustanak);
 		panelZaDugmice.add(btnPotvrda);
+		btnPotvrda.setEnabled(false);
 		
 		btnPotvrda.addActionListener(new ActionListener() {
 			
@@ -307,5 +321,22 @@ public DodavanjeProfesora() {
 				
 			}
 		});
+	}
+
+
+	@Override
+	public void focusGained(FocusEvent e) {
+	
+	
+	}
+
+	@Override
+	public void focusLost(FocusEvent e) {
+		if (textFieldIme.getText().equals("") || textFieldPrezime.getText().equals("") || textFieldDatumRodjenja.getText().equals("") || textFieldAdresaStanovanja.getText().equals("") || textFieldBrojTelefona.getText().equals("") || textFieldKancelarija.getText().equals("") || textFieldBrojLicne.getText().equals("") || textFieldEmailAdresa.getText().equals("")) {
+			DodavanjePredmeta.getInstance().btnPotvrda.setEnabled(false);
+		} else {
+			DodavanjePredmeta.getInstance().btnPotvrda.setEnabled(true);
+		}
+	
 	}
 }

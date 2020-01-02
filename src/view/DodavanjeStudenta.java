@@ -10,6 +10,8 @@ import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -28,7 +30,7 @@ import controller.StudentiController;
 import model.GodinaStudija;
 import model.Status;
 
-public class DodavanjeStudenta extends JDialog{
+public class DodavanjeStudenta extends JDialog implements FocusListener{
 	
 	
 	/**
@@ -47,6 +49,20 @@ public class DodavanjeStudenta extends JDialog{
 	private JTextField textFieldDatumUpisa;
 	private String placaFaks;
 	private ButtonGroup buttonGroup = new ButtonGroup();
+	JButton btnPotvrda = new JButton("Potvrda");
+	JButton btnOdustanak = new JButton("Odustanak");
+	
+	
+	
+	private static DodavanjeStudenta instance = null;
+
+	public static DodavanjeStudenta getInstance() {
+		if (instance == null) {
+			instance = new DodavanjeStudenta();
+		}
+		return instance;
+	}
+	
 	
 	public DodavanjeStudenta() {
 		setModal(true);
@@ -296,12 +312,13 @@ public class DodavanjeStudenta extends JDialog{
 		getContentPane().add(panelZaDugmice, BorderLayout.SOUTH);
 		
 		
-		JButton btnOdustanak = new JButton("Odustanak");
 		
 		
-		JButton btnPotvrda = new JButton("Potvrda");
+		
+		
 		panelZaDugmice.add(btnOdustanak);
 		panelZaDugmice.add(btnPotvrda);
+		btnPotvrda.setEnabled(false);
 		
 		
 		btnPotvrda.addActionListener(new ActionListener() {
@@ -362,5 +379,21 @@ public class DodavanjeStudenta extends JDialog{
 	 * 
 	 */
 	
+
+	@Override
+	public void focusGained(FocusEvent e) {
+		
+		
+	}
+
+	@Override
+	public void focusLost(FocusEvent e) {
+		if (textFieldIme.getText().equals("") || textFieldPrezime.getText().equals("") || textFieldDatumRodjenja.getText().equals("") || textFieldAdresaStanovanja.getText().equals("") || textFieldBrojTelefona.getText().equals("") || textFieldBrojIndeksa.getText().equals("") || textFieldProsek.getText().equals("") || textFieldEmail.getText().equals("") || textFieldDatumUpisa.getText().equals("")) {
+			DodavanjeStudenta.getInstance().btnPotvrda.setEnabled(false);
+		} else {
+			DodavanjeStudenta.getInstance().btnPotvrda.setEnabled(true);
+		}
+		
+	}
 
 }
