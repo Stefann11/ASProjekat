@@ -131,10 +131,21 @@ btnAddProf.addActionListener(new ActionListener() {
 			
 		}
 	});
+	
+	btnSearch.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			String tekst = textField.getText();
+			PredmetiController.getInstance().searchPredmet(tekst);
+			
+		}
+	});
 
 		setBackground(Color.WHITE);
 
 	}
+	
 	
 	
 
