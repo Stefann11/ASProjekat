@@ -12,7 +12,10 @@ public class DodavanjeStudentaNaPredmet extends JOptionPane{
 	private static final long serialVersionUID = -6032232686414917989L;
 
 	public DodavanjeStudentaNaPredmet() {
-			
+		if(MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow() < 0) {
+			JOptionPane.showMessageDialog(null, "Niste izabrali predmet");
+			return;
+		} else {
 			
 		
 			String Indeks = JOptionPane.showInputDialog( null, 
@@ -23,11 +26,8 @@ public class DodavanjeStudentaNaPredmet extends JOptionPane{
 
 	
 	if (Indeks!=null) {
+		
 		int selektovaniRed=MyTabbedPane.getInstance().tabelaPredmeta.convertRowIndexToModel(MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow());
-		if (selektovaniRed<0) {
-			JOptionPane.showMessageDialog(this, "Niste izabrali predmet");
-			return;
-		} else {
 			PredmetiController.getInstance().dodavanjeStudentaNaPredmet(selektovaniRed, Indeks);
 		}
 	}

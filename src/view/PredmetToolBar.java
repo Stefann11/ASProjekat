@@ -30,7 +30,7 @@ public class PredmetToolBar extends JToolBar{
 		
 		JButton btnAdd = new JButton();
 		btnAdd.setToolTipText("Dodaj predmet");
-		btnAdd.setIcon(new ImageIcon("images/add-icon.png"));
+		btnAdd.setIcon(new ImageIcon("images/book-icon.png"));
 		panelLeft.add(btnAdd);
 
 		JButton btnEdit = new JButton();
@@ -47,11 +47,6 @@ public class PredmetToolBar extends JToolBar{
 		btnAddStudent.setToolTipText("Dodaj studenta na predmet");
 		btnAddStudent.setIcon(new ImageIcon("images/add-icon.png"));
 		panelLeft.add(btnAddStudent);
-		
-		JButton btnDeleteStudent = new JButton();
-		btnDeleteStudent.setToolTipText("Obrisi studenta sa predmeta");
-		btnDeleteStudent.setIcon(new ImageIcon("images/delete-student.png"));
-		panelLeft.add(btnDeleteStudent);
 		
 		JButton btnAddProf = new JButton();
 		btnAddProf.setToolTipText("Dodaj profesora na predmet");

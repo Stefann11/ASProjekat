@@ -35,6 +35,11 @@ public class IzmenaPredmeta extends JDialog{
 	private JTextField textFieldSemestar;
 	
 	public IzmenaPredmeta() {
+		if(MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow() < 0) {
+			JOptionPane.showMessageDialog(null, "Niste izabrali predmet");
+			
+			return;
+		} else {
 		setModal(true);
 		setTitle("Izmena predmeta");
 		Toolkit kit = Toolkit.getDefaultToolkit();
@@ -43,6 +48,7 @@ public class IzmenaPredmeta extends JDialog{
         int screenWidth = screenSize.width;
 		setSize(screenWidth / 5, screenHeight / 4);
         setLocationRelativeTo(null);
+        //setVisible(true);
 		getContentPane().setLayout(new BorderLayout());
 		
 		JPanel panel = new JPanel();
@@ -132,16 +138,13 @@ public class IzmenaPredmeta extends JDialog{
 		//za popunjena polja u tabeli predmet
 		int selektovaniRed=MyTabbedPane.getInstance().tabelaPredmeta.convertRowIndexToModel(MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow());
 		
-		if (selektovaniRed < 0) {
-			JOptionPane.showMessageDialog(this, "Niste izabrali predmet");
 			
-		} else {
 			Predmet predmet = BazaPredmeta.getInstance().getRow(selektovaniRed);
 			textFieldSifra.setText(predmet.getSifraPredmeta());
 			textFieldNaziv.setText(predmet.getNazivPredmeta());
 			textFieldSemestar.setText(Integer.toString(predmet.getSemestar()));
 			comboBox.setSelectedItem(predmet.getGodinaStudijaPredmet());
-		}
+		
 		
 		
 		JPanel panelDugm = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -179,6 +182,7 @@ public class IzmenaPredmeta extends JDialog{
 				
 			}
 		});
+		}
 	}
 
 }

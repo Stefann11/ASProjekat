@@ -9,6 +9,8 @@ import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.KeyListener;
 
 import javax.swing.DefaultComboBoxModel;
@@ -20,12 +22,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.PredmetiController;
-import model.BazaPredmeta;
 import model.GodinaStudija;
-import model.MyFocusListener;
 import model.MyKeyListener;
 
-public class DodavanjePredmeta extends JDialog{
+public class DodavanjePredmeta extends JDialog implements FocusListener{
 	private static final long serialVersionUID = -7228140508317519762L;
 	private JTextField textFieldSifra;
 	private JTextField textFieldNaziv;
@@ -145,18 +145,18 @@ public class DodavanjePredmeta extends JDialog{
 		
 		panelDugm.add(btnOdustanak);
 		panelDugm.add(btnPotvrda);
+		btnPotvrda.setEnabled(false);
 		
 		
 		textFieldSifra.setName("textFieldSifra");
 		textFieldNaziv.setName("textFieldNaziv");
 		textFieldSemestar.setName("textFieldSemestar");
 		
-		//btnPotvrda.setEnabled(false);
 		
-		MyFocusListener focusListener = new MyFocusListener();
+		
 		KeyListener keyListener=new MyKeyListener();
-		textFieldSifra.addFocusListener(focusListener);
-		textFieldNaziv.addFocusListener(focusListener);
+		textFieldNaziv.addFocusListener(this);
+		textFieldNaziv.addFocusListener(this);
 		textFieldSemestar.addKeyListener(keyListener);
 		
 		//za disable-ovanje dugmeta dok nisu popunjeti text fieldovi
@@ -165,6 +165,7 @@ public class DodavanjePredmeta extends JDialog{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				String sifra=textFieldSifra.getText();
 				String naziv=textFieldNaziv.getText();
 				int semestar=Integer.parseInt(textFieldSemestar.getText());
@@ -176,6 +177,7 @@ public class DodavanjePredmeta extends JDialog{
 				
 				
 				dispose();
+				
 			}
 		});
 		
@@ -187,6 +189,26 @@ public class DodavanjePredmeta extends JDialog{
 				
 			}
 		});
+		
+	}
+
+	@Override
+	public void focusGained(FocusEvent e) {
+		if (textFieldNaziv.getText().equals("") || textFieldSifra.getText().equals("")) {
+			DodavanjePredmeta.getInstance().btnPotvrda.setEnabled(false);
+		} else {
+			DodavanjePredmeta.getInstance().btnPotvrda.setEnabled(true);
+		}
+		
+	}
+
+	@Override
+	public void focusLost(FocusEvent e) {
+		if (textFieldNaziv.getText().equals("") || textFieldSifra.getText().equals("")) {
+			DodavanjePredmeta.getInstance().btnPotvrda.setEnabled(false);
+		} else {
+			DodavanjePredmeta.getInstance().btnPotvrda.setEnabled(true);
+		}
 		
 	}
 

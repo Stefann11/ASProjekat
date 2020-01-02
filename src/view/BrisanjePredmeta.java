@@ -16,6 +16,10 @@ public class BrisanjePredmeta extends JOptionPane{
 	private static final long serialVersionUID = 2827622382494522439L;
 	
 	public BrisanjePredmeta() {
+		if(MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow() < 0) {
+			JOptionPane.showMessageDialog(null, "Niste izabrali predmet");
+			return;
+		} else {
 		ImageIcon icon = new ImageIcon("images/trash-icon.png");
 		UIManager.put("OptionPane.yesButtonText", "Potvrda");
 
@@ -33,6 +37,7 @@ public class BrisanjePredmeta extends JOptionPane{
 			JOptionPane.showMessageDialog(null, "Predmet nije obrisan.");
 
 			}
+		}
 	}
 
 }

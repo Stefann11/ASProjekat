@@ -161,9 +161,19 @@ public class BazaPredmeta implements Serializable{
 		for (Profesor profesor : BazaProfesora.getInstance().getProfesori()) {
 			i++;
 			if (profesor.getBrojLicneKarte()==broj) {
-				
+				if (predmet.getPredmetniProfesor()!=null) {
+					if (predmet.getPredmetniProfesor().getBrojLicneKarte()!=profesor.getBrojLicneKarte()){
+						Profesor bivsiProf=predmet.getPredmetniProfesor();
+						bivsiProf.getPredmeti().remove(predmet);
+					} else {
+						JOptionPane.showMessageDialog(null, "Uneti profesor je vec predmetni profesor na ovom predmetu");
+						break;
+					}
+				}
 				predmet.setPredmetniProfesor(profesor);
 				profesor.getPredmeti().add(predmet);
+				
+				
 				
 				break;
 			} else if(i==BazaProfesora.getInstance().getProfesori().size()) {

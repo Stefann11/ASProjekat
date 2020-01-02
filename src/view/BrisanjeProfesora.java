@@ -10,7 +10,7 @@ public class BrisanjeProfesora extends JOptionPane{
 
 	private static final long serialVersionUID = 7356169157162363400L;
 	
-	BrisanjeProfesora(){
+	public BrisanjeProfesora(){
 		
 		if(MyTabbedPane.getInstance().tabelaProfesora.getSelectedRow() < 0) {
 			JOptionPane.showMessageDialog(null, "Profesor nije izabran.");
