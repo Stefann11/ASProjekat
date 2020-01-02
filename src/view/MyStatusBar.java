@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 
-public class myStatusBar extends JPanel{
+public class MyStatusBar extends JPanel{
 	/**
 	 * 
 	 */
@@ -20,7 +20,7 @@ public class myStatusBar extends JPanel{
 	
 
 	
-	public myStatusBar() {
+	public MyStatusBar() {
         super();
         setLayout(new BorderLayout());
         

@@ -109,7 +109,7 @@ public class GlavniProzor extends JFrame{
         
         
 		
-		myStatusBar statusBar = new myStatusBar();
+		MyStatusBar statusBar = new MyStatusBar();
 		statusBar.setBackground(Color.WHITE);
 		getContentPane().add(statusBar, BorderLayout.SOUTH);
         
