@@ -194,11 +194,7 @@ public class DodavanjePredmeta extends JDialog implements FocusListener{
 
 	@Override
 	public void focusGained(FocusEvent e) {
-		if (textFieldNaziv.getText().equals("") || textFieldSifra.getText().equals("")) {
-			DodavanjePredmeta.getInstance().btnPotvrda.setEnabled(false);
-		} else {
-			DodavanjePredmeta.getInstance().btnPotvrda.setEnabled(true);
-		}
+		
 		
 	}
 
