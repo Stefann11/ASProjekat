@@ -11,6 +11,12 @@ public class BrisanjeProfesora extends JOptionPane{
 	private static final long serialVersionUID = 7356169157162363400L;
 	
 	BrisanjeProfesora(){
+		
+		if(MyTabbedPane.getInstance().tabelaProfesora.getSelectedRow() < 0) {
+			JOptionPane.showMessageDialog(null, "Profesor nije izabran.");
+			return;
+		}
+		else {
 		ImageIcon icon = new ImageIcon("images/trash-icon.png");
 		UIManager.put("OptionPane.yesButtonText", "Potvrda");
 
@@ -20,7 +26,7 @@ public class BrisanjeProfesora extends JOptionPane{
                 "Da li ste sigurni da želite da obrišete profesora?",
                 "Brisanje Profesora",YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,icon);
 		if (choice == JOptionPane.YES_OPTION) {
-			ProfesoriController.getInstance().IzbrisiProfesora(MyTabbedPane.getInstance().tabelaProfesora.getSelectedRow());
+			ProfesoriController.getInstance().IzbrisiProfesora(MyTabbedPane.getInstance().tabelaProfesora.convertRowIndexToModel(MyTabbedPane.getInstance().tabelaProfesora.getSelectedRow()));
 			JOptionPane.showMessageDialog(null, "Profesor obrisan!");
 		} else {
 
@@ -28,5 +34,5 @@ public class BrisanjeProfesora extends JOptionPane{
 
 			}
 	}
-
+	}
 }

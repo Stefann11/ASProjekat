@@ -59,6 +59,13 @@ public class IzmenaStudenta extends JDialog{
 	private ButtonGroup buttonGroup = new ButtonGroup();
 	
 	public IzmenaStudenta() {
+		
+		if(MyTabbedPane.getInstance().tabelaStudenata.getSelectedRow() < 0) {
+			JOptionPane.showMessageDialog(null, "Student nije izabran.");
+			return;
+		}
+		else {
+		
 		setModal(true);
 		getContentPane().setBackground(Color.WHITE);
 		setTitle("Izmena studenta");
@@ -303,7 +310,7 @@ public class IzmenaStudenta extends JDialog{
 		
 		
 		//POPUNJENA POLJA TABELE STUDENT
-				int selektovaniRed = MyTabbedPane.getInstance().tabelaStudenata.getSelectedRow();
+				int selektovaniRed = MyTabbedPane.getInstance().tabelaStudenata.convertRowIndexToModel(MyTabbedPane.getInstance().tabelaStudenata.getSelectedRow());
 				
 				if (selektovaniRed < 0) {
 					JOptionPane.showMessageDialog(this, "Niste izabrali studenta");
@@ -388,6 +395,6 @@ public class IzmenaStudenta extends JDialog{
 			}
 		});
 	}
-
+	}
 
 }

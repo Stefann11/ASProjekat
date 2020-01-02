@@ -58,6 +58,12 @@ public class IzmenaProfesora extends JDialog{
 	
 	
 public IzmenaProfesora() {
+	
+	if(MyTabbedPane.getInstance().tabelaProfesora.getSelectedRow() < 0) {
+		JOptionPane.showMessageDialog(null, "Profesor nije izabran.");
+		return;
+	}
+	else {
 		setModal(true);
 		getContentPane().setBackground(Color.WHITE);
 		setTitle("Izmena profesora");
@@ -264,7 +270,7 @@ public IzmenaProfesora() {
 		
 		
 		//POPUNJENA POLJA TABELE PROFESOR
-		int selektovaniRed = MyTabbedPane.getInstance().tabelaProfesora.getSelectedRow();
+		int selektovaniRed = MyTabbedPane.getInstance().tabelaProfesora.convertRowIndexToModel(MyTabbedPane.getInstance().tabelaProfesora.getSelectedRow());
 		
 		if (selektovaniRed < 0) {
 			JOptionPane.showMessageDialog(this, "Niste izabrali profesora");
@@ -339,6 +345,6 @@ public IzmenaProfesora() {
 			}
 		});
 	}
-	
+}
 	
 }

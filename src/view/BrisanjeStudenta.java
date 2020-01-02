@@ -16,6 +16,13 @@ public class BrisanjeStudenta extends JOptionPane{
 
 
 	public BrisanjeStudenta() {
+		
+		if(MyTabbedPane.getInstance().tabelaStudenata.getSelectedRow() < 0) {
+			JOptionPane.showMessageDialog(null, "Student nije izabran.");
+			return;
+		}
+		else {
+		
 		ImageIcon icon = new ImageIcon("images/trash-icon.png");
 		UIManager.put("OptionPane.yesButtonText", "Potvrda");
 
@@ -25,13 +32,14 @@ public class BrisanjeStudenta extends JOptionPane{
                 "Da li ste sigurni da želite da obrišete studenta?",
                 "Brisanje Studenta",YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,icon);
 		if (choice == JOptionPane.YES_OPTION) {
-			StudentiController.getInstance().IzbrisiStudenta(MyTabbedPane.getInstance().tabelaStudenata.getSelectedRow());
+			StudentiController.getInstance().IzbrisiStudenta(MyTabbedPane.getInstance().tabelaStudenata.convertRowIndexToModel(MyTabbedPane.getInstance().tabelaStudenata.getSelectedRow()));
 			JOptionPane.showMessageDialog(null, "Student obrisan!");
 		} else {
 
 			JOptionPane.showMessageDialog(null, "Student nije obrisan.");
 
 			}
+	}
 	}
 	
 }
