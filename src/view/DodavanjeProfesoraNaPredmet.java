@@ -21,7 +21,7 @@ public class DodavanjeProfesoraNaPredmet extends JOptionPane{
 
 		if (brojString!=null) {
 			int broj = Integer.parseInt(brojString);
-			int selektovaniRed=MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow();
+			int selektovaniRed=MyTabbedPane.getInstance().tabelaPredmeta.convertRowIndexToModel(MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow());
 			if (selektovaniRed<0) {
 				JOptionPane.showMessageDialog(this, "Niste izabrali predmet");
 				return;

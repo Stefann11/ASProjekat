@@ -66,7 +66,7 @@ public class PredmetiController {
 		}
 		
 		public void obrisiProfesoraSaPredmeta() {
-			int selektovaniRed=MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow();
+			int selektovaniRed=MyTabbedPane.getInstance().tabelaPredmeta.convertRowIndexToModel(MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow());
 			BazaPredmeta.getInstance().obrisiProfesoraSaPredmeta(selektovaniRed);
 			PredAbstractTable model = (PredAbstractTable) MyTabbedPane.getInstance().tabelaPredmeta.getModel();
 			model.fireTableDataChanged();

@@ -56,10 +56,6 @@ public class PredAbstractTable extends AbstractTableModel{
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		if (columnIndex < 5)
 			return BazaPredmeta.getInstance().getValueAt(rowIndex, columnIndex);
-//		else if (columnIndex == 4) {
-//			JButton btn = new JButton("Prikazi" + rowIndex);
-//			return btn;
-//		}
 		else if (columnIndex==5) {
 			JButton btn = new JButton("" + rowIndex);
 			return btn;
@@ -72,17 +68,9 @@ public class PredAbstractTable extends AbstractTableModel{
 	@Override
 	public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
 		super.setValueAt(aValue, rowIndex, columnIndex);
-//		if (columnIndex != 5) {
-//			return;
-//		}
+
 	}
 
-//	public void igracDodat() {
-//		this.koJeOtkacen.add(false);
-//	}
-//	
-//	public void igracUklonjen(int rowIndex) {
-//		this.koJeOtkacen.remove(rowIndex);
-//	}
+
 
 }

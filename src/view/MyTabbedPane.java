@@ -5,6 +5,10 @@ import java.awt.Component;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+
+import model.BazaPredmeta;
 
 public class MyTabbedPane extends JTabbedPane{
 	
@@ -23,6 +27,7 @@ public class MyTabbedPane extends JTabbedPane{
 	public JTable tabelaProfesora;
 	public JTable tabelaStudenata;
 	
+	@SuppressWarnings("unchecked")
 	private MyTabbedPane() {
 		
 		//ZA STUDENTA
@@ -46,6 +51,7 @@ public class MyTabbedPane extends JTabbedPane{
 		//firstPanel.add(scrollStud, BorderLayout.CENTER);
 		//scrollStud1.setViewportView(tabelaStudenata); 
 		tabelaStudenata.setAutoCreateRowSorter(true);
+
 		
 		//KRAJ STUDENTA
 		
@@ -66,10 +72,18 @@ public class MyTabbedPane extends JTabbedPane{
 		//ZA PREDMETE
 		
 		tabelaPredmeta = new PredJTable();
+		
+		//tabelaPredmeta.setAutoCreateRowSorter(true);
+		tabelaPredmeta.setRowSorter(new TableRowSorter<TableModel>(tabelaPredmeta.getModel()));
+		
+		int[] selection=tabelaPredmeta.getSelectedRows();	
+		for (int i = 0; i < selection.length; i++) {
+			selection[i] = tabelaPredmeta.convertRowIndexToModel(selection[i]);
+		}
 
 		JScrollPane scrollPred = new JScrollPane(tabelaPredmeta);
 		
-		tabelaPredmeta.setAutoCreateRowSorter(true);
+		
 		
 //		PredAbstractTable model = (PredAbstractTable) tabelaPredmeta.getModel();
 //		model.fireTableDataChanged();
