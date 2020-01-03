@@ -158,17 +158,22 @@ public class BazaProfesora implements Serializable{
 			String adresaStanovanja, String kontaktTelefon, String email, 
 			String adresaKancelarije, int br, Titula titula, Zvanje zvanje) {
 		int j=0;
-		for(Profesor p : this.profesori) {
-			if(p.getBrojLicneKarte() == br) {
-				JOptionPane.showMessageDialog(null, "Profesor sa licnom kartom: " + br + " vec postoji!");
-				return;
-			}
-		j++;
-		}
-		if(j==this.profesori.size()) {		
 		int i = 0;
 		for (Profesor p : profesori) {
 			if (i==selectedRow) {
+				for(Profesor prof : profesori) {
+					if(prof.getBrojLicneKarte() == br) {
+						if(!prof.equals(p)) {
+							JOptionPane.showMessageDialog(null, "Profesor sa licnom kartom: " + br + " vec postoji!");
+							break;
+						}
+				
+					}
+					j++;
+				}
+				if(j==profesori.size()) {		
+		
+		
 				p.ime = ime;
 				p.prezime = prezime;
 				p.datumRodjenja = datumRodjenja;
@@ -180,8 +185,9 @@ public class BazaProfesora implements Serializable{
 				p.titula = titula;
 				p.zvanje = zvanje;
 			}
+			}
 			i++;
-		}
+		
 		}
 	}
 	

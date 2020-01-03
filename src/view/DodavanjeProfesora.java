@@ -74,7 +74,7 @@ public class DodavanjeProfesora extends JDialog implements FocusListener{
         Dimension screenSize = kit.getScreenSize();
         int screenHeight = screenSize.height;
         int screenWidth = screenSize.width;
-		setSize(screenWidth / 4, screenHeight / 2);
+		setSize(screenWidth / 3, screenHeight / 2);
         setLocationRelativeTo(null);
 		
 		
@@ -101,7 +101,7 @@ public class DodavanjeProfesora extends JDialog implements FocusListener{
 		gbc_textFieldIme.gridx = 1;
 		gbc_textFieldIme.gridy = 0;
 		panel.add(textFieldIme, gbc_textFieldIme);
-		textFieldIme.setColumns(10);
+		textFieldIme.setColumns(20);
 		
 		JLabel lblNewLabel = new JLabel("Prezime*");
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
@@ -119,7 +119,7 @@ public class DodavanjeProfesora extends JDialog implements FocusListener{
 		gbc_textFieldPrezime.gridx = 1;
 		gbc_textFieldPrezime.gridy = 2;
 		panel.add(textFieldPrezime, gbc_textFieldPrezime);
-		textFieldPrezime.setColumns(10);
+		textFieldPrezime.setColumns(20);
 		
 		JLabel lblNewLabel_1 = new JLabel("Datum rodjenja*");
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
@@ -137,7 +137,7 @@ public class DodavanjeProfesora extends JDialog implements FocusListener{
 		gbc_textFieldDatumRodjenja.gridx = 1;
 		gbc_textFieldDatumRodjenja.gridy = 4;
 		panel.add(textFieldDatumRodjenja, gbc_textFieldDatumRodjenja);
-		textFieldDatumRodjenja.setColumns(10);
+		textFieldDatumRodjenja.setColumns(20);
 		
 		JLabel lblNewLabel_2 = new JLabel("Adresa stanovanja*");
 		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
@@ -155,7 +155,7 @@ public class DodavanjeProfesora extends JDialog implements FocusListener{
 		gbc_textFieldAdresaStanovanja.gridx = 1;
 		gbc_textFieldAdresaStanovanja.gridy = 6;
 		panel.add(textFieldAdresaStanovanja, gbc_textFieldAdresaStanovanja);
-		textFieldAdresaStanovanja.setColumns(10);
+		textFieldAdresaStanovanja.setColumns(20);
 		
 		JLabel lblNewLabel_3 = new JLabel("Broj telefona*");
 		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
@@ -173,7 +173,7 @@ public class DodavanjeProfesora extends JDialog implements FocusListener{
 		gbc_textFieldBrojTelefona.gridx = 1;
 		gbc_textFieldBrojTelefona.gridy = 8;
 		panel.add(textFieldBrojTelefona, gbc_textFieldBrojTelefona);
-		textFieldBrojTelefona.setColumns(10);
+		textFieldBrojTelefona.setColumns(20);
 		
 		JLabel lblNewLabel_4 = new JLabel("Email Adresa*");
 		GridBagConstraints gbc_lblNewLabel_4 = new GridBagConstraints();
@@ -191,7 +191,7 @@ public class DodavanjeProfesora extends JDialog implements FocusListener{
 		gbc_textFieldEmailAdresa.gridx = 1;
 		gbc_textFieldEmailAdresa.gridy = 10;
 		panel.add(textFieldEmailAdresa, gbc_textFieldEmailAdresa);
-		textFieldEmailAdresa.setColumns(10);
+		textFieldEmailAdresa.setColumns(20);
 		
 		JLabel lblNewLabel_5 = new JLabel("Adresa kancelarije*");
 		GridBagConstraints gbc_lblNewLabel_5 = new GridBagConstraints();
@@ -209,7 +209,7 @@ public class DodavanjeProfesora extends JDialog implements FocusListener{
 		gbc_textFieldKancelarija.gridx = 1;
 		gbc_textFieldKancelarija.gridy = 12;
 		panel.add(textFieldKancelarija, gbc_textFieldKancelarija);
-		textFieldKancelarija.setColumns(10);
+		textFieldKancelarija.setColumns(20);
 		
 		JLabel lblNewLabel_8 = new JLabel("Broj licne karte*");
 		GridBagConstraints gbc_lblNewLabel_8 = new GridBagConstraints();
@@ -227,7 +227,7 @@ public class DodavanjeProfesora extends JDialog implements FocusListener{
 		gbc_textFieldBrojLicne.gridx = 1;
 		gbc_textFieldBrojLicne.gridy = 14;
 		panel.add(textFieldBrojLicne, gbc_textFieldBrojLicne);
-		textFieldBrojLicne.setColumns(10);
+		textFieldBrojLicne.setColumns(20);
 		
 		JLabel lblNewLabel_6 = new JLabel("Titula*");
 		GridBagConstraints gbc_lblNewLabel_6 = new GridBagConstraints();

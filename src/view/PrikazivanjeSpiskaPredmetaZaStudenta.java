@@ -4,13 +4,13 @@
 package view;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.JDialog;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import model.BazaProfesora;
 import model.BazaStudenta;
 import model.Predmet;
 import model.Student;
@@ -34,10 +34,12 @@ public PrikazivanjeSpiskaPredmetaZaStudenta(){
         Dimension screenSize = kit.getScreenSize();
         int screenHeight = screenSize.height;
         int screenWidth = screenSize.width;
-		setSize(screenWidth / 4, screenHeight/4 );
+		setSize(screenWidth / 3, screenHeight/3 );
         setLocationRelativeTo(null);
 		setVisible(true);
 		JTextArea spisak =new JTextArea();
+		Font font = new Font("Ariel", Font.BOLD, 15);
+		spisak.setFont(font);
 		
 		StringBuilder string = new StringBuilder();
 		

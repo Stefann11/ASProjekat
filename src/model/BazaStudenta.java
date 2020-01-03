@@ -159,17 +159,19 @@ public class BazaStudenta implements Serializable{
 			String emailAdresa, String brojIndeksa, Date date12, GodinaStudija trenutnaGodinaStudija, Status status,
 			double prosecnaOcena) {
 		int j=0;
-		for(Student s : this.studenti) {
-			if(s.getBrojIndeksa().equals(brojIndeksa)) {
-				JOptionPane.showMessageDialog(null, "Student sa indeksom: " + brojIndeksa + " vec postoji!");
-				return;
-			}
-		j++;
-		}
-		if(j==this.studenti.size()) {
 		int i = 0;
-		for (Student s : studenti) {
+		for(Student s : this.studenti) {
 			if (i==selectedRow) {
+				for (Student stud : studenti) {
+					if(stud.getBrojIndeksa().equals(brojIndeksa)) {
+						if(!stud.equals(s)) {
+							JOptionPane.showMessageDialog(null, "Student sa indeksom: " + brojIndeksa + " vec postoji!");
+							break;
+						}
+					}
+					j++;
+				}
+		if(j==this.studenti.size()) {
 				s.ime = ime;
 				s.prezime = prezime;
 				s.datumRodjenja = date1;
@@ -182,8 +184,9 @@ public class BazaStudenta implements Serializable{
 				s.status = status;
 				s.prosecnaOcena = prosecnaOcena;
 			}
+			}
 			i++;
-		}
+		
 		}
 	}
 
