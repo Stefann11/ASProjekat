@@ -88,6 +88,16 @@ btnEdit.addActionListener(new ActionListener() {
 	}
 });
 
+	btnSearch.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			String tekst = textField.getText();
+			ProfJTable table  = ProfJTable.getInstance();
+			table.searchPredmet(tekst);
+			
+		}
+	});
 
 		setBackground(Color.WHITE);
 

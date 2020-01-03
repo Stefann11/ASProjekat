@@ -137,7 +137,8 @@ btnAddProf.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			String tekst = textField.getText();
-			PredmetiController.getInstance().searchPredmet(tekst);
+			PredJTable table  = PredJTable.getInstance();
+			table.searchPredmet(tekst);
 			
 		}
 	});

@@ -31,25 +31,11 @@ public class MyTabbedPane extends JTabbedPane{
 	private MyTabbedPane() {
 		
 		//ZA STUDENTA
-
 		
-//		JScrollPane scrollStud= new JScrollPane();
-//		JTable tabStud= new JTable(new StudentTableModel());
-		//firstPanel.add(scrollStud);
-	//	scrollStud.setViewportView(tabStud);
-		
-
-//		
-//		JScrollPane scrollStud= new JScrollPane();
-//		JTable tabStud= new JTable(new StudentTableModel());
-//		firstPanel.add(scrollStud);
-//		scrollStud.setViewportView(tabStud);
-//		
 		tabelaStudenata = new StudJTable();
 
 		JScrollPane scrollStud1 = new JScrollPane(tabelaStudenata);
-		//firstPanel.add(scrollStud, BorderLayout.CENTER);
-		//scrollStud1.setViewportView(tabelaStudenata); 
+
 		tabelaStudenata.setAutoCreateRowSorter(true);
 
 		
@@ -58,38 +44,32 @@ public class MyTabbedPane extends JTabbedPane{
 		//ZA PROFESORE
 		
 		
-		tabelaProfesora = new ProfJTable();
+		tabelaProfesora = ProfJTable.getInstance();
 
 		JScrollPane scrollProf = new JScrollPane(tabelaProfesora);
-		tabelaProfesora.setAutoCreateRowSorter(true);
-//		ProfAbstractTable modelProf = (ProfAbstractTable) tabelaProfesora.getModel();
-//		modelProf.fireTableDataChanged();
-//		validate();
+		//tabelaProfesora.setAutoCreateRowSorter(true);
+
 		
 		
 		//KRAJ PROFESORA	
 		
 		//ZA PREDMETE
 		
-		tabelaPredmeta = new PredJTable();
+		tabelaPredmeta = PredJTable.getInstance();
 		
 		//tabelaPredmeta.setAutoCreateRowSorter(true);
-		tabelaPredmeta.setRowSorter(new TableRowSorter<TableModel>(tabelaPredmeta.getModel()));
-		
-		int[] selection=tabelaPredmeta.getSelectedRows();	
-		for (int i = 0; i < selection.length; i++) {
-			selection[i] = tabelaPredmeta.convertRowIndexToModel(selection[i]);
-		}
+//		tabelaPredmeta.setRowSorter(new TableRowSorter<TableModel>(tabelaPredmeta.getModel()));
+//		
+//		int[] selection=tabelaPredmeta.getSelectedRows();	
+//		for (int i = 0; i < selection.length; i++) {
+//			selection[i] = tabelaPredmeta.convertRowIndexToModel(selection[i]);
+//		}
 
 		JScrollPane scrollPred = new JScrollPane(tabelaPredmeta);
 		
 		
 		
-//		PredAbstractTable model = (PredAbstractTable) tabelaPredmeta.getModel();
-//		model.fireTableDataChanged();
-//		validate();
 
-		//this.azurirajPrikaz(null, -1);
 		
 		//KRAJ PREDMETA
 		

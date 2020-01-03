@@ -76,36 +76,6 @@ public class PredmetiController {
 			MyTabbedPane.getInstance().validate();
 		}
 		
-		public void searchPredmet(String tekst) {
-			String[] polja = tekst.split(";");
-			String[] deo;
-			String naziv = null, sifra = null, semestarString = null, godinaStudijaString = null;
-			int semestar = 0, godinaStudija = 0;
-			
-			for (int i = 0; i<polja.length;i++) {
-				deo = polja[i].split(":");
-				if (deo[0].equals("sifra")) {
-					sifra = deo[1];
-				} else if (deo[0].equals("naziv")) {
-					naziv = deo[1];
-				} else if (deo[0].equals("semestar")) {
-					semestarString = deo[1];
-					semestar = Integer.parseInt(semestarString);
-				}  else if (deo[0].equals("godina studija")) {
-					godinaStudijaString = deo[1];
-					godinaStudija=Integer.parseInt(godinaStudijaString);
-				}
-			}
-			
-			System.out.println(sifra + ", " + naziv + ", " + semestar + ", " + godinaStudija);
-			List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(2);
-			filters.add(RowFilter.regexFilter(sifra, 1));
-
-			TableRowSorter<PredAbstractTable> sorter;
-			sorter = new TableRowSorter<>((PredAbstractTable) MyTabbedPane.getInstance().getModel());
-			//sorter = new TableRowSorter<PredAbstractTable> MyTabbedPane.getInstance().tabelaPredmeta.getModel();
-			sorter.setRowFilter(RowFilter.andFilter(filters));
-			MyTabbedPane.getInstance().tabelaPredmeta.setRowSorter(sorter);
-		}
+		
 
 }
