@@ -108,7 +108,7 @@ btnAddStudent.addActionListener(new ActionListener() {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		DodavanjeStudentaNaPredmet ds=new DodavanjeStudentaNaPredmet();
+		DodavanjeStudentaNaPredmet ds= DodavanjeStudentaNaPredmet.getInstance();
 		ds.setVisible(true);
 		
 	}
