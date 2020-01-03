@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import controller.ProfesoriController;
 
 public class BazaProfesora implements Serializable{
@@ -128,6 +130,15 @@ public class BazaProfesora implements Serializable{
 	public void dodajProfesora(String ime, String prezime, Date datumRodjenja, 
 			String adresaStanovanja, String kontaktTelefon, String email, 
 			String adresaKancelarije, int br, Titula titula, Zvanje zvanje) {
+		int i=0;
+		for(Profesor p : this.profesori) {
+			if(p.getBrojLicneKarte() == br) {
+				JOptionPane.showMessageDialog(null, "Profesor sa licnom kartom: " + br + " vec postoji!");
+				return;
+			}
+		i++;
+		}
+		if(i==this.profesori.size())
 		this.profesori.add(new Profesor(ime,prezime,datumRodjenja,adresaStanovanja,kontaktTelefon,email,adresaKancelarije,br,titula,zvanje));
 	}
 
@@ -146,6 +157,15 @@ public class BazaProfesora implements Serializable{
 	public void izmeniProfesora(int selectedRow, String ime, String prezime, Date datumRodjenja, 
 			String adresaStanovanja, String kontaktTelefon, String email, 
 			String adresaKancelarije, int br, Titula titula, Zvanje zvanje) {
+		int j=0;
+		for(Profesor p : this.profesori) {
+			if(p.getBrojLicneKarte() == br) {
+				JOptionPane.showMessageDialog(null, "Profesor sa licnom kartom: " + br + " vec postoji!");
+				return;
+			}
+		j++;
+		}
+		if(j==this.profesori.size()) {		
 		int i = 0;
 		for (Profesor p : profesori) {
 			if (i==selectedRow) {
@@ -161,6 +181,7 @@ public class BazaProfesora implements Serializable{
 				p.zvanje = zvanje;
 			}
 			i++;
+		}
 		}
 	}
 	

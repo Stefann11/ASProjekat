@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import controller.PredmetiController;
 import controller.StudentiController;
 
@@ -126,27 +128,45 @@ public class BazaStudenta implements Serializable{
 	public void dodajStudenta(String ime, String prezime, Date date1, String adresaStanovanja, String kontaktTelefon,
 			String emailAdresa, String brojIndeksa, Date date12, GodinaStudija trenutnaGodinaStudija, Status status,
 			double prosecnaOcena) {
+		int i=0;
+		for(Student s : this.studenti) {
+			if(s.getBrojIndeksa().equals(brojIndeksa)) {
+				JOptionPane.showMessageDialog(null, "Student sa indeksom: " + brojIndeksa + " vec postoji!");
+				return;
+			}
+		i++;
+		}
+		if(i==this.studenti.size())
 		this.studenti.add(new Student(ime, prezime, date1, adresaStanovanja, kontaktTelefon, emailAdresa, brojIndeksa, date12, trenutnaGodinaStudija, status,prosecnaOcena));
 	}
+	
 	public void izbrisiStudenta(String id) {
 	for (Student s: BazaStudenta.getInstance().getStudenti()) {
 		if (s.getBrojIndeksa().equals(id)) {
-//				for(Predmet p : BazaPredmeta.getInstance().getPredmeti()) {
-//					for(Student s2 : p.getSpisakStudenata()) {
-//						if(s2.getBrojIndeksa().equals(id)) {
-//						p.getSpisakStudenata().remove(s2);	
-//						}
-//					}
-//				}
+				for(Predmet p : s.getPredmeti()) {			
+						p.getSpisakStudenata().remove(s);	
+						
+					}
+				
 				studenti.remove(s);
 				break;
-			}
 		}
 	}
+	}
+	
 	
 	public void izmeniStudenta(int selectedRow, String ime, String prezime, Date date1, String adresaStanovanja, String kontaktTelefon,
 			String emailAdresa, String brojIndeksa, Date date12, GodinaStudija trenutnaGodinaStudija, Status status,
 			double prosecnaOcena) {
+		int j=0;
+		for(Student s : this.studenti) {
+			if(s.getBrojIndeksa().equals(brojIndeksa)) {
+				JOptionPane.showMessageDialog(null, "Student sa indeksom: " + brojIndeksa + " vec postoji!");
+				return;
+			}
+		j++;
+		}
+		if(j==this.studenti.size()) {
 		int i = 0;
 		for (Student s : studenti) {
 			if (i==selectedRow) {
@@ -163,6 +183,7 @@ public class BazaStudenta implements Serializable{
 				s.prosecnaOcena = prosecnaOcena;
 			}
 			i++;
+		}
 		}
 	}
 
