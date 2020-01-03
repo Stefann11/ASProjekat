@@ -56,6 +56,7 @@ public class MyToolbar extends JToolBar{
 		//btnDelete.setPreferredSize(new Dimension(25, 25));
 		panelRight.add(btnSearch);
 		
+		
 		add(panelLeft, BorderLayout.WEST);
 		add(panelRight, BorderLayout.EAST);
 		

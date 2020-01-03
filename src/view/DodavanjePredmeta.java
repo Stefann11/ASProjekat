@@ -30,7 +30,7 @@ public class DodavanjePredmeta extends JDialog implements FocusListener{
 	private JTextField textFieldSifra;
 	private JTextField textFieldNaziv;
 	private JTextField textFieldSemestar;
-	public JButton btnPotvrda = new JButton("Potvrda");
+	private JButton btnPotvrda = new JButton("Potvrda");
 	
 	private static DodavanjePredmeta instance = null;
 
@@ -145,21 +145,13 @@ public class DodavanjePredmeta extends JDialog implements FocusListener{
 		
 		panelDugm.add(btnOdustanak);
 		panelDugm.add(btnPotvrda);
-		btnPotvrda.setEnabled(false);
-		
-		
-		textFieldSifra.setName("textFieldSifra");
-		textFieldNaziv.setName("textFieldNaziv");
-		textFieldSemestar.setName("textFieldSemestar");
-		
+		btnPotvrda.setEnabled(false);		
 		
 		
 		KeyListener keyListener=new MyKeyListener();
 		textFieldNaziv.addFocusListener(this);
-		textFieldNaziv.addFocusListener(this);
+		textFieldSifra.addFocusListener(this);
 		textFieldSemestar.addKeyListener(keyListener);
-		
-		//za disable-ovanje dugmeta dok nisu popunjeti text fieldovi
 		
 		btnPotvrda.addActionListener(new ActionListener() {
 			
@@ -177,6 +169,10 @@ public class DodavanjePredmeta extends JDialog implements FocusListener{
 				
 				
 				dispose();
+				textFieldNaziv.setText("");
+				textFieldSifra.setText("");
+				textFieldSemestar.setText("");
+				comboBox.setSelectedIndex(0);
 				
 			}
 		});
@@ -186,6 +182,10 @@ public class DodavanjePredmeta extends JDialog implements FocusListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				textFieldNaziv.setText("");
+				textFieldSifra.setText("");
+				textFieldSemestar.setText("");
+				comboBox.setSelectedIndex(0);
 				
 			}
 		});

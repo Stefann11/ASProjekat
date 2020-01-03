@@ -118,7 +118,7 @@ btnAddProf.addActionListener(new ActionListener() {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		DodavanjeProfesoraNaPredmet dp=new DodavanjeProfesoraNaPredmet();
+		DodavanjeProfesoraNaPredmet dp=DodavanjeProfesoraNaPredmet.getInstance();
 		dp.setVisible(true);
 		
 	}
