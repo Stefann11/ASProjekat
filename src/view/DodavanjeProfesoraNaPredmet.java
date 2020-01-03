@@ -21,7 +21,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.PredmetiController;
-import model.MyKeyListener;
+import model.IntegerKeyListener;
 
 public class DodavanjeProfesoraNaPredmet extends JDialog{
 
@@ -77,7 +77,7 @@ public class DodavanjeProfesoraNaPredmet extends JDialog{
 		add(panelZaDugmice, BorderLayout.SOUTH);
 		add(panelCentar, BorderLayout.CENTER);
 		
-		KeyListener keyListener=new MyKeyListener();
+		KeyListener keyListener=new IntegerKeyListener();
 		
 		textField.addKeyListener(keyListener);
 		textField.addKeyListener(new KeyListener() {

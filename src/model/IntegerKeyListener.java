@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-public class MyKeyListener implements KeyListener{
+public class IntegerKeyListener implements KeyListener{
 
 	@Override
 	public void keyPressed(KeyEvent e) {

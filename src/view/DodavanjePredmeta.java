@@ -23,7 +23,7 @@ import javax.swing.JTextField;
 
 import controller.PredmetiController;
 import model.GodinaStudija;
-import model.MyKeyListener;
+import model.IntegerKeyListener;
 
 public class DodavanjePredmeta extends JDialog implements FocusListener{
 	private static final long serialVersionUID = -7228140508317519762L;
@@ -148,7 +148,7 @@ public class DodavanjePredmeta extends JDialog implements FocusListener{
 		btnPotvrda.setEnabled(false);		
 		
 		
-		KeyListener keyListener=new MyKeyListener();
+		KeyListener keyListener=new IntegerKeyListener();
 		textFieldNaziv.addFocusListener(this);
 		textFieldSifra.addFocusListener(this);
 		textFieldSemestar.addKeyListener(keyListener);

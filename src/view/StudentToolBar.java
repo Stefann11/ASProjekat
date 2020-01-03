@@ -18,11 +18,11 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
-public class MyToolbar extends JToolBar{
+public class StudentToolBar extends JToolBar{
 
 	private static final long serialVersionUID = -2714410407038947655L;
 	
-	public MyToolbar() {
+	public StudentToolBar() {
 		
 		super(SwingConstants.HORIZONTAL);
 		
