@@ -94,7 +94,19 @@ public class BazaPredmeta implements Serializable{
 	}
 	
 	public void dodajPredmet(String sifra, String naziv, int semestar, GodinaStudija godina) {
-		this.predmeti.add(new Predmet(sifra, naziv, semestar, godina));
+		int i = 0;
+		for (Predmet p: this.predmeti) {
+			if (p.getSifraPredmeta().contentEquals(sifra)) {
+				JOptionPane.showMessageDialog(null, "Vec postoji predmet sa sifrom: " + sifra );
+				break;
+			}
+			i++;
+		}
+		if (i==this.predmeti.size()) {
+			this.predmeti.add(new Predmet(sifra, naziv, semestar, godina));
+		}
+		
+			
 	}
 
 	public void izbrisiPredmet(String id) {
@@ -116,12 +128,24 @@ public class BazaPredmeta implements Serializable{
 	
 	public void izmeniPredmet(int selectedRow, String sifra, String naziv, int semestar, GodinaStudija godina) {
 		int i = 0;
+		int brojac = 0;
 		for (Predmet p : predmeti) {
 			if (i==selectedRow) {
-				p.setSifraPredmeta(sifra);
-				p.setNazivPredmeta(naziv);
-				p.setSemestar(semestar);
-				p.setGodinaStudijaPredmet(godina);
+				for (Predmet predmet: predmeti) {
+					if (predmet.getSifraPredmeta().equals(sifra)) {
+						if (!predmet.equals(p)) {
+							JOptionPane.showMessageDialog(null, "Vec postoji predmet sa sifrom: " + sifra);
+							break;
+						}
+					}
+					brojac++;
+				}
+				if (brojac==predmeti.size()) {
+					p.setSifraPredmeta(sifra);
+					p.setNazivPredmeta(naziv);
+					p.setSemestar(semestar);
+					p.setGodinaStudijaPredmet(godina);
+				}
 			}
 			i++;
 		}

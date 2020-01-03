@@ -33,10 +33,13 @@ public class PrikazivanjeSpiskaPredmetaZaProfesora extends JDialog{
 		
 		StringBuilder string = new StringBuilder();
 		
-		int selektovaniRed = MyTabbedPane.getInstance().tabelaProfesora.getSelectedRow();
-		if (selektovaniRed<0)
+		
+		
+		
+		if (MyTabbedPane.getInstance().tabelaProfesora.getSelectedRow()<0)
 			return;
 		else {
+			int selektovaniRed=MyTabbedPane.getInstance().tabelaProfesora.convertRowIndexToModel(MyTabbedPane.getInstance().tabelaProfesora.getSelectedRow());
 			Profesor profesor = BazaProfesora.getInstance().getRow(selektovaniRed);
 		
 			if (profesor.getPredmeti()==null) {
