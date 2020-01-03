@@ -142,10 +142,27 @@ public class MyMenuBar  extends JMenuBar {
 		miHelp.setMnemonic(KeyEvent.VK_H);
 		miHelp.setAccelerator(KeyStroke.getKeyStroke(
 		        KeyEvent.VK_H, ActionEvent.CTRL_MASK));
+		miHelp.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Help h = new Help();
+				h.setVisible(true);
+			}
+		});	
+		
 		JMenuItem miAbout = new JMenuItem("About");
 		miAbout.setMnemonic(KeyEvent.VK_A);
 		miAbout.setAccelerator(KeyStroke.getKeyStroke(
 		        KeyEvent.VK_A, ActionEvent.CTRL_MASK));
+		miAbout.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				About about = new About();
+				about.setVisible(true);
+			}
+		});
 		miHelp.setIcon(new ImageIcon("images/help-icon.png"));
 		miAbout.setIcon(new ImageIcon("images/about-icon.png"));
 
