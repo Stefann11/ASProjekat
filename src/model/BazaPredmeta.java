@@ -128,17 +128,19 @@ public class BazaPredmeta implements Serializable{
 	}
 	
 	
-	public void dodajStudentaNaPredmet(int selectedRow, String indeks) {
+	public boolean dodajStudentaNaPredmet(int selectedRow, String indeks) {
 		Predmet predmet = BazaPredmeta.getInstance().getRow(selectedRow);
 		for (Student student : BazaStudenta.getInstance().getStudenti()) {
 			if (student.getBrojIndeksa().equals(indeks)) {
+				if(student.getTrenutnaGodinaStudija().toString().equals(predmet.getGodinaStudijaPredmet().toString())) {
 				predmet.getSpisakStudenata().add(student);
-	
 				PrikazivanjeSpiskaStudenata.getInstance().dodajStudentaNaCombobox(student);
-				student.getPredmeti().add(predmet);			
-				break;
+				student.getPredmeti().add(predmet);
+				return true;
+				}
 			}
 		}
+		return false;
 	}
 	
 	public void obrisiStudentaSaPredmeta(int selectedRow, String index) {

@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.awt.event.KeyListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,6 +28,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import controller.StudentiController;
+import model.DoubleKeyListener;
 import model.GodinaStudija;
 import model.Status;
 
@@ -49,8 +51,8 @@ public class DodavanjeStudenta extends JDialog implements FocusListener{
 	private JTextField textFieldDatumUpisa;
 	private String placaFaks;
 	private ButtonGroup buttonGroup = new ButtonGroup();
-	JButton btnPotvrda = new JButton("Potvrda");
-	JButton btnOdustanak = new JButton("Odustanak");
+	private JButton btnPotvrda = new JButton("Potvrda");
+	private JButton btnOdustanak = new JButton("Odustanak");
 	
 	
 	
@@ -64,7 +66,7 @@ public class DodavanjeStudenta extends JDialog implements FocusListener{
 	}
 	
 	
-	public DodavanjeStudenta() {
+	private DodavanjeStudenta() {
 		setModal(true);
 		getContentPane().setBackground(Color.WHITE);
 		setTitle("Dodavanje studenta");
@@ -310,8 +312,16 @@ public class DodavanjeStudenta extends JDialog implements FocusListener{
 		
 		JPanel panelZaDugmice = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		getContentPane().add(panelZaDugmice, BorderLayout.SOUTH);
-		
-		
+		KeyListener keyListener=new DoubleKeyListener();
+		textFieldIme.addFocusListener(this);
+		textFieldPrezime.addFocusListener(this);
+		textFieldBrojIndeksa.addFocusListener(this);
+		textFieldBrojTelefona.addFocusListener(this);
+		textFieldEmail.addFocusListener(this);
+		textFieldAdresaStanovanja.addFocusListener(this);
+		textFieldProsek.addKeyListener(keyListener);
+		textFieldDatumRodjenja.addFocusListener(this);
+		textFieldDatumUpisa.addFocusListener(this);
 		
 		
 		
@@ -356,6 +366,17 @@ public class DodavanjeStudenta extends JDialog implements FocusListener{
 			
 			
 			dispose();
+			textFieldIme.setText("");
+			textFieldPrezime.setText("");
+			textFieldBrojIndeksa.setText("");
+			textFieldBrojTelefona.setText("");
+			textFieldEmail.setText("");
+			textFieldAdresaStanovanja.setText("");
+			textFieldProsek.setText("");
+			textFieldDatumRodjenja.setText("");
+			textFieldDatumUpisa.setText("");
+			comboBox.setSelectedIndex(0);
+			buttonGroup.clearSelection();
 		}
 	});
 		
@@ -370,7 +391,17 @@ public class DodavanjeStudenta extends JDialog implements FocusListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				
+				textFieldIme.setText("");
+				textFieldPrezime.setText("");
+				textFieldBrojIndeksa.setText("");
+				textFieldBrojTelefona.setText("");
+				textFieldEmail.setText("");
+				textFieldAdresaStanovanja.setText("");
+				textFieldProsek.setText("");
+				textFieldDatumRodjenja.setText("");
+				textFieldDatumUpisa.setText("");
+				comboBox.setSelectedIndex(0);
+				buttonGroup.clearSelection();
 			}
 		});
 	}

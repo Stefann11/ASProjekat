@@ -30,13 +30,13 @@ public class MyMenuBar  extends JMenuBar {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (GlavniProzor.otvoreniTab==0) {
-				DodavanjeStudenta dp=new DodavanjeStudenta();			
+				DodavanjeStudenta dp= DodavanjeStudenta.getInstance();			
 				dp.setVisible(true);
 				}
 				
 				
 				else if(GlavniProzor.otvoreniTab==1) {
-					DodavanjeProfesora dp=new DodavanjeProfesora();
+					DodavanjeProfesora dp=DodavanjeProfesora.getInstance();
 					dp.setVisible(true);
 				}
 				

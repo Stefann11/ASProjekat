@@ -47,8 +47,8 @@ public class DodavanjeProfesora extends JDialog implements FocusListener{
 	private JTextField textFieldTitula;
 	private JTextField textFieldZvanje;
 	private JTextField textFieldBrojLicne;
-	JButton btnPotvrda = new JButton("Potvrda");
-	JButton btnOdustanak = new JButton("Odustanak");
+	private JButton btnPotvrda = new JButton("Potvrda");
+	private JButton btnOdustanak = new JButton("Odustanak");
 	
 	
 	
@@ -64,7 +64,7 @@ public class DodavanjeProfesora extends JDialog implements FocusListener{
 
 	
 	
-public DodavanjeProfesora() {
+	private DodavanjeProfesora() {
 		setModal(true);
 		getContentPane().setBackground(Color.WHITE);
 		setTitle("Dodavanje profesora");
@@ -274,8 +274,14 @@ public DodavanjeProfesora() {
 		
 		JPanel panelZaDugmice = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		getContentPane().add(panelZaDugmice, BorderLayout.SOUTH);
-		
-		
+		textFieldIme.addFocusListener(this);
+		textFieldPrezime.addFocusListener(this);
+		textFieldBrojLicne.addFocusListener(this);
+		textFieldBrojTelefona.addFocusListener(this);
+		textFieldEmailAdresa.addFocusListener(this);
+		textFieldAdresaStanovanja.addFocusListener(this);
+		textFieldKancelarija.addFocusListener(this);
+		textFieldDatumRodjenja.addFocusListener(this);
 		
 		panelZaDugmice.add(btnOdustanak);
 		panelZaDugmice.add(btnPotvrda);
@@ -310,6 +316,17 @@ public DodavanjeProfesora() {
 				
 				
 				dispose();
+				textFieldIme.setText("");
+				textFieldPrezime.setText("");
+				textFieldBrojLicne.setText("");
+				textFieldBrojTelefona.setText("");
+				textFieldEmailAdresa.setText("");
+				textFieldAdresaStanovanja.setText("");
+				textFieldKancelarija.setText("");
+				textFieldDatumRodjenja.setText("");
+				comboBox.setSelectedIndex(0);
+				comboBox2.setSelectedIndex(0);
+				
 			}
 		});
 		
@@ -318,7 +335,16 @@ public DodavanjeProfesora() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				
+				textFieldIme.setText("");
+				textFieldPrezime.setText("");
+				textFieldBrojLicne.setText("");
+				textFieldBrojTelefona.setText("");
+				textFieldEmailAdresa.setText("");
+				textFieldAdresaStanovanja.setText("");
+				textFieldKancelarija.setText("");
+				textFieldDatumRodjenja.setText("");
+				comboBox.setSelectedIndex(0);
+				comboBox2.setSelectedIndex(0);
 			}
 		});
 	}
@@ -332,10 +358,10 @@ public DodavanjeProfesora() {
 
 	@Override
 	public void focusLost(FocusEvent e) {
-		if (textFieldIme.getText().equals("") || textFieldPrezime.getText().equals("") || textFieldDatumRodjenja.getText().equals("") || textFieldAdresaStanovanja.getText().equals("") || textFieldBrojTelefona.getText().equals("") || textFieldKancelarija.getText().equals("") || textFieldBrojLicne.getText().equals("") || textFieldEmailAdresa.getText().equals("")) {
-			DodavanjePredmeta.getInstance().btnPotvrda.setEnabled(false);
+		if (DodavanjeProfesora.getInstance().textFieldIme.getText().equals("") || DodavanjeProfesora.getInstance().textFieldPrezime.getText().equals("") || DodavanjeProfesora.getInstance().textFieldDatumRodjenja.getText().equals("") || DodavanjeProfesora.getInstance().textFieldAdresaStanovanja.getText().equals("") || DodavanjeProfesora.getInstance().textFieldBrojTelefona.getText().equals("") || DodavanjeProfesora.getInstance().textFieldKancelarija.getText().equals("") || DodavanjeProfesora.getInstance().textFieldBrojLicne.getText().equals("") || DodavanjeProfesora.getInstance().textFieldEmailAdresa.getText().equals("")) {
+			DodavanjeProfesora.getInstance().btnPotvrda.setEnabled(false);
 		} else {
-			DodavanjePredmeta.getInstance().btnPotvrda.setEnabled(true);
+			DodavanjeProfesora.getInstance().btnPotvrda.setEnabled(true);
 		}
 	
 	}

@@ -80,7 +80,7 @@ btnAdd.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				DodavanjeStudenta dp=new DodavanjeStudenta();
+				DodavanjeStudenta dp=DodavanjeStudenta.getInstance();
 				dp.setVisible(true);
 				
 			}

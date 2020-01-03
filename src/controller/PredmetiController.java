@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -51,8 +52,11 @@ public class PredmetiController {
 		
 		
 		public void dodavanjeStudentaNaPredmet(int selektovaniRed, String indeks) {
-			BazaPredmeta.getInstance().dodajStudentaNaPredmet(selektovaniRed, indeks);
+			if(BazaPredmeta.getInstance().dodajStudentaNaPredmet(selektovaniRed, indeks))
 			promeniIzgled();
+			else {
+				JOptionPane.showMessageDialog(null, "Student nije dodat, jer njegova/njena godina studija nije ista kao i godina na kojoj se slusa predmet.");
+			}
 		}
 		
 		public void dodavanjeProfesoraNaPredmet(int selektovaniRed, int broj) {
