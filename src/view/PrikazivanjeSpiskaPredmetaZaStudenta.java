@@ -41,10 +41,11 @@ public PrikazivanjeSpiskaPredmetaZaStudenta(){
 		
 		StringBuilder string = new StringBuilder();
 		
-		int selektovaniRed = MyTabbedPane.getInstance().tabelaStudenata.getSelectedRow();
-		if (selektovaniRed<0)
+		 
+		if ( MyTabbedPane.getInstance().tabelaStudenata.getSelectedRow() < 0)
 			return;
 		else {
+			int selektovaniRed = MyTabbedPane.getInstance().tabelaStudenata.convertRowIndexToModel(MyTabbedPane.getInstance().tabelaStudenata.getSelectedRow());
 			Student student = BazaStudenta.getInstance().getRow(selektovaniRed);
 		
 			if (student.getPredmeti()==null) {
