@@ -94,7 +94,7 @@ btnEdit.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			String tekst = textField.getText();
 			ProfJTable table  = ProfJTable.getInstance();
-			table.searchPredmet(tekst);
+			table.searchProfesor(tekst);
 			
 		}
 	});
