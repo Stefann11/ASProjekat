@@ -60,14 +60,13 @@ public class StudentToolBar extends JToolBar{
 		add(panelLeft, BorderLayout.WEST);
 		add(panelRight, BorderLayout.EAST);
 		
-btnSearch.addActionListener(new ActionListener() {
+		btnSearch.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-			    TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((AbstractTableModel) MyTabbedPane.getInstance().tabelaStudenata.getModel())); 
-			    sorter.setRowFilter(RowFilter.regexFilter(textField.getText()));
-
-			    MyTabbedPane.getInstance().tabelaStudenata.setRowSorter(sorter);
+				String tekst = textField.getText();
+				StudJTable table  = StudJTable.getInstance();
+				table.searchStudent(tekst);
 				
 			}
 		});

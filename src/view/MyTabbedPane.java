@@ -32,11 +32,11 @@ public class MyTabbedPane extends JTabbedPane{
 		
 		//ZA STUDENTA
 		
-		tabelaStudenata = new StudJTable();
+		tabelaStudenata = StudJTable.getInstance();
 
 		JScrollPane scrollStud1 = new JScrollPane(tabelaStudenata);
 
-		tabelaStudenata.setAutoCreateRowSorter(true);
+	//	tabelaStudenata.setAutoCreateRowSorter(true);
 
 		
 		//KRAJ STUDENTA
