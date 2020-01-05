@@ -31,9 +31,7 @@ public class ProfesoriController {
 			String adresaStanovanja, String kontaktTelefon, String email, 
 			String adresaKancelarije, int br, Titula titula, Zvanje zvanje ) {
 		BazaProfesora.getInstance().dodajProfesora(ime,prezime,datumRodjenja,adresaStanovanja,kontaktTelefon,email,adresaKancelarije,br,titula,zvanje);
-		ProfAbstractTable model = (ProfAbstractTable) MyTabbedPane.getInstance().tabelaProfesora.getModel();
-		model.fireTableDataChanged();
-		MyTabbedPane.getInstance().validate();
+		promeniIzgled();
 	}
 	
 	
@@ -63,5 +61,6 @@ public class ProfesoriController {
 	public void promeniIzgled() {
 		ProfAbstractTable model = (ProfAbstractTable) MyTabbedPane.getInstance().tabelaProfesora.getModel();
 		model.fireTableDataChanged();
+		MyTabbedPane.getInstance().validate();
 	}
 }

@@ -33,9 +33,7 @@ public class StudentiController {
 			String emailAdresa, String brojIndeksa, Date date12, GodinaStudija trenutnaGodinaStudija, Status status,
 			double prosecnaOcena) {
 		BazaStudenta.getInstance().dodajStudenta(ime, prezime, date1, adresaStanovanja, kontaktTelefon, emailAdresa, brojIndeksa, date12, trenutnaGodinaStudija, status,prosecnaOcena);
-		StudAbstractTable model = (StudAbstractTable) MyTabbedPane.getInstance().tabelaStudenata.getModel();
-		model.fireTableDataChanged();
-		MyTabbedPane.getInstance().validate();
+		promeniIzgled();
 	}
 	
 	public void IzbrisiStudenta(int rowSelectedIndex) {
@@ -66,6 +64,7 @@ public class StudentiController {
 		StudAbstractTable model = (StudAbstractTable) MyTabbedPane.getInstance().tabelaStudenata.getModel();
 		
 		model.fireTableDataChanged();
+		MyTabbedPane.getInstance().validate();
 	}
 	
 }

@@ -50,7 +50,7 @@ public class About extends JDialog{
 		
 		add(panelZaDugmice, BorderLayout.SOUTH);
 		
-		String str = "Projekat su radili uèenici Stefan Santraè RA135-2017 i Aleksa Santraè RA137-2017.\n" + 
+		String str = "Projekat su radili studenti Stefan Santraè RA135-2017 i Aleksa Santraè RA137-2017.\n" + 
 				     "Aplikacija predstavlja model studentske službe.\n" +
 				     "Predstavlja vezu imeðu studenata, profesora i predmeta. \n" +
 				     "Projekat je radjen u eclipse-u na Javi programskom jeziku i predstavlja \n" +
