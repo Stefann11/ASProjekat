@@ -115,7 +115,8 @@ public class BazaStudenta implements Serializable{
 		case 6:
 			return student.getEmailAdresa();
 		case 7:
-			return student.getDatumUpisa().toString();
+			String date2 = formatter.format(student.getDatumUpisa());
+			return date2;
 		case 8:
 			return student.getTrenutnaGodinaStudija().toString();
 		case 9:
