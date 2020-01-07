@@ -31,7 +31,7 @@ public class BazaStudenta implements Serializable{
 	private List<Student> studenti;
 	private List<String> kolone;
 
-	SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 	
 	private BazaStudenta() {
 	
@@ -54,11 +54,11 @@ public class BazaStudenta implements Serializable{
 
 	private void initStudenti() {
 		this.studenti = new ArrayList<Student>();
-		String dateInString1 = "31.08.1982";
+		String dateInString1 = "31/08/1982";
 		Date date1 = new Date();
-		String dateInString2 = "12.12.1968";
+		String dateInString2 = "12/12/1968";
 		Date date2 = new Date();
-		String dateInString3 = "02.06.1970";
+		String dateInString3 = "02/06/1970";
 		Date date3 = new Date();
 		try {
 			date1 = formatter.parse(dateInString1);
@@ -106,7 +106,8 @@ public class BazaStudenta implements Serializable{
 		case 2:
 			return student.getPrezime();
 		case 3:
-			return student.getDatumRodjenja().toString();
+			String date = formatter.format(student.getDatumRodjenja());
+			return date;
 		case 4:
 			return student.getAdresaStanovanja();
 		case 5:
