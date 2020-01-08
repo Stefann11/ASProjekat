@@ -195,7 +195,7 @@ public class DodavanjeStudenta extends JDialog implements FocusListener{
 		textFieldBrojIndeksa.setColumns(20);
 		
 		
-		JLabel lblNewLabel_5 = new JLabel("Proseèna ocena*");
+		JLabel lblNewLabel_5 = new JLabel("ProseÃ¨na ocena*");
 		GridBagConstraints gbc_lblNewLabel_5 = new GridBagConstraints();
 		gbc_lblNewLabel_5.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel_5.insets = new Insets(10, 30, 10, 10);
@@ -272,7 +272,7 @@ public class DodavanjeStudenta extends JDialog implements FocusListener{
 		gbc_comboBox.gridx = 2;
 		gbc_comboBox.gridy = 18;
 		panel.add(comboBox, gbc_comboBox);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"PRVA", "DRUGA", "TREÆA", "ÈETVRTA"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"PRVA", "DRUGA", "TREÄ†A", "ÄŒETVRTA"}));
 		
 		JRadioButton RadioButton1 = new JRadioButton("Bud\u017Eet");
 		GridBagConstraints gbc_RadioButton1 = new GridBagConstraints();

@@ -10,7 +10,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.DefaultComboBoxModel;
@@ -25,7 +25,7 @@ import controller.PredmetiController;
 import model.GodinaStudija;
 import model.IntegerKeyListener;
 
-public class DodavanjePredmeta extends JDialog implements FocusListener{
+public class DodavanjePredmeta extends JDialog implements KeyListener{
 	private static final long serialVersionUID = -7228140508317519762L;
 	private JTextField textFieldSifra;
 	private JTextField textFieldNaziv;
@@ -149,9 +149,10 @@ public class DodavanjePredmeta extends JDialog implements FocusListener{
 		
 		
 		KeyListener keyListener=new IntegerKeyListener();
-		textFieldNaziv.addFocusListener(this);
-		textFieldSifra.addFocusListener(this);
 		textFieldSemestar.addKeyListener(keyListener);
+		textFieldNaziv.addKeyListener(this);
+		textFieldSemestar.addKeyListener(this);
+		textFieldSifra.addKeyListener(this);
 		
 		btnPotvrda.addActionListener(new ActionListener() {
 			
@@ -193,18 +194,24 @@ public class DodavanjePredmeta extends JDialog implements FocusListener{
 	}
 
 	@Override
-	public void focusGained(FocusEvent e) {
-		
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void focusLost(FocusEvent e) {
-		if (textFieldNaziv.getText().equals("") || textFieldSifra.getText().equals("")) {
-			DodavanjePredmeta.getInstance().btnPotvrda.setEnabled(false);
+	public void keyReleased(KeyEvent e) {
+		if (textFieldNaziv.getText().equals("") || textFieldSifra.getText().equals("") || textFieldSemestar.getText().equals("")) {
+			btnPotvrda.setEnabled(false);
 		} else {
-			DodavanjePredmeta.getInstance().btnPotvrda.setEnabled(true);
+			btnPotvrda.setEnabled(true);
 		}
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 

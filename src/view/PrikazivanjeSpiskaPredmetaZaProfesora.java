@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.JDialog;
@@ -30,6 +31,8 @@ public class PrikazivanjeSpiskaPredmetaZaProfesora extends JDialog{
         setLocationRelativeTo(null);
 		setVisible(true);
 		JTextArea spisak =new JTextArea();
+		Font font = new Font("Ariel", Font.BOLD, 15);
+		spisak.setFont(font);
 		
 		StringBuilder string = new StringBuilder();
 		

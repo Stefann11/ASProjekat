@@ -9,6 +9,8 @@ import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -22,9 +24,10 @@ import javax.swing.JTextField;
 import controller.PredmetiController;
 import model.BazaPredmeta;
 import model.GodinaStudija;
+import model.IntegerKeyListener;
 import model.Predmet;
 
-public class IzmenaPredmeta extends JDialog{
+public class IzmenaPredmeta extends JDialog implements KeyListener{
 
 	/**
 	 * 
@@ -33,6 +36,7 @@ public class IzmenaPredmeta extends JDialog{
 	private JTextField textFieldSifra;
 	private JTextField textFieldNaziv;
 	private JTextField textFieldSemestar;
+	private JButton btnPotvrda = new JButton("Potvrda");
 	
 	public IzmenaPredmeta() {
 		if(MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow() < 0) {
@@ -152,10 +156,15 @@ public class IzmenaPredmeta extends JDialog{
 
 		
 		JButton btnOdustanak = new JButton("Odustanak");
-		JButton btnPotvrda = new JButton("Potvrda");
 		
 		panelDugm.add(btnOdustanak);
 		panelDugm.add(btnPotvrda);
+		
+		KeyListener keyListener=new IntegerKeyListener();
+		textFieldSemestar.addKeyListener(keyListener);
+		textFieldNaziv.addKeyListener(this);
+		textFieldSemestar.addKeyListener(this);
+		textFieldSifra.addKeyListener(this);
 		
 		btnPotvrda.addActionListener(new ActionListener() {
 			
@@ -183,6 +192,28 @@ public class IzmenaPredmeta extends JDialog{
 			}
 		});
 		}
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		if (textFieldNaziv.getText().equals("") || textFieldSifra.getText().equals("") || textFieldSemestar.getText().equals("")) {
+			btnPotvrda.setEnabled(false);
+		} else {
+			btnPotvrda.setEnabled(true);
+		}
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
