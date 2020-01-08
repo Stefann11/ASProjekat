@@ -143,6 +143,7 @@ public class BazaStudenta implements Serializable{
 	}
 	
 	public void izbrisiStudenta(String id) {
+		id=id.trim();
 	for (Student s: BazaStudenta.getInstance().getStudenti()) {
 		if (s.getBrojIndeksa().equals(id)) {
 				for(Predmet p : s.getPredmeti()) {			
