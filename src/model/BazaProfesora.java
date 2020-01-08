@@ -107,7 +107,8 @@ public class BazaProfesora implements Serializable{
 		case 1:
 			return profesor.getPrezime();
 		case 2:
-			return profesor.getDatumRodjenja().toString();
+			String date = formatter.format(profesor.getDatumRodjenja());
+			return date;
 		case 3:
 			return profesor.getAdresaStanovanja();
 		case 4:

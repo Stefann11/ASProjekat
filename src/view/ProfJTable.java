@@ -52,7 +52,7 @@ private static ProfJTable instance = null;
 		return c;
 	}
 	
-	public void searchPredmet(String tekst) {
+	public void searchProfesor(String tekst) {
 		String[] polja = tekst.split(";");
 		String[] deo;
 		String ime = null, prezime = null, datum = null, adresaStanovanja = null, telefon = null, email = null;
@@ -105,11 +105,14 @@ private static ProfJTable instance = null;
 		if(adresaKancelarije!=null)
 			rfs.add(RowFilter.regexFilter(adresaKancelarije, 6));
 		
+		if(licnaKarta!=null)
+			rfs.add(RowFilter.regexFilter(licnaKarta, 7));
+		
 		if(titula!=null)
-			rfs.add(RowFilter.regexFilter(titula, 7));
+			rfs.add(RowFilter.regexFilter(titula, 8));
 		
 		if(zvanje!=null)
-			rfs.add(RowFilter.regexFilter(zvanje, 8));
+			rfs.add(RowFilter.regexFilter(zvanje, 9));
 		
 		
 		sorter.setRowFilter(RowFilter.andFilter(rfs));
