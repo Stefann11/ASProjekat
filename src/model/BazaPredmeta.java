@@ -45,10 +45,10 @@ public class BazaPredmeta implements Serializable{
 
 	private void initPredmete() {
 		this.predmeti = new ArrayList<Predmet>();
-		predmeti.add(new Predmet("sp1", "Analiza", 1, GodinaStudija.PRVA));
-		predmeti.add(new Predmet("sp2", "Algebra", 3, GodinaStudija.DRUGA));
-		predmeti.add(new Predmet("sp3", "Programiranje", 5, GodinaStudija.TREĆA));
-		
+//		predmeti.add(new Predmet("sp1", "Analiza", 1, GodinaStudija.PRVA));
+//		predmeti.add(new Predmet("sp2", "Algebra", 3, GodinaStudija.DRUGA));
+//		predmeti.add(new Predmet("sp3", "Programiranje", 5, GodinaStudija.TREĆA));
+//		
 	}
 
 	public List<Predmet> getPredmeti() {
@@ -158,7 +158,7 @@ public class BazaPredmeta implements Serializable{
 			if (student.getBrojIndeksa().equals(indeks)) {
 				if(student.getTrenutnaGodinaStudija().toString().equals(predmet.getGodinaStudijaPredmet().toString())) {
 				predmet.getSpisakStudenata().add(student);
-				PrikazivanjeSpiskaStudenata.getInstance().dodajStudentaNaCombobox(student);
+				
 				student.getPredmeti().add(predmet);
 				return true;
 				}

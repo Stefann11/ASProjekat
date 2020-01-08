@@ -63,7 +63,7 @@ implements TableCellRenderer, TableCellEditor, MouseListener{
 				} else if (GlavniProzor.otvoreniTab==1) {
 					PrikazivanjeSpiskaPredmetaZaProfesora pp = new PrikazivanjeSpiskaPredmetaZaProfesora();
 				} else {
-					PrikazivanjeSpiskaStudenata pss = PrikazivanjeSpiskaStudenata.getInstance();
+					PrikazivanjeSpiskaStudenata pss = new PrikazivanjeSpiskaStudenata();
 					pss.setVisible(true);
 				}
 				

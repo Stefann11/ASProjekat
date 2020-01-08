@@ -54,25 +54,25 @@ public class BazaStudenta implements Serializable{
 
 	private void initStudenti() {
 		this.studenti = new ArrayList<Student>();
-		String dateInString1 = "31/08/1982";
-		Date date1 = new Date();
-		String dateInString2 = "12/12/1968";
-		Date date2 = new Date();
-		String dateInString3 = "02/06/1970";
-		Date date3 = new Date();
-		try {
-			date1 = formatter.parse(dateInString1);
-			date2 = formatter.parse(dateInString2);
-			date3 = formatter.parse(dateInString3);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		studenti.add(new Student("Petar", "Petrovic",(Date) date1,"Novi Sad","+38163444555","bla.bla@gmail.com","RA12-2017",(Date) date1,GodinaStudija.TREĆA, Status.S,6.94));
-		studenti.add(new Student("Andrija", "Markovic",(Date) date1,"Novi Sad","+38163333252","andrijamar@gmail.com","RA13-2018",(Date) date1,GodinaStudija.DRUGA, Status.B,7.94));
-		studenti.add(new Student("Jovana", "Ristic",(Date) date1,"Novi Sad","+38163444555","bla.bla@gmail.com","RA12-2019",(Date) date1,GodinaStudija.PRVA, Status.B,8.80));
-		
+//		String dateInString1 = "31/08/1982";
+//		Date date1 = new Date();
+//		String dateInString2 = "12/12/1968";
+//		Date date2 = new Date();
+//		String dateInString3 = "02/06/1970";
+//		Date date3 = new Date();
+//		try {
+//			date1 = formatter.parse(dateInString1);
+//			date2 = formatter.parse(dateInString2);
+//			date3 = formatter.parse(dateInString3);
+//		} catch (ParseException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		studenti.add(new Student("Petar", "Petrovic",(Date) date1,"Novi Sad","+38163444555","bla.bla@gmail.com","RA12-2017",(Date) date1,GodinaStudija.TREĆA, Status.S,6.94));
+//		studenti.add(new Student("Andrija", "Markovic",(Date) date1,"Novi Sad","+38163333252","andrijamar@gmail.com","RA13-2018",(Date) date1,GodinaStudija.DRUGA, Status.B,7.94));
+//		studenti.add(new Student("Jovana", "Ristic",(Date) date1,"Novi Sad","+38163444555","bla.bla@gmail.com","RA12-2019",(Date) date1,GodinaStudija.PRVA, Status.B,8.80));
+//		
 		
 	}
 

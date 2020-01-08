@@ -55,28 +55,28 @@ public class BazaProfesora implements Serializable{
 
 	private void initProfesore() {
 		this.profesori = new ArrayList<Profesor>();
-		String dateInString1 = "31/08/1982";
-		Date date1 = new Date();
-		String dateInString2 = "12/12/1968";
-		Date date2 = new Date();
-		String dateInString3 = "02/06/1970";
-		Date date3 = new Date();
-		try {
-			date1 = formatter.parse(dateInString1);
-			date2 = formatter.parse(dateInString2);
-			date3 = formatter.parse(dateInString3);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		profesori.add(new Profesor("Marko", "Markovic", (Date) date1, "Futoska bb, 21000 Novi Sad", "+38162 1234567",
-				"marko.markovic@gmail.com", "Veljka Petrovica 20", 123456789, Titula.DOKTOR, Zvanje.ASISTENT));
-		profesori.add(new Profesor("Nikola", "Nikolic", date2, "Bulevar Jase Tomica 13, 21000 Novi Sad", "+38164 7654321",
-				"nikola.nikolic@gmail.com", "Veljka Petrovica 20", 987654321, Titula.MAGISTAR, Zvanje.PROFESOR));
-		profesori.add(new Profesor("Zdravko", "Petkovic", date3, "Kisacka 23, 21000 Novi Sad", "+38162 3322117",
-				"zdravko.petkovic@gmail.com", "Veljka Petrovica 20", 131214987, Titula.DOKTOR, Zvanje.PROFESOR));
-		
+//		String dateInString1 = "31/08/1982";
+//		Date date1 = new Date();
+//		String dateInString2 = "12/12/1968";
+//		Date date2 = new Date();
+//		String dateInString3 = "02/06/1970";
+//		Date date3 = new Date();
+//		try {
+//			date1 = formatter.parse(dateInString1);
+//			date2 = formatter.parse(dateInString2);
+//			date3 = formatter.parse(dateInString3);
+//		} catch (ParseException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		profesori.add(new Profesor("Marko", "Markovic", (Date) date1, "Futoska bb, 21000 Novi Sad", "+38162 1234567",
+//				"marko.markovic@gmail.com", "Veljka Petrovica 20", 123456789, Titula.DOKTOR, Zvanje.ASISTENT));
+//		profesori.add(new Profesor("Nikola", "Nikolic", date2, "Bulevar Jase Tomica 13, 21000 Novi Sad", "+38164 7654321",
+//				"nikola.nikolic@gmail.com", "Veljka Petrovica 20", 987654321, Titula.MAGISTAR, Zvanje.PROFESOR));
+//		profesori.add(new Profesor("Zdravko", "Petkovic", date3, "Kisacka 23, 21000 Novi Sad", "+38162 3322117",
+//				"zdravko.petkovic@gmail.com", "Veljka Petrovica 20", 131214987, Titula.DOKTOR, Zvanje.PROFESOR));
+//		
 	}
 	
 	public List<Profesor> getProfesori() {

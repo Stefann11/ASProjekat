@@ -13,6 +13,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 
 import model.BazaPredmeta;
+import model.Predmet;
 import model.Student;
 
 public class PrikazivanjeSpiskaStudenata extends JDialog{
@@ -21,22 +22,22 @@ public class PrikazivanjeSpiskaStudenata extends JDialog{
 	 * 
 	 */
 	private static final long serialVersionUID = 6038128757439857324L;
-	public JComboBox cb = new JComboBox();
 	
-	private static PrikazivanjeSpiskaStudenata instance = null;
-
-	public static PrikazivanjeSpiskaStudenata getInstance() {
-		if (instance == null) {
-			instance = new PrikazivanjeSpiskaStudenata();
-		}
-		return instance;
-	}
 	
-	public void dodajStudentaNaCombobox(Student s){
-		cb.addItem(s.toString());
-	}
+//	private static PrikazivanjeSpiskaStudenata instance = null;
+//
+//	public static PrikazivanjeSpiskaStudenata getInstance() {
+//		if (instance == null) {
+//			instance = new PrikazivanjeSpiskaStudenata();
+//		}
+//		return instance;
+//	}
+//	
+//	public void dodajStudentaNaCombobox(Student s){
+//		cb.addItem(s.toString());
+//	}
 	
-	private PrikazivanjeSpiskaStudenata() {
+	public PrikazivanjeSpiskaStudenata() {
 		setModal(false);
 		setTitle("Spisak studenata");
 		Toolkit kit = Toolkit.getDefaultToolkit();
@@ -45,6 +46,18 @@ public class PrikazivanjeSpiskaStudenata extends JDialog{
         int screenWidth = screenSize.width;
 		setSize(screenWidth/4, screenHeight/4);
         setLocationRelativeTo(null);
+        
+        JComboBox cb = new JComboBox();
+        int selektovaniRed = MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow();
+        if (selektovaniRed<0) {
+			return;
+		}
+        else {
+        	Predmet predmet = BazaPredmeta.getInstance().getRow(selektovaniRed);
+        	for(Student student : predmet.getSpisakStudenata()) {
+        		cb.addItem(student.toString());
+        	}
+        }
 		//setVisible(true);
 		JPanel panelCentral = new JPanel();
 		setLayout(new BorderLayout());
@@ -68,15 +81,11 @@ public class PrikazivanjeSpiskaStudenata extends JDialog{
 			
 			@Override
 		public void actionPerformed(ActionEvent e) {
-				int selektovaniRed = MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow();
-				if (selektovaniRed<0) {
-					return;
-				}
-				else {
+				
 					String indeks=cb.getSelectedItem().toString();
 					BazaPredmeta.getInstance().obrisiStudentaSaPredmeta(selektovaniRed, indeks);
 					cb.removeItem(indeks);
-				}
+				
 				
 				
 			}
@@ -98,30 +107,7 @@ public class PrikazivanjeSpiskaStudenata extends JDialog{
 		
 		
 		
-//		StringBuilder string = new StringBuilder();
-//		
-//		int selektovaniRed = MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow();
-//		Predmet predmet = BazaPredmeta.getInstance().getRow(selektovaniRed);
-//		
-//		for (Student student: BazaStudenta.getInstance().getStudenti()) {
-//			if (student.getPredmeti()==null) {
-//				string.append("Nema studenata.");
-//				break;
-//			} else {
-//				for (Predmet pr : student.getPredmeti()) {
-//					if (pr.getSifraPredmeta().equals(predmet.getSifraPredmeta())) {
-//						string.append(student);
-//					}
-//				}
-//			}
-//			
-//		}
-		
-//		spisakStudenata.setText(string.toString());
-//		
-//		JScrollPane scrollPane = new JScrollPane(spisakStudenata, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-//		
-//		add(scrollPane);
+
 	}
 	
 }
