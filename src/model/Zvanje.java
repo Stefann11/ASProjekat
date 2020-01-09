@@ -1,7 +1,7 @@
 package model;
 
 public enum Zvanje {
-	REDOVNI_PROCESOR("Redovni profesor"), VANDREDNI_PROCESOR("Vandredni profesor"), DOCENT("Docent");
+	REDOVNI_PROFESOR("Redovni profesor"), VANDREDNI_PROFESOR("Vandredni profesor"), DOCENT("Docent");
 
 	private String displayName;
 

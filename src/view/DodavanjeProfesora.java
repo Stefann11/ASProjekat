@@ -248,7 +248,7 @@ public class DodavanjeProfesora extends JDialog implements FocusListener{
 		gbc_comboBox.gridx = 1;
 		gbc_comboBox.gridy = 16;
 		panel.add(comboBox, gbc_comboBox);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"MAGISTAR", "DOKTOR"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"PROF_DR", "DR"}));
 		comboBox.setToolTipText("");
 
 		
@@ -269,7 +269,7 @@ public class DodavanjeProfesora extends JDialog implements FocusListener{
 		gbc_comboBox2.gridx = 1;
 		gbc_comboBox2.gridy = 18;
 		panel.add(comboBox2, gbc_comboBox2);
-		comboBox2.setModel(new DefaultComboBoxModel(new String[] {"ASISTENT", "SARADNIK", "PROFESOR", "DEKAN"}));
+		comboBox2.setModel(new DefaultComboBoxModel(new String[] {"REDOVNI_PROFESOR", "VANDREDNI_PROFESOR", "DOCENT"}));
 		comboBox2.setToolTipText("");
 		
 		
