@@ -10,13 +10,13 @@ import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -32,7 +32,7 @@ import model.DoubleKeyListener;
 import model.GodinaStudija;
 import model.Status;
 
-public class DodavanjeStudenta extends JDialog implements FocusListener{
+public class DodavanjeStudenta extends JDialog implements KeyListener{
 	
 	
 	/**
@@ -312,16 +312,18 @@ public class DodavanjeStudenta extends JDialog implements FocusListener{
 		
 		JPanel panelZaDugmice = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		getContentPane().add(panelZaDugmice, BorderLayout.SOUTH);
+		
+		
 		KeyListener keyListener=new DoubleKeyListener();
-		textFieldIme.addFocusListener(this);
-		textFieldPrezime.addFocusListener(this);
-		textFieldBrojIndeksa.addFocusListener(this);
-		textFieldBrojTelefona.addFocusListener(this);
-		textFieldEmail.addFocusListener(this);
-		textFieldAdresaStanovanja.addFocusListener(this);
+		textFieldIme.addKeyListener(this);
+		textFieldPrezime.addKeyListener(this);
+		textFieldBrojIndeksa.addKeyListener(this);
+		textFieldBrojTelefona.addKeyListener(this);
+		textFieldEmail.addKeyListener(this);
+		textFieldAdresaStanovanja.addKeyListener(this);
 		textFieldProsek.addKeyListener(keyListener);
-		textFieldDatumRodjenja.addFocusListener(this);
-		textFieldDatumUpisa.addFocusListener(this);
+		textFieldDatumRodjenja.addKeyListener(this);
+		textFieldDatumUpisa.addKeyListener(this);
 		
 		
 		
@@ -329,6 +331,9 @@ public class DodavanjeStudenta extends JDialog implements FocusListener{
 		panelZaDugmice.add(btnOdustanak);
 		panelZaDugmice.add(btnPotvrda);
 		btnPotvrda.setEnabled(false);
+		
+		
+		RadioButton1.setSelected(true);
 		
 		
 		btnPotvrda.addActionListener(new ActionListener() {
@@ -410,20 +415,36 @@ public class DodavanjeStudenta extends JDialog implements FocusListener{
 	 * 
 	 */
 	
-
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
+	 */
 	@Override
-	public void focusGained(FocusEvent e) {
+	public void keyPressed(KeyEvent e) {
 		
 		
 	}
 
+
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
+	 */
 	@Override
-	public void focusLost(FocusEvent e) {
+	public void keyReleased(KeyEvent e) {
 		if (textFieldIme.getText().equals("") || textFieldPrezime.getText().equals("") || textFieldDatumRodjenja.getText().equals("") || textFieldAdresaStanovanja.getText().equals("") || textFieldBrojTelefona.getText().equals("") || textFieldBrojIndeksa.getText().equals("") || textFieldProsek.getText().equals("") || textFieldEmail.getText().equals("") || textFieldDatumUpisa.getText().equals("")) {
 			DodavanjeStudenta.getInstance().btnPotvrda.setEnabled(false);
 		} else {
 			DodavanjeStudenta.getInstance().btnPotvrda.setEnabled(true);
 		}
+		
+	}
+
+
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
+	 */
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 

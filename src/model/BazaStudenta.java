@@ -163,7 +163,7 @@ public class BazaStudenta implements Serializable{
 			double prosecnaOcena) {
 		int j=0;
 		int i = 0;
-		for(Student s : this.studenti) {
+		for(Student s : studenti) {
 			if (i==selectedRow) {
 				for (Student stud : studenti) {
 					if(stud.getBrojIndeksa().equals(brojIndeksa)) {
@@ -174,7 +174,7 @@ public class BazaStudenta implements Serializable{
 					}
 					j++;
 				}
-		if(j==this.studenti.size()) {
+		if(j==studenti.size()) {
 				s.ime = ime;
 				s.prezime = prezime;
 				s.datumRodjenja = date1;

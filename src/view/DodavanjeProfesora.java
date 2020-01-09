@@ -11,7 +11,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -22,7 +22,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -31,7 +30,7 @@ import model.IntegerKeyListener;
 import model.Titula;
 import model.Zvanje;
 
-public class DodavanjeProfesora extends JDialog implements FocusListener{
+public class DodavanjeProfesora extends JDialog implements KeyListener{
 //	public DodavanjeProfesora() {
 //	}
 
@@ -277,16 +276,20 @@ public class DodavanjeProfesora extends JDialog implements FocusListener{
 		
 		JPanel panelZaDugmice = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		getContentPane().add(panelZaDugmice, BorderLayout.SOUTH);
-		textFieldIme.addFocusListener(this);
-		textFieldPrezime.addFocusListener(this);
-		textFieldBrojLicne.addFocusListener(this);
-		textFieldBrojTelefona.addFocusListener(this);
-		textFieldEmailAdresa.addFocusListener(this);
-		textFieldAdresaStanovanja.addFocusListener(this);
-		textFieldKancelarija.addFocusListener(this);
-		textFieldDatumRodjenja.addFocusListener(this);
+		
+		
+		textFieldIme.addKeyListener(this);
+		textFieldPrezime.addKeyListener(this);
+		textFieldBrojLicne.addKeyListener(this);
+		textFieldBrojTelefona.addKeyListener(this);
+		textFieldEmailAdresa.addKeyListener(this);
+		textFieldAdresaStanovanja.addKeyListener(this);
+		textFieldKancelarija.addKeyListener(this);
+		textFieldDatumRodjenja.addKeyListener(this);
 		IntegerKeyListener kl = new IntegerKeyListener();
 		textFieldBrojLicne.addKeyListener(kl);
+		
+		
 		panelZaDugmice.add(btnOdustanak);
 		panelZaDugmice.add(btnPotvrda);
 		btnPotvrda.setEnabled(false);
@@ -355,19 +358,40 @@ public class DodavanjeProfesora extends JDialog implements FocusListener{
 	}
 
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
+	 */
 	@Override
-	public void focusGained(FocusEvent e) {
-	
-	
+	public void keyPressed(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
+
+
+
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
+	 */
 	@Override
-	public void focusLost(FocusEvent e) {
+	public void keyReleased(KeyEvent e) {
 		if (DodavanjeProfesora.getInstance().textFieldIme.getText().equals("") || DodavanjeProfesora.getInstance().textFieldPrezime.getText().equals("") || DodavanjeProfesora.getInstance().textFieldDatumRodjenja.getText().equals("") || DodavanjeProfesora.getInstance().textFieldAdresaStanovanja.getText().equals("") || DodavanjeProfesora.getInstance().textFieldBrojTelefona.getText().equals("") || DodavanjeProfesora.getInstance().textFieldKancelarija.getText().equals("") || DodavanjeProfesora.getInstance().textFieldBrojLicne.getText().equals("") || DodavanjeProfesora.getInstance().textFieldEmailAdresa.getText().equals("")) {
 			DodavanjeProfesora.getInstance().btnPotvrda.setEnabled(false);
 		} else {
 			DodavanjeProfesora.getInstance().btnPotvrda.setEnabled(true);
 		}
-	
+		
+	}
+
+
+
+
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
+	 */
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

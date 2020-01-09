@@ -13,6 +13,8 @@ import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -29,6 +31,7 @@ import javax.swing.JTextField;
 
 import controller.ProfesoriController;
 import model.BazaProfesora;
+import model.IntegerKeyListener;
 import model.Profesor;
 import model.Titula;
 import model.Zvanje;
@@ -37,7 +40,7 @@ import model.Zvanje;
  * @author Aleksa Santrac
  *
  */
-public class IzmenaProfesora extends JDialog{
+public class IzmenaProfesora extends JDialog implements KeyListener{
 
 	/**
 	 * 
@@ -54,7 +57,17 @@ public class IzmenaProfesora extends JDialog{
 	private JTextField textFieldTitula;
 	private JTextField textFieldZvanje;
 	private JTextField textFieldBrojLicne;
+	private JButton btnPotvrda = new JButton("Potvrda");
+	private JButton btnOdustanak = new JButton("Odustanak");
 
+//	private static IzmenaProfesora instance = null;
+//
+//	public static IzmenaProfesora getInstance() {
+//		if (instance == null) {
+//			instance = new IzmenaProfesora();
+//		}
+//		return instance;
+//	}
 	
 	
 public IzmenaProfesora() {
@@ -297,12 +310,20 @@ public IzmenaProfesora() {
 		getContentPane().add(panelZaDugmice, BorderLayout.SOUTH);
 		
 		
-		JButton btnOdustanak = new JButton("Odustanak");
 		
-		
-		JButton btnPotvrda = new JButton("Potvrda");
 		panelZaDugmice.add(btnOdustanak);
 		panelZaDugmice.add(btnPotvrda);
+		
+		textFieldIme.addKeyListener(this);
+		textFieldPrezime.addKeyListener(this);
+		textFieldBrojLicne.addKeyListener(this);
+		textFieldBrojTelefona.addKeyListener(this);
+		textFieldEmailAdresa.addKeyListener(this);
+		textFieldAdresaStanovanja.addKeyListener(this);
+		textFieldKancelarija.addKeyListener(this);
+		textFieldDatumRodjenja.addKeyListener(this);
+		IntegerKeyListener kl = new IntegerKeyListener();
+		textFieldBrojLicne.addKeyListener(kl);
 		
 		btnPotvrda.addActionListener(new ActionListener() {
 			
@@ -345,6 +366,43 @@ public IzmenaProfesora() {
 			}
 		});
 	}
+}
+
+
+
+/* (non-Javadoc)
+ * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
+ */
+@Override
+public void keyPressed(KeyEvent e) {
+	// TODO Auto-generated method stub
+	
+}
+
+
+
+/* (non-Javadoc)
+ * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
+ */
+@Override
+public void keyReleased(KeyEvent e) {
+	if (textFieldIme.getText().equals("") || textFieldPrezime.getText().equals("") || textFieldDatumRodjenja.getText().equals("") || textFieldAdresaStanovanja.getText().equals("") || textFieldBrojTelefona.getText().equals("") || textFieldKancelarija.getText().equals("") || textFieldBrojLicne.getText().equals("") || textFieldEmailAdresa.getText().equals("")) {
+		btnPotvrda.setEnabled(false);
+	} else {
+		btnPotvrda.setEnabled(true);
+	}
+	
+}
+
+
+
+/* (non-Javadoc)
+ * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
+ */
+@Override
+public void keyTyped(KeyEvent e) {
+	// TODO Auto-generated method stub
+	
 }
 	
 }

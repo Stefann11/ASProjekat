@@ -13,6 +13,8 @@ import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -31,6 +33,7 @@ import javax.swing.JTextField;
 
 import controller.StudentiController;
 import model.BazaStudenta;
+import model.DoubleKeyListener;
 import model.GodinaStudija;
 import model.Status;
 import model.Student;
@@ -39,7 +42,7 @@ import model.Student;
  * @author Aleksa Santrac
  *
  */
-public class IzmenaStudenta extends JDialog{
+public class IzmenaStudenta extends JDialog implements KeyListener{
 
 	/**
 	 * 
@@ -57,14 +60,27 @@ public class IzmenaStudenta extends JDialog{
 	private JTextField textFieldDatumUpisa;
 	private String placaFaks;
 	private ButtonGroup buttonGroup = new ButtonGroup();
+	private JButton btnPotvrda = new JButton("Potvrda");
+	private JButton btnOdustanak = new JButton("Odustanak");
 	
+
+//	private static IzmenaStudenta instance = null;
+//
+//	public static IzmenaStudenta getInstance() {
+//		if (instance == null) {
+//			instance = new IzmenaStudenta();
+//		}
+//		return instance;
+//	}
+//	
 	public IzmenaStudenta() {
 		
 		if(MyTabbedPane.getInstance().tabelaStudenata.getSelectedRow() < 0) {
-			JOptionPane.showMessageDialog(null, "Student nije izabran.");
+			JOptionPane.showMessageDialog(null, "Niste izabrali studenta");
+			
 			return;
-		}
-		else {
+		} else {
+		
 		
 		setModal(true);
 		getContentPane().setBackground(Color.WHITE);
@@ -312,11 +328,7 @@ public class IzmenaStudenta extends JDialog{
 		//POPUNJENA POLJA TABELE STUDENT
 				int selektovaniRed = MyTabbedPane.getInstance().tabelaStudenata.convertRowIndexToModel(MyTabbedPane.getInstance().tabelaStudenata.getSelectedRow());
 				
-				if (selektovaniRed < 0) {
-					JOptionPane.showMessageDialog(this, "Niste izabrali studenta");
-					
-					
-				} else {
+				
 					Student student = BazaStudenta.getInstance().getRow(selektovaniRed);
 					textFieldIme.setText(student.getIme());
 					textFieldPrezime.setText(student.getPrezime());
@@ -330,7 +342,42 @@ public class IzmenaStudenta extends JDialog{
 					textFieldEmail.setText(student.getEmailAdresa());
 					placaFaks = student.getStatus().toString();
 					textFieldProsek.setText(Double.toString(student.getProsecnaOcena()));
-				}
+					//uradi for kroz sve studente nadji istog i onda if enum b stavi prvi radio button if enum s drugi 
+					for(Student s : BazaStudenta.getInstance().getStudenti()) {
+						if(s.getBrojIndeksa().equals(student.getBrojIndeksa())) {
+							if(student.getStatus().toString().equals("B")) {
+								RadioButton1.setSelected(true);
+							}
+							else {
+								RadioButton2.setSelected(true);
+							}
+						}
+					}
+					for(Student s : BazaStudenta.getInstance().getStudenti()) {
+						if(s.getBrojIndeksa().equals(student.getBrojIndeksa())) {
+							if(comboBox.getSelectedItem().toString().equals("PRVA")) {
+								comboBox.setSelectedIndex(0);
+							}
+							else if(comboBox.getSelectedItem().toString().equals("DRUGA")) {
+								//comboBox.setSelectedItem("DRUGA");
+								comboBox.setSelectedIndex(1);
+							}
+							else if(comboBox.getSelectedItem().toString().equals("TREÆA")) {
+								comboBox.setSelectedIndex(2);
+							}
+							else {
+								comboBox.setSelectedIndex(3);
+							}
+						}
+					}
+					
+//					if(RadioButton1.isSelected()) {
+//						RadioButton1.setSelected(true);
+//					}
+//					if(RadioButton2.isSelected()) {
+//						RadioButton2.setSelected(true);
+//					}
+				//}
 		
 		
 		
@@ -338,12 +385,21 @@ public class IzmenaStudenta extends JDialog{
 		getContentPane().add(panelZaDugmice, BorderLayout.SOUTH);
 		
 		
-		JButton btnOdustanak = new JButton("Odustanak");
 		
-		
-		JButton btnPotvrda = new JButton("Potvrda");
 		panelZaDugmice.add(btnOdustanak);
 		panelZaDugmice.add(btnPotvrda);
+		
+		KeyListener keyListener=new DoubleKeyListener();
+		textFieldIme.addKeyListener(this);
+		textFieldPrezime.addKeyListener(this);
+		textFieldBrojIndeksa.addKeyListener(this);
+		textFieldBrojTelefona.addKeyListener(this);
+		textFieldEmail.addKeyListener(this);
+		textFieldAdresaStanovanja.addKeyListener(this);
+		textFieldProsek.addKeyListener(keyListener);
+		textFieldDatumRodjenja.addKeyListener(this);
+		textFieldDatumUpisa.addKeyListener(this);
+		
 		
 		
 		btnPotvrda.addActionListener(new ActionListener() {
@@ -379,7 +435,7 @@ public class IzmenaStudenta extends JDialog{
 			dispose();
 		}
 	});
-		
+			
 		
 		
 		
@@ -394,7 +450,39 @@ public class IzmenaStudenta extends JDialog{
 				
 			}
 		});
+		
+		}
 	}
+
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
+	 */
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
+	 */
+	@Override
+	public void keyReleased(KeyEvent e) {
+		if (textFieldIme.getText().equals("") || textFieldPrezime.getText().equals("") || textFieldDatumRodjenja.getText().equals("") || textFieldAdresaStanovanja.getText().equals("") || textFieldBrojTelefona.getText().equals("") || textFieldBrojIndeksa.getText().equals("") || textFieldProsek.getText().equals("") || textFieldEmail.getText().equals("") || textFieldDatumUpisa.getText().equals("")) {
+			btnPotvrda.setEnabled(false);
+		} else {
+			btnPotvrda.setEnabled(true);
+		}
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
+	 */
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
