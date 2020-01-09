@@ -133,22 +133,6 @@ public class BazaPredmeta implements Serializable{
 				predmeti.remove(p);
 				break;
 				
-//				for (Profesor profesor : BazaProfesora.getInstance().getProfesori()) {
-//					if (p.getPredmetniProfesor().getBrojLicneKarte().equals(profesor.getBrojLicneKarte())) {
-//						profesor.getPredmeti().remove(p);
-//					}
-//				}
-//				
-//				for (Student student : BazaStudenta.getInstance().getStudenti()) {
-//					for(Student s2 : p.getSpisakStudenata())
-//						if (s2 == student) {
-//							s2.getPredmeti().remove(p);
-//					}
-//				}
-//					
-//				
-//				predmeti.remove(p);
-//				break;
 			}
 		}
 	}
@@ -169,6 +153,16 @@ public class BazaPredmeta implements Serializable{
 				}
 				for (Profesor prof: BazaProfesora.getInstance().getProfesori()) {
 					for (Predmet pred: prof.getPredmeti()) {
+						if (pred.getSifraPredmeta().equals(p.getSifraPredmeta())) {
+							pred.setSifraPredmeta(sifra);
+							pred.setNazivPredmeta(naziv);
+							pred.setSemestar(semestar);
+							pred.setGodinaStudijaPredmet(godina);
+						}
+					}
+				}
+				for (Student student: BazaStudenta.getInstance().getStudenti()) {
+					for (Predmet pred: student.getPredmeti()) {
 						if (pred.getSifraPredmeta().equals(p.getSifraPredmeta())) {
 							pred.setSifraPredmeta(sifra);
 							pred.setNazivPredmeta(naziv);
