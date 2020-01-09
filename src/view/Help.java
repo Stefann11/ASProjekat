@@ -60,11 +60,14 @@ public class Help extends JDialog{
 					 "Na vrhu glavnog prozora se nalazi menubar, dok na samom dnu statusbar.\n" +
 					 "Postoje tri razlièita taba, koji predstavljaju studente, profesore i predmete.\n" + 
 					 "Svaki ima svoje posebne funkcionalnosti.\n\n\n" +
+					 
+					 "ZA STUDENTA:\n" +
+					 
 					 "Odabirom prvog taba otvara se tabela studenata.\n" + 
 					 "Pritiskom prvog dugmeta u toolbaru otvara se dialog za dodavanje novog studenta.\n" + 
 					 "Pritiskom na drugo dugme vrši se izmena SELEKTOVANOG studenta.\n" +
 					 "Odabirom treæeg dugmeta vrši se brisanje SELEKTOVANOG studenta.\n" +
-					 "Unosenjem teksta u tekstualno polje u toolbaru vidu ime:Xxxx;prezime:Xxxxx;...  .\n" +
+					 "Unosenjem teksta u tekstualno polje u toolbaru u vidu ime:Xxxx;prezime:Xxxxx;...  .\n" +
 					 "I potom pritiskom na poslednje dugme u toolbaru vrši se pretraga studenata po zadatim obeležjima .\n" +
 					 "Klikom na naziv kolone vrši se sortiranje tabele u opadajuæem/rastuæem redosledu.\n" +
 					 "Klikom na dugme u koloni 'Predmeti' se otvara spisak predmeta koje selektovani student sluša.\n" +
@@ -76,11 +79,13 @@ public class Help extends JDialog{
 					 "Pritiskom tastera na tastaturi CTRL+H - help.\n" +
 					 "Pritiskom tastera na tastaturi CTRL+A - about.\n\n\n" +
 					 
+					 "ZA PROFESORA:\n" +
+					 
 					 "Odabirom drugog taba otvara se tabela predmeta.\n" + 
 					 "Pritiskom prvog dugmeta u toolbaru otvara se dialog za dodavanje novog profesora.\n" + 
 					 "Pritiskom na drugo dugme vrši se izmena SELEKTOVANOG profesora.\n" +
 					 "Odabirom treæeg dugmeta vrši se brisanje SELEKTOVANOG profesora.\n" +
-					 "Unosenjem teksta u tekstualno polje u toolbaru vidu ime:Xxxx;prezime:Xxxxx;...  .\n" +
+					 "Unosenjem teksta u tekstualno polje u toolbaru u vidu ime:Xxxx;prezime:Xxxxx;...  .\n" +
 					 "I potom pritiskom na poslednje dugme u toolbaru vrši se pretraga profesora po zadatim obeležjima .\n" +
 					 "Klikom na naziv kolone vrši se sortiranje tabele u opadajuæem/rastuæem redosledu.\n" +
 					 "Klikom na dugme u koloni 'Predmeti' se otvara spisak predmeta koje selektovani profesor predaje.\n" +
@@ -92,6 +97,8 @@ public class Help extends JDialog{
 					 "Pritiskom tastera na tastaturi CTRL+H - help.\n" +
 					 "Pritiskom tastera na tastaturi CTRL+A - about.\n\n\n" +
 					 
+					 "ZA PREDMET:\n" +
+					 
 					 "Odabirom treæeg taba otvara se tabela predmeta.\n" + 
 					 "Pritiskom prvog dugmeta u toolbaru otvara se dialog za dodavanje novog predmeta.\n" + 
 					 "Pritiskom na drugo dugme vrši se izmena SELEKTOVANOG predmeta.\n" +
@@ -99,7 +106,7 @@ public class Help extends JDialog{
 					 "Odabirom èetvrtog dugmeta otvara se dijalog za dodavanje studenta na SELEKTOVANI predmet.\n" +
 					 "Odabirom petog dugmeta otvara se dijalog za dodavanje profesora na SELEKTOVANI predmet.\n" +
 					 "Odabirom šestog dugmeta vrši se brisanje profesora sa SELEKTOVANOG predmeta.\n" +
-					 "Unosenjem teksta u tekstualno polje u toolbaru vidu šifra:Xxxx;naziv:Xxxxx;...  .\n" +
+					 "Unosenjem teksta u tekstualno polje u toolbaru u vidu šifra:Xxxx;naziv:Xxxxx;...  .\n" +
 					 "I potom pritiskom na poslednje dugme u toolbaru vrši se pretraga predmeta po zadatim obeležjima .\n" +
 					 "Klikom na naziv kolone vrši se sortiranje tabele u opadajuæem/rastuæem redosledu.\n" +
 					 "Klikom na dugme u koloni 'Spisak studenata' se otvara dijalog koji sadrži spisak studenata koji slušaju selektovani predmet.\n" +
