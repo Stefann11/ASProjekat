@@ -118,6 +118,13 @@ public class BazaPredmeta implements Serializable{
 						profesor.getPredmeti().remove(p);
 					}
 				}
+				
+				for (Student student : BazaStudenta.getInstance().getStudenti()) {
+					for(Student s2 : p.getSpisakStudenata())
+						if (s2 == student) {
+							s2.getPredmeti().remove(p);
+					}
+				}
 					
 				
 				predmeti.remove(p);
