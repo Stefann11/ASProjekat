@@ -118,7 +118,7 @@ public class BazaProfesora implements Serializable{
 		case 6:
 			return profesor.getAdresaKancelarije();
 		case 7:
-			return Integer.toString(profesor.getBrojLicneKarte());
+			return profesor.getBrojLicneKarte();
 		case 8:
 			return profesor.getTitula().toString();
 		case 9:
@@ -130,10 +130,10 @@ public class BazaProfesora implements Serializable{
 	
 	public void dodajProfesora(String ime, String prezime, Date datumRodjenja, 
 			String adresaStanovanja, String kontaktTelefon, String email, 
-			String adresaKancelarije, int br, Titula titula, Zvanje zvanje) {
+			String adresaKancelarije, String br, Titula titula, Zvanje zvanje) {
 		int i=0;
 		for(Profesor p : this.profesori) {
-			if(p.getBrojLicneKarte() == br) {
+			if(p.getBrojLicneKarte().equals(br)) {
 				JOptionPane.showMessageDialog(null, "Profesor sa licnom kartom: " + br + " vec postoji!");
 				return;
 			}
@@ -143,9 +143,9 @@ public class BazaProfesora implements Serializable{
 		this.profesori.add(new Profesor(ime,prezime,datumRodjenja,adresaStanovanja,kontaktTelefon,email,adresaKancelarije,br,titula,zvanje));
 	}
 
-	public void izbrisiProfesora(int id) {
+	public void izbrisiProfesora(String br) {
 		for (Profesor p: profesori) {
-			if (p.getBrojLicneKarte()==id) {
+			if (p.getBrojLicneKarte().equals(br)) {
 				for (Predmet predmet : p.getPredmeti()) {
 					predmet.setPredmetniProfesor(null);
 				}
@@ -157,13 +157,13 @@ public class BazaProfesora implements Serializable{
 
 	public void izmeniProfesora(int selectedRow, String ime, String prezime, Date datumRodjenja, 
 			String adresaStanovanja, String kontaktTelefon, String email, 
-			String adresaKancelarije, int br, Titula titula, Zvanje zvanje) {
+			String adresaKancelarije, String br, Titula titula, Zvanje zvanje) {
 		int j=0;
 		int i = 0;
 		for (Profesor p : profesori) {
 			if (i==selectedRow) {
 				for(Profesor prof : profesori) {
-					if(prof.getBrojLicneKarte() == br) {
+					if(prof.getBrojLicneKarte().equals(br)) {
 						if(!prof.equals(p)) {
 							JOptionPane.showMessageDialog(null, "Profesor sa licnom kartom: " + br + " vec postoji!");
 							break;

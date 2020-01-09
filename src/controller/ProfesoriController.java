@@ -29,7 +29,7 @@ public class ProfesoriController {
 	
 	public void DodajProfesora(String ime, String prezime, Date datumRodjenja, 
 			String adresaStanovanja, String kontaktTelefon, String email, 
-			String adresaKancelarije, int br, Titula titula, Zvanje zvanje ) {
+			String adresaKancelarije, String br, Titula titula, Zvanje zvanje ) {
 		BazaProfesora.getInstance().dodajProfesora(ime,prezime,datumRodjenja,adresaStanovanja,kontaktTelefon,email,adresaKancelarije,br,titula,zvanje);
 		promeniIzgled();
 	}
@@ -48,7 +48,7 @@ public class ProfesoriController {
 
 	public void izmeniProfesora(int selectedRow, String ime, String prezime, Date datumRodjenja, 
 			String adresaStanovanja, String kontaktTelefon, String email, 
-			String adresaKancelarije, int br, Titula titula, Zvanje zvanje) {
+			String adresaKancelarije, String br, Titula titula, Zvanje zvanje) {
 		if (selectedRow < 0) {
 			return;
 		}

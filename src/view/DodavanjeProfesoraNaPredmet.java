@@ -110,7 +110,7 @@ public class DodavanjeProfesoraNaPredmet extends JDialog{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				int broj = Integer.parseInt(textField.getText());
+				String broj = textField.getText();
 				
 				if (MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow()<0) {
 					JOptionPane.showMessageDialog(null, "Niste izabrali predmet");

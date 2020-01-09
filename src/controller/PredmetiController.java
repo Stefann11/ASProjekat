@@ -59,7 +59,7 @@ public class PredmetiController {
 			}
 		}
 		
-		public void dodavanjeProfesoraNaPredmet(int selektovaniRed, int broj) {
+		public void dodavanjeProfesoraNaPredmet(int selektovaniRed, String broj) {
 			BazaPredmeta.getInstance().dodajProfesoraNaPredmet(selektovaniRed, broj);
 			promeniIzgled();
 		}

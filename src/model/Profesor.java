@@ -20,7 +20,7 @@ public class Profesor implements Serializable{
 	protected String kontaktTelefon;
 	protected String emailAdresa;
 	protected String adresaKancelarije;
-	protected int brojLicneKarte;
+	protected String brojLicneKarte;
 	protected Titula titula;
 	protected Zvanje zvanje;
 	protected ArrayList<Predmet>predmeti;
@@ -30,7 +30,7 @@ public class Profesor implements Serializable{
 	}
 	
 	public Profesor(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, String kontaktTelefon,
-			String emailAdresa, String adresaKancelarije, int brojLicneKarte, Titula titula, Zvanje zvanje,
+			String emailAdresa, String adresaKancelarije, String brojLicneKarte, Titula titula, Zvanje zvanje,
 			ArrayList<Predmet> predmeti) {
 		super();
 		this.ime = ime;
@@ -48,7 +48,7 @@ public class Profesor implements Serializable{
 	
 	//za tabelu
 	public Profesor(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, String kontaktTelefon,
-			String emailAdresa, String adresaKancelarije, int brojLicneKarte, Titula titula, Zvanje zvanje) {
+			String emailAdresa, String adresaKancelarije, String brojLicneKarte, Titula titula, Zvanje zvanje) {
 		super();
 		this.ime = ime;
 		this.prezime = prezime;
@@ -63,13 +63,6 @@ public class Profesor implements Serializable{
 		this.predmeti=new ArrayList<Predmet>();
 	}
 	
-//	public Profesor(String ime, String prezime, Date datumRodjenja, int brojLicneKarte) {
-//		super();
-//		this.ime = ime;
-//		this.prezime = prezime;
-//		this.datumRodjenja = datumRodjenja;
-//		this.brojLicneKarte = brojLicneKarte;
-//	}
 
 	public Object toCell(int col) {
 		switch(col) {
@@ -95,7 +88,7 @@ public class Profesor implements Serializable{
 		break;
 		case 2: datumRodjenja = (Date)value;
 		break;
-		case 3: brojLicneKarte = (int)value;
+		case 3: adresaStanovanja = (String)value;
 		break;
 		case 4: kontaktTelefon = (String)value;
 		break;
@@ -103,7 +96,7 @@ public class Profesor implements Serializable{
 		break;
 		case 6: adresaKancelarije = (String)value;
 		break;
-		case 7: brojLicneKarte=(int)value;
+		case 7: brojLicneKarte=(String)value;
 		break;
 		case 8: titula=(Titula)value;
 		break;
@@ -155,10 +148,10 @@ public class Profesor implements Serializable{
 	public void setAdresaKancelarije(String adresaKancelarije) {
 		this.adresaKancelarije = adresaKancelarije;
 	}
-	public int getBrojLicneKarte() {
+	public String getBrojLicneKarte() {
 		return brojLicneKarte;
 	}
-	public void setBrojLicneKarte(int brojLicneKarte) {
+	public void setBrojLicneKarte(String brojLicneKarte) {
 		this.brojLicneKarte = brojLicneKarte;
 	}
 	public Titula getTitula() {

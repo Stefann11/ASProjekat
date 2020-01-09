@@ -188,12 +188,12 @@ public class BazaPredmeta implements Serializable{
 	}
 
 	
-	public void dodajProfesoraNaPredmet(int selectedRow, int broj) {
+	public void dodajProfesoraNaPredmet(int selectedRow, String broj) {
 		Predmet predmet = BazaPredmeta.getInstance().getRow(selectedRow);
 		int i = 0;
 		for (Profesor profesor : BazaProfesora.getInstance().getProfesori()) {
 			i++;
-			if (profesor.getBrojLicneKarte()==broj) {
+			if (profesor.getBrojLicneKarte().equals(broj)) {
 				if (predmet.getPredmetniProfesor()!=null) {
 					if (predmet.getPredmetniProfesor().getBrojLicneKarte()!=profesor.getBrojLicneKarte()){
 						Profesor bivsiProf=predmet.getPredmetniProfesor();

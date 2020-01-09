@@ -304,7 +304,7 @@ public class DodavanjeProfesora extends JDialog implements FocusListener{
 					String telefon=textFieldBrojTelefona.getText();
 					String mail=textFieldEmailAdresa.getText();
 					String adresaKancelarije=textFieldKancelarija.getText();
-					int brojLicneKarte=Integer.parseInt(textFieldBrojLicne.getText());
+					String brojLicneKarte=textFieldBrojLicne.getText();
 					String g=comboBox.getSelectedItem().toString();
 					Titula titula=Titula.valueOf(g);
 					String g2=comboBox2.getSelectedItem().toString();
