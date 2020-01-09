@@ -175,6 +175,22 @@ public class BazaProfesora implements Serializable{
 					}
 					j++;
 				}
+				for (Predmet pred: BazaPredmeta.getInstance().getPredmeti()) {
+					Profesor profesor = pred.getPredmetniProfesor();
+						if (profesor.getBrojLicneKarte().equals(p.getBrojLicneKarte())) {
+							profesor.ime = ime;
+							profesor.prezime = prezime;
+							profesor.datumRodjenja = datumRodjenja;
+							profesor.adresaStanovanja = adresaStanovanja;
+							profesor.kontaktTelefon = kontaktTelefon;
+							profesor.emailAdresa = email;
+							profesor.adresaKancelarije = adresaKancelarije;
+							profesor.brojLicneKarte = br;
+							profesor.titula = titula;
+							profesor.zvanje = zvanje;
+						}
+					
+				}
 				if(j==profesori.size()) {		
 		
 		

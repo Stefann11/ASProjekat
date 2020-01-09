@@ -148,11 +148,14 @@ public class BazaStudenta implements Serializable{
 		id=id.trim();
 	for (Student s: BazaStudenta.getInstance().getStudenti()) {
 		if (s.getBrojIndeksa().equals(id)) {
-				for(Predmet p : s.getPredmeti()) {			
-						p.getSpisakStudenata().remove(s);	
+				for(Predmet p : s.getPredmeti()) {	
+					for (Predmet predmet: BazaPredmeta.getInstance().getPredmeti()) {
+						if (predmet.getSifraPredmeta().equals(p.getSifraPredmeta())) {
+							predmet.izbrisiStudenta(s.getBrojIndeksa());	
+						}
 						
 					}
-				
+					}
 				studenti.remove(s);
 				break;
 		}
@@ -175,6 +178,24 @@ public class BazaStudenta implements Serializable{
 						}
 					}
 					j++;
+				}
+				for (Predmet pred: BazaPredmeta.getInstance().getPredmeti()) {
+					for (Student student : pred.getSpisakStudenata()) {
+						if (student.getBrojIndeksa().equals(s.getBrojIndeksa())) {
+							student.ime = ime;
+							student.prezime = prezime;
+							student.datumRodjenja = date1;
+							student.adresaStanovanja = adresaStanovanja;
+							student.kontaktTelefon = kontaktTelefon;
+							student.emailAdresa = emailAdresa;
+							student.brojIndeksa = brojIndeksa;
+							student.datumUpisa = date12;
+							student.trenutnaGodinaStudija = trenutnaGodinaStudija;
+							student.status = status;
+							student.prosecnaOcena = prosecnaOcena;
+						}
+					}
+					
 				}
 		if(j==studenti.size()) {
 				s.ime = ime;

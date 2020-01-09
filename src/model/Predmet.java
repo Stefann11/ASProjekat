@@ -112,7 +112,14 @@ public class Predmet implements Serializable{
 				+ ", " + godinaStudijaPredmet + "\n";
 	}
 
-	
+	public void izbrisiStudenta(String indeks) {
+		for(Student s: spisakStudenata) {
+			if (s.getBrojIndeksa().equals(indeks)) {
+				spisakStudenata.remove(s);
+				break;
+			}
+		}
+	}
 	
 
 }
