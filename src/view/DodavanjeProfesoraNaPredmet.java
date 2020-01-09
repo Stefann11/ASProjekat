@@ -122,6 +122,7 @@ public class DodavanjeProfesoraNaPredmet extends JDialog{
 					PredmetiController.getInstance().dodavanjeProfesoraNaPredmet(selektovaniRed, broj);
 					dispose();
 					textField.setText("");
+					
 				}
 
 			}
@@ -137,9 +138,9 @@ public class DodavanjeProfesoraNaPredmet extends JDialog{
 			}
 		});
 		
-	}
-		
 	
+		
+	}
 		
 		
 

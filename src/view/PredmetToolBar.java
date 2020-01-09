@@ -120,7 +120,6 @@ btnAddProf.addActionListener(new ActionListener() {
 	public void actionPerformed(ActionEvent e) {
 		DodavanjeProfesoraNaPredmet dp=DodavanjeProfesoraNaPredmet.getInstance();
 		dp.setVisible(true);
-		
 	}
 });
 	btnDeleteProf.addActionListener(new ActionListener() {

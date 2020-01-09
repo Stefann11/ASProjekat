@@ -41,9 +41,7 @@ public class ProfesoriController {
 		}
 		Profesor profesor = BazaProfesora.getInstance().getRow(rowSelectedIndex);
 		BazaProfesora.getInstance().izbrisiProfesora(profesor.getBrojLicneKarte());
-		ProfAbstractTable model = (ProfAbstractTable) MyTabbedPane.getInstance().tabelaProfesora.getModel();
-		model.fireTableDataChanged();
-		MyTabbedPane.getInstance().validate();
+		promeniIzgled();
 	}
 
 	public void izmeniProfesora(int selectedRow, String ime, String prezime, Date datumRodjenja, 
@@ -53,9 +51,7 @@ public class ProfesoriController {
 			return;
 		}
 		BazaProfesora.getInstance().izmeniProfesora(selectedRow, ime,prezime,datumRodjenja,adresaStanovanja,kontaktTelefon,email,adresaKancelarije,br,titula,zvanje);
-		ProfAbstractTable model = (ProfAbstractTable) MyTabbedPane.getInstance().tabelaProfesora.getModel();
-		model.fireTableDataChanged();
-		MyTabbedPane.getInstance().validate();		
+		promeniIzgled();	
 	}
 	
 	public void promeniIzgled() {

@@ -12,6 +12,10 @@ import java.util.ArrayList;
 
 
 public class Student implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 662325754575048428L;
 	protected String ime;
 	protected  String prezime;
 	protected Date datumRodjenja;
@@ -234,6 +238,15 @@ public class Student implements Serializable{
 	@Override
 	public String toString() {
 		return brojIndeksa + "\n";
+	}
+	
+	public void izbrisiPredmet(String sifra) {
+		for(Predmet p: predmeti) {
+			if (p.getSifraPredmeta().equals(sifra)) {
+				predmeti.remove(p);
+				break;
+			}
+		}
 	}
 
 	

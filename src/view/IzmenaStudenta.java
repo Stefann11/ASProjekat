@@ -210,7 +210,7 @@ public class IzmenaStudenta extends JDialog implements KeyListener{
 		textFieldBrojIndeksa.setColumns(20);
 		
 		
-		JLabel lblNewLabel_5 = new JLabel("Proseèna ocena*");
+		JLabel lblNewLabel_5 = new JLabel("ProseÃ¨na ocena*");
 		GridBagConstraints gbc_lblNewLabel_5 = new GridBagConstraints();
 		gbc_lblNewLabel_5.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel_5.insets = new Insets(10, 30, 10, 10);
@@ -287,7 +287,7 @@ public class IzmenaStudenta extends JDialog implements KeyListener{
 		gbc_comboBox.gridx = 2;
 		gbc_comboBox.gridy = 18;
 		panel.add(comboBox, gbc_comboBox);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"PRVA", "DRUGA", "TREÆA", "ÈETVRTA"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"PRVA", "DRUGA", "TREÃ†A", "ÃˆETVRTA"}));
 		
 		JRadioButton RadioButton1 = new JRadioButton("Bud\u017Eet");
 		GridBagConstraints gbc_RadioButton1 = new GridBagConstraints();
@@ -362,7 +362,7 @@ public class IzmenaStudenta extends JDialog implements KeyListener{
 								//comboBox.setSelectedItem("DRUGA");
 								comboBox.setSelectedIndex(1);
 							}
-							else if(comboBox.getSelectedItem().toString().equals("TREÆA")) {
+							else if(comboBox.getSelectedItem().toString().equals("TREÄ†A")) {
 								comboBox.setSelectedIndex(2);
 							}
 							else {

@@ -84,7 +84,7 @@ public class BazaPredmeta implements Serializable{
 			return predmet.getGodinaStudijaPredmet().toString();
 		case 4:
 			if (predmet.getPredmetniProfesor()!=null) {
-				String imeprz= (predmet.getPredmetniProfesor().getIme() + " " + predmet.getPredmetniProfesor().getPrezime());
+				String imeprz= (predmet.getPredmetniProfesor().getBrojLicneKarte() + ", " + predmet.getPredmetniProfesor().getIme() + " " + predmet.getPredmetniProfesor().getPrezime());
 				return imeprz;
 			} else
 				return null;
@@ -112,23 +112,43 @@ public class BazaPredmeta implements Serializable{
 	public void izbrisiPredmet(String id) {
 		for (Predmet p : predmeti) {
 			if (p.getSifraPredmeta().equals(id)) {
-				//Profesor profesor = p.getPredmetniProfesor();
+				if (p.getPredmetniProfesor()!=null) {
+				Profesor prof = p.getPredmetniProfesor();
 				for (Profesor profesor : BazaProfesora.getInstance().getProfesori()) {
-					if (p.getPredmetniProfesor()==profesor) {
-						profesor.getPredmeti().remove(p);
+					if (profesor.getBrojLicneKarte().equals(prof.getBrojLicneKarte())) {
+						profesor.izbrisiPredmet(p.getSifraPredmeta());
+						
 					}
 				}
-				
-				for (Student student : BazaStudenta.getInstance().getStudenti()) {
-					for(Student s2 : p.getSpisakStudenata())
-						if (s2 == student) {
-							s2.getPredmeti().remove(p);
+				}
+				if (p.getSpisakStudenata()!=null) {
+					for (Student s: p.getSpisakStudenata()) {
+						for (Student student : BazaStudenta.getInstance().getStudenti()) {
+							if (student.getBrojIndeksa().equals(s.getBrojIndeksa())) {
+								student.izbrisiPredmet(p.getSifraPredmeta());
+							}
+						}
 					}
 				}
-					
-				
 				predmeti.remove(p);
 				break;
+				
+//				for (Profesor profesor : BazaProfesora.getInstance().getProfesori()) {
+//					if (p.getPredmetniProfesor().getBrojLicneKarte().equals(profesor.getBrojLicneKarte())) {
+//						profesor.getPredmeti().remove(p);
+//					}
+//				}
+//				
+//				for (Student student : BazaStudenta.getInstance().getStudenti()) {
+//					for(Student s2 : p.getSpisakStudenata())
+//						if (s2 == student) {
+//							s2.getPredmeti().remove(p);
+//					}
+//				}
+//					
+//				
+//				predmeti.remove(p);
+//				break;
 			}
 		}
 	}
@@ -147,7 +167,18 @@ public class BazaPredmeta implements Serializable{
 					}
 					brojac++;
 				}
+				for (Profesor prof: BazaProfesora.getInstance().getProfesori()) {
+					for (Predmet pred: prof.getPredmeti()) {
+						if (pred.getSifraPredmeta().equals(p.getSifraPredmeta())) {
+							pred.setSifraPredmeta(sifra);
+							pred.setNazivPredmeta(naziv);
+							pred.setSemestar(semestar);
+							pred.setGodinaStudijaPredmet(godina);
+						}
+					}
+				}
 				if (brojac==predmeti.size()) {
+
 					p.setSifraPredmeta(sifra);
 					p.setNazivPredmeta(naziv);
 					p.setSemestar(semestar);
@@ -217,9 +248,18 @@ public class BazaPredmeta implements Serializable{
 	
 	public void obrisiProfesoraSaPredmeta(int selectedRow) {
 		Predmet predmet = BazaPredmeta.getInstance().getRow(selectedRow);
-		Profesor profesor = predmet.getPredmetniProfesor();
-		predmet.setPredmetniProfesor(null);
-		profesor.getPredmeti().remove(predmet);
+		if (predmet.getPredmetniProfesor()!=null) {
+			Profesor prof = predmet.getPredmetniProfesor();
+			for (Profesor profesor : BazaProfesora.getInstance().getProfesori()) {
+				if (profesor.getBrojLicneKarte().equals(prof.getBrojLicneKarte())) {
+					profesor.izbrisiPredmet(predmet.getSifraPredmeta());
+					
+				}
+			}
+			predmet.setPredmetniProfesor(null);
+		} else {
+			JOptionPane.showMessageDialog(null, "Ne postoji profesor na tom predmetu");
+		}
 	}
 	
 	public void serijalizacijaPredmeta() {

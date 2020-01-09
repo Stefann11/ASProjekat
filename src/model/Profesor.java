@@ -181,6 +181,14 @@ public class Profesor implements Serializable{
 				+ ", titula=" + titula + ", zvanje=" + zvanje + "]";
 	}
 	
+	public void izbrisiPredmet(String sifra) {
+		for(Predmet p: predmeti) {
+			if (p.getSifraPredmeta().equals(sifra)) {
+				predmeti.remove(p);
+				break;
+			}
+		}
+	}
 	
 
 }

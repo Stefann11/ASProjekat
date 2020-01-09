@@ -111,7 +111,7 @@ public class Predmet implements Serializable{
 		return "Predmet: " + sifraPredmeta + ", " + nazivPredmeta + ", " + semestar
 				+ ", " + godinaStudijaPredmet + "\n";
 	}
-	
+
 	
 	
 

@@ -65,9 +65,13 @@ public class PredmetiController {
 		}
 		
 		public void obrisiProfesoraSaPredmeta() {
+			if (MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow()<0) {
+				JOptionPane.showMessageDialog(null, "Niste izabrali predmet");
+			} else {
 			int selektovaniRed=MyTabbedPane.getInstance().tabelaPredmeta.convertRowIndexToModel(MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow());
 			BazaPredmeta.getInstance().obrisiProfesoraSaPredmeta(selektovaniRed);
 			promeniIzgled();
+			}
 		}
 		
 		public void promeniIzgled() {

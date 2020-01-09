@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,11 +13,14 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import controller.PredmetiController;
 import controller.StudentiController;
 
 public class BazaStudenta implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2826037726220047573L;
 	private static BazaStudenta instance = null;
 
 	public static BazaStudenta getInstance() {
