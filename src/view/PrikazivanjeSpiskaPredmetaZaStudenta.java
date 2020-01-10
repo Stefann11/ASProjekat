@@ -51,11 +51,8 @@ public PrikazivanjeSpiskaPredmetaZaStudenta(){
 		else {
 			int selektovaniRed = MyTabbedPane.getInstance().tabelaStudenata.convertRowIndexToModel(MyTabbedPane.getInstance().tabelaStudenata.getSelectedRow());
 			Student student = BazaStudenta.getInstance().getRow(selektovaniRed);
-			//int i=0;
 			if (student.getPredmeti()!=null) {
 				for (Predmet predmet: student.getPredmeti()) {
-//					predmetiString[i]=predmet.toString();
-//					i++;
 					model.addElement(predmet.toString());
 				}
 			}

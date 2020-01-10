@@ -187,13 +187,26 @@ public class BazaPredmeta implements Serializable{
 	public void dodajStudentaNaPredmet(int selectedRow, String indeks) {
 		Predmet predmet = BazaPredmeta.getInstance().getRow(selectedRow);
 		int brojac=0;
+		int flag=0;
 		for (Student student : BazaStudenta.getInstance().getStudenti()) {
 			brojac++;
 			if (student.getBrojIndeksa().equals(indeks)) {
 				if(student.getTrenutnaGodinaStudija().toString().equals(predmet.getGodinaStudijaPredmet().toString())) {
-				predmet.getSpisakStudenata().add(student);
-				
-				student.getPredmeti().add(predmet);
+					for(Student s : predmet.getSpisakStudenata()) {
+						if(s.getBrojIndeksa().equals(indeks)) {
+							flag=1;
+						}
+					}
+					if(flag==0) {
+							predmet.getSpisakStudenata().add(student);
+							student.getPredmeti().add(predmet);
+							break;
+					}else {
+							JOptionPane.showMessageDialog(null, "Student sa ovim indeksom vec slusa predmet!");
+							break;
+						}
+							
+					
 				
 				}
 				else {
