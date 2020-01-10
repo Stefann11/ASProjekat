@@ -7,7 +7,9 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JDialog;
+import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
@@ -37,34 +39,60 @@ public PrikazivanjeSpiskaPredmetaZaStudenta(){
 		setSize(screenWidth / 3, screenHeight/3 );
         setLocationRelativeTo(null);
 		setVisible(true);
-		JTextArea spisak =new JTextArea();
-		Font font = new Font("Ariel", Font.BOLD, 15);
-		spisak.setFont(font);
-		
-		StringBuilder string = new StringBuilder();
-		
+//		JTextArea spisak =new JTextArea();
+//		Font font = new Font("Ariel", Font.BOLD, 15);
+//		spisak.setFont(font);
+		final DefaultListModel model = new DefaultListModel();
+		JList predmetiList;
+		String predmetiString []= new String[100];
 		 
 		if ( MyTabbedPane.getInstance().tabelaStudenata.getSelectedRow() < 0)
 			return;
 		else {
 			int selektovaniRed = MyTabbedPane.getInstance().tabelaStudenata.convertRowIndexToModel(MyTabbedPane.getInstance().tabelaStudenata.getSelectedRow());
 			Student student = BazaStudenta.getInstance().getRow(selektovaniRed);
-		
-			if (student.getPredmeti()==null) {
-				string.append("Nema predmeta");
-			}else {
+			//int i=0;
+			if (student.getPredmeti()!=null) {
 				for (Predmet predmet: student.getPredmeti()) {
-					string.append(predmet);
+//					predmetiString[i]=predmet.toString();
+//					i++;
+					model.addElement(predmet.toString());
 				}
 			}
 		}
 		
 		
-		spisak.setText(string.toString());
+		predmetiList=new JList(model);
 		
-		JScrollPane scrollPane = new JScrollPane(spisak, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		JScrollPane scrollPane = new JScrollPane(predmetiList, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		
 		add(scrollPane);
+		
+		
+//		StringBuilder string = new StringBuilder();
+//		
+//		 
+//		if ( MyTabbedPane.getInstance().tabelaStudenata.getSelectedRow() < 0)
+//			return;
+//		else {
+//			int selektovaniRed = MyTabbedPane.getInstance().tabelaStudenata.convertRowIndexToModel(MyTabbedPane.getInstance().tabelaStudenata.getSelectedRow());
+//			Student student = BazaStudenta.getInstance().getRow(selektovaniRed);
+//		
+//			if (student.getPredmeti()==null) {
+//				string.append("Nema predmeta");
+//			}else {
+//				for (Predmet predmet: student.getPredmeti()) {
+//					string.append(predmet);
+//				}
+//			}
+//		}
+//		
+//		
+//		spisak.setText(string.toString());
+//		
+//		JScrollPane scrollPane = new JScrollPane(spisak, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+//		
+//		add(scrollPane);
 	}
 	
 	

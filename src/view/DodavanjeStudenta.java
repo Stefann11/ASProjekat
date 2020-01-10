@@ -342,6 +342,11 @@ public class DodavanjeStudenta extends JDialog implements KeyListener{
 			@Override
 		public void actionPerformed(ActionEvent e) {
 				
+				
+			if((!textFieldDatumRodjenja.getText().matches("(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$")) || (!textFieldDatumUpisa.getText().matches("(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$"))) {
+				JOptionPane.showMessageDialog(null, "Datum mora biti unet u sledecem obliku: dd/mm/yyyy!");
+			}
+			else {
 			double prosecnaOcena = Double.parseDouble(textFieldProsek.getText());
 			if((prosecnaOcena<6) || (prosecnaOcena>10)) {
 				JOptionPane.showMessageDialog(null, "Prosecna ocena mora biti izmedju 6 i 10!");
@@ -386,6 +391,7 @@ public class DodavanjeStudenta extends JDialog implements KeyListener{
 			comboBox.setSelectedIndex(0);
 			buttonGroup.clearSelection();
 		}
+			}
 			}
 	});
 		

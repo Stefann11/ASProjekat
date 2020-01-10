@@ -7,10 +7,11 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
@@ -49,8 +50,9 @@ public class PrikazivanjeSpiskaStudenata extends JDialog{
 		setSize(screenWidth/4, screenHeight/4);
         setLocationRelativeTo(null);
         
+        final DefaultListModel model = new DefaultListModel();
+        
         JList studentiList;
-		String studentiString []= new String[100];
 		
         int selektovaniRed = MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow();
         if (selektovaniRed<0) {
@@ -58,14 +60,13 @@ public class PrikazivanjeSpiskaStudenata extends JDialog{
 		}
         else {
         	Predmet predmet = BazaPredmeta.getInstance().getRow(selektovaniRed);
-        	int i=0;
         	for(Student student : predmet.getSpisakStudenata()) {
-        		studentiString[i]=student.toString();
-				i++;
+        		model.addElement(student.toString());
+
         	}
         }
 		//setVisible(true);
-        studentiList=new JList(studentiString);
+        studentiList=new JList(model);
 		
 		JScrollPane scrollPane = new JScrollPane(studentiList, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		JPanel panelCentral = new JPanel();
@@ -114,10 +115,21 @@ public class PrikazivanjeSpiskaStudenata extends JDialog{
 			@Override
 		public void actionPerformed(ActionEvent e) {
 				
-					String indeks=cb.getSelectedItem().toString();
-					BazaPredmeta.getInstance().obrisiStudentaSaPredmeta(selektovaniRed, indeks);
-					cb.removeItem(indeks);
 				
+				int i = studentiList.getSelectedIndex();
+				if (i != -1) {
+				   
+				
+				String indeks = (String) studentiList.getSelectedValue();
+				indeks = indeks.trim();
+				BazaPredmeta.getInstance().obrisiStudentaSaPredmeta(selektovaniRed, indeks);
+				
+				model.remove(i);
+				
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Niste odabrali studenta.");
+				}
 				
 				
 			}

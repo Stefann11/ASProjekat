@@ -287,7 +287,7 @@ public class IzmenaStudenta extends JDialog implements KeyListener{
 		gbc_comboBox.gridx = 2;
 		gbc_comboBox.gridy = 18;
 		panel.add(comboBox, gbc_comboBox);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"PRVA", "DRUGA", "TREÆA", "ÈETVRTA"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"PRVA", "DRUGA", "TREĆA", "ČETVRTA"}));
 		
 		JRadioButton RadioButton1 = new JRadioButton("Bud\u017Eet");
 		GridBagConstraints gbc_RadioButton1 = new GridBagConstraints();
@@ -406,6 +406,10 @@ public class IzmenaStudenta extends JDialog implements KeyListener{
 			
 			@Override
 		public void actionPerformed(ActionEvent e) {
+				if((!textFieldDatumRodjenja.getText().matches("(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$")) || (!textFieldDatumUpisa.getText().matches("(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$"))) {
+					JOptionPane.showMessageDialog(null, "Datum mora biti unet u sledecem obliku: dd/mm/yyyy!");
+				}
+				else {
 			double prosecnaOcena = Double.parseDouble(textFieldProsek.getText());
 			if((prosecnaOcena<6) || (prosecnaOcena>10)) {
 				JOptionPane.showMessageDialog(null, "Prosecna ocena mora biti izmedju 6 i 10!");
@@ -438,6 +442,7 @@ public class IzmenaStudenta extends JDialog implements KeyListener{
 			
 			
 			dispose();
+			}
 		}
 			}
 	});
