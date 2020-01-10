@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.JDialog;
+import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
@@ -33,10 +34,8 @@ public class PrikazivanjeSpiskaPredmetaZaProfesora extends JDialog{
 		JTextArea spisak =new JTextArea();
 		Font font = new Font("Ariel", Font.BOLD, 15);
 		spisak.setFont(font);
-		
-		StringBuilder string = new StringBuilder();
-		
-		
+		JList predmetiList;
+		String predmetiString []= new String[100];
 		
 		
 		if (MyTabbedPane.getInstance().tabelaProfesora.getSelectedRow()<0)
@@ -44,22 +43,48 @@ public class PrikazivanjeSpiskaPredmetaZaProfesora extends JDialog{
 		else {
 			int selektovaniRed=MyTabbedPane.getInstance().tabelaProfesora.convertRowIndexToModel(MyTabbedPane.getInstance().tabelaProfesora.getSelectedRow());
 			Profesor profesor = BazaProfesora.getInstance().getRow(selektovaniRed);
-		
-			if (profesor.getPredmeti()==null) {
-				string.append("Nema predmeta");
-			}else {
+			int i=0;
+			if (profesor.getPredmeti()!=null) {
 				for (Predmet predmet: profesor.getPredmeti()) {
-					string.append(predmet);
+					predmetiString[i]=predmet.toString();
+					i++;
 				}
 			}
 		}
 		
 		
-		spisak.setText(string.toString());
+		predmetiList=new JList(predmetiString);
 		
-		JScrollPane scrollPane = new JScrollPane(spisak, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		JScrollPane scrollPane = new JScrollPane(predmetiList, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		
 		add(scrollPane);
+		
+//		StringBuilder string = new StringBuilder();
+//		
+//		
+//		
+//		
+//		if (MyTabbedPane.getInstance().tabelaProfesora.getSelectedRow()<0)
+//			return;
+//		else {
+//			int selektovaniRed=MyTabbedPane.getInstance().tabelaProfesora.convertRowIndexToModel(MyTabbedPane.getInstance().tabelaProfesora.getSelectedRow());
+//			Profesor profesor = BazaProfesora.getInstance().getRow(selektovaniRed);
+//		
+//			if (profesor.getPredmeti()==null) {
+//				string.append("Nema predmeta");
+//			}else {
+//				for (Predmet predmet: profesor.getPredmeti()) {
+//					string.append(predmet);
+//				}
+//			}
+//		}
+//		
+//		
+//		spisak.setText(string.toString());
+//		
+//		JScrollPane scrollPane = new JScrollPane(spisak, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+//		
+//		add(scrollPane);
 	}
 	
 }
