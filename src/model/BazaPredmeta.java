@@ -237,7 +237,7 @@ public class BazaPredmeta implements Serializable{
 			i++;
 			if (profesor.getBrojLicneKarte().equals(broj)) {
 				if (predmet.getPredmetniProfesor()!=null) {
-					if (predmet.getPredmetniProfesor().getBrojLicneKarte()!=profesor.getBrojLicneKarte()){
+					if (!predmet.getPredmetniProfesor().getBrojLicneKarte().equals(profesor.getBrojLicneKarte())){
 						Profesor bivsiProf=predmet.getPredmetniProfesor();
 						bivsiProf.getPredmeti().remove(predmet);
 					} else {
@@ -252,7 +252,7 @@ public class BazaPredmeta implements Serializable{
 				
 				break;
 			} else if(i==BazaProfesora.getInstance().getProfesori().size()) {
-				JOptionPane.showMessageDialog(null, "Ne postoji profesor sa tim indeksom");
+				JOptionPane.showMessageDialog(null, "Ne postoji profesor sa tim brojem licne karte");
 			}
 		}
 	}

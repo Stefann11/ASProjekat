@@ -18,6 +18,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -74,7 +75,7 @@ public class DodavanjePredmeta extends JDialog implements KeyListener{
 		gbc_textFieldSifra.gridx = 3;
 		gbc_textFieldSifra.gridy = 0;
 		panel.add(textFieldSifra, gbc_textFieldSifra);
-		textFieldSifra.setColumns(10);
+		textFieldSifra.setColumns(20);
 		
 		JLabel lblNazivPredmeta = new JLabel("Naziv predmeta *");
 		GridBagConstraints gbc_lblNazivPredmeta = new GridBagConstraints();
@@ -93,7 +94,7 @@ public class DodavanjePredmeta extends JDialog implements KeyListener{
 		gbc_textFieldNaziv.gridx = 3;
 		gbc_textFieldNaziv.gridy = 2;
 		panel.add(textFieldNaziv, gbc_textFieldNaziv);
-		textFieldNaziv.setColumns(10);
+		textFieldNaziv.setColumns(20);
 		
 		JLabel lblSemestarPredmeta = new JLabel("Semestar *");
 		GridBagConstraints gbc_lblSemestarPredmeta = new GridBagConstraints();
@@ -112,7 +113,7 @@ public class DodavanjePredmeta extends JDialog implements KeyListener{
 		gbc_textFieldSemestar.gridx = 3;
 		gbc_textFieldSemestar.gridy = 4;
 		panel.add(textFieldSemestar, gbc_textFieldSemestar);
-		textFieldSemestar.setColumns(10);
+		textFieldSemestar.setColumns(20);
 		
 		JLabel lblGodinaStudija = new JLabel("Godina studija *");
 		GridBagConstraints gbc_lblGodinaStudija = new GridBagConstraints();
@@ -132,7 +133,6 @@ public class DodavanjePredmeta extends JDialog implements KeyListener{
 		gbc_comboBox.gridy = 6;
 		panel.add(comboBox, gbc_comboBox);
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"PRVA", "DRUGA", "TREĆA", "ČETVRTA"}));
-		comboBox.setToolTipText("");
 		
 		
 		JPanel panelDugm = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -158,10 +158,14 @@ public class DodavanjePredmeta extends JDialog implements KeyListener{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				int semestar=Integer.parseInt(textFieldSemestar.getText());
+				if (semestar<1 || semestar>8) {
+					JOptionPane.showMessageDialog(null, "Semestar mora biti izmedju 1 i 8");
+				} else {
 				
 				String sifra=textFieldSifra.getText();
 				String naziv=textFieldNaziv.getText();
-				int semestar=Integer.parseInt(textFieldSemestar.getText());
+				
 				String g=comboBox.getSelectedItem().toString();
 				GodinaStudija god=GodinaStudija.valueOf(g);
 				
@@ -174,6 +178,7 @@ public class DodavanjePredmeta extends JDialog implements KeyListener{
 				textFieldSifra.setText("");
 				textFieldSemestar.setText("");
 				comboBox.setSelectedIndex(0);
+				}
 				
 			}
 		});
@@ -206,6 +211,7 @@ public class DodavanjePredmeta extends JDialog implements KeyListener{
 		} else {
 			btnPotvrda.setEnabled(true);
 		}
+		
 		
 	}
 
