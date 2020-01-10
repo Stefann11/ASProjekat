@@ -406,6 +406,11 @@ public class IzmenaStudenta extends JDialog implements KeyListener{
 			
 			@Override
 		public void actionPerformed(ActionEvent e) {
+			double prosecnaOcena = Double.parseDouble(textFieldProsek.getText());
+			if((prosecnaOcena<6) || (prosecnaOcena>10)) {
+				JOptionPane.showMessageDialog(null, "Prosecna ocena mora biti izmedju 6 i 10!");
+			}
+			else {
 			String ime=textFieldIme.getText();
 			String prezime=textFieldPrezime.getText();
 			Date DatumRodjenja;
@@ -420,7 +425,7 @@ public class IzmenaStudenta extends JDialog implements KeyListener{
 				GodinaStudija trenutnaGodStud=GodinaStudija.valueOf(g);
 				String email = textFieldEmail.getText();
 				Status status = Status.valueOf(placaFaks);
-				double prosecnaOcena = Double.parseDouble(textFieldProsek.getText());
+				
 					
 				StudentiController.getInstance().izmeniStudenta(selektovaniRed, ime,prezime,DatumRodjenja,adresaStanovanja, telefon, email, brojIndeksa,DatumUpisa,trenutnaGodStud, status,prosecnaOcena);
 				
@@ -434,6 +439,7 @@ public class IzmenaStudenta extends JDialog implements KeyListener{
 			
 			dispose();
 		}
+			}
 	});
 			
 		
