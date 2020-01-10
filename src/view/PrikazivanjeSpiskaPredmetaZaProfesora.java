@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JDialog;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
@@ -35,7 +36,7 @@ public class PrikazivanjeSpiskaPredmetaZaProfesora extends JDialog{
 		Font font = new Font("Ariel", Font.BOLD, 15);
 		spisak.setFont(font);
 		JList predmetiList;
-		String predmetiString []= new String[100];
+		final DefaultListModel model = new DefaultListModel();
 		
 		
 		if (MyTabbedPane.getInstance().tabelaProfesora.getSelectedRow()<0)
@@ -43,17 +44,16 @@ public class PrikazivanjeSpiskaPredmetaZaProfesora extends JDialog{
 		else {
 			int selektovaniRed=MyTabbedPane.getInstance().tabelaProfesora.convertRowIndexToModel(MyTabbedPane.getInstance().tabelaProfesora.getSelectedRow());
 			Profesor profesor = BazaProfesora.getInstance().getRow(selektovaniRed);
-			int i=0;
 			if (profesor.getPredmeti()!=null) {
 				for (Predmet predmet: profesor.getPredmeti()) {
-					predmetiString[i]=predmet.toString();
-					i++;
+					model.addElement(predmet.toString());
+					
 				}
 			}
 		}
 		
 		
-		predmetiList=new JList(predmetiString);
+		predmetiList=new JList(model);
 		
 		JScrollPane scrollPane = new JScrollPane(predmetiList, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		

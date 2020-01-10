@@ -170,9 +170,13 @@ public class IzmenaPredmeta extends JDialog implements KeyListener{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				int semestar=Integer.parseInt(textFieldSemestar.getText());
+				if (semestar<1 || semestar>8) {
+					JOptionPane.showMessageDialog(null, "Semestar mora biti izmedju 1 i 8");
+				} else {
 				String sifra=textFieldSifra.getText();
 				String naziv=textFieldNaziv.getText();
-				int semestar=Integer.parseInt(textFieldSemestar.getText());
+				
 				String g=comboBox.getSelectedItem().toString();
 				GodinaStudija god=GodinaStudija.valueOf(g);
 				
@@ -180,6 +184,7 @@ public class IzmenaPredmeta extends JDialog implements KeyListener{
 				
 				
 				dispose();
+				}
 			}
 		});
 		
