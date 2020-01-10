@@ -23,6 +23,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -340,6 +341,12 @@ public class DodavanjeStudenta extends JDialog implements KeyListener{
 			
 			@Override
 		public void actionPerformed(ActionEvent e) {
+				
+			double prosecnaOcena = Double.parseDouble(textFieldProsek.getText());
+			if((prosecnaOcena<6) || (prosecnaOcena>10)) {
+				JOptionPane.showMessageDialog(null, "Prosecna ocena mora biti izmedju 6 i 10!");
+			}
+			else {
 			String ime=textFieldIme.getText();
 			String prezime=textFieldPrezime.getText();
 			Date DatumRodjenja;
@@ -349,16 +356,12 @@ public class DodavanjeStudenta extends JDialog implements KeyListener{
 				DatumUpisa = new SimpleDateFormat("dd/MM/yyyy").parse(textFieldDatumUpisa.getText());
 				String adresaStanovanja=textFieldAdresaStanovanja.getText();
 				String telefon=textFieldBrojTelefona.getText();
-				String brojIndeksa=textFieldBrojIndeksa.getText();
-				//String adresaKancelarije=textFieldKancelarija.getText();
-				//int brojLicneKarte=Integer.parseInt(textFieldBrojLicne.getText());
+				String brojIndeksa=textFieldBrojIndeksa.getText();		
 				String g=comboBox.getSelectedItem().toString();
 				GodinaStudija trenutnaGodStud=GodinaStudija.valueOf(g);
-				//String g2=comboBox2.getSelectedItem().toString();
-				//Zvanje zvanje=Zvanje.valueOf(g2);
 				String email = textFieldEmail.getText();
 				Status status = Status.valueOf(placaFaks);
-				double prosecnaOcena = Double.parseDouble(textFieldProsek.getText());
+				//double prosecnaOcena = Double.parseDouble(textFieldProsek.getText());
 					
 				StudentiController.getInstance().DodajStudenta(ime,prezime,DatumRodjenja,adresaStanovanja, telefon, email, brojIndeksa,DatumUpisa,trenutnaGodStud, status,prosecnaOcena);
 				
@@ -383,7 +386,9 @@ public class DodavanjeStudenta extends JDialog implements KeyListener{
 			comboBox.setSelectedIndex(0);
 			buttonGroup.clearSelection();
 		}
+			}
 	});
+		
 		
 		
 		
