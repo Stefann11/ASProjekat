@@ -329,6 +329,10 @@ public IzmenaProfesora() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(!textFieldDatumRodjenja.getText().matches("(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$")) {
+					JOptionPane.showMessageDialog(null, "Datum mora biti unet u sledecem obliku: dd/mm/yyyy!");
+				}
+				else {
 				String ime=textFieldIme.getText();
 				String prezime=textFieldPrezime.getText();
 				Date DatumRodjenja;
@@ -354,6 +358,7 @@ public IzmenaProfesora() {
 				
 				
 				dispose();
+			}
 			}
 		});
 		
