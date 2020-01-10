@@ -52,11 +52,8 @@ public class PredmetiController {
 		
 		
 		public void dodavanjeStudentaNaPredmet(int selektovaniRed, String indeks) {
-			if(BazaPredmeta.getInstance().dodajStudentaNaPredmet(selektovaniRed, indeks))
+			BazaPredmeta.getInstance().dodajStudentaNaPredmet(selektovaniRed, indeks);
 			promeniIzgled();
-			else {
-				JOptionPane.showMessageDialog(null, "Student nije dodat, jer njegova/njena godina studija nije ista kao i godina na kojoj se slusa predmet.");
-			}
 		}
 		
 		public void dodavanjeProfesoraNaPredmet(int selektovaniRed, String broj) {

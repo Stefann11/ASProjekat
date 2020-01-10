@@ -184,34 +184,46 @@ public class BazaPredmeta implements Serializable{
 	}
 	
 	
-	public boolean dodajStudentaNaPredmet(int selectedRow, String indeks) {
+	public void dodajStudentaNaPredmet(int selectedRow, String indeks) {
 		Predmet predmet = BazaPredmeta.getInstance().getRow(selectedRow);
+		int brojac=0;
 		for (Student student : BazaStudenta.getInstance().getStudenti()) {
+			brojac++;
 			if (student.getBrojIndeksa().equals(indeks)) {
 				if(student.getTrenutnaGodinaStudija().toString().equals(predmet.getGodinaStudijaPredmet().toString())) {
 				predmet.getSpisakStudenata().add(student);
 				
 				student.getPredmeti().add(predmet);
-				return true;
+				
 				}
+				else {
+					JOptionPane.showMessageDialog(null, "Godina na kojoj se slusa predmet mora biti ista kao i godina na kojoj je student!");
+					break;
+				}
+			} else if(brojac==BazaStudenta.getInstance().getStudenti().size()) {
+				JOptionPane.showMessageDialog(null, "Ne postoji student sa tim indeksom");
 			}
 		}
-		return false;
 	}
 	
 	public void obrisiStudentaSaPredmeta(int selectedRow, String index) {
 		Predmet predmet = BazaPredmeta.getInstance().getRow(selectedRow);
 		index = index.trim();
+		int flag=0;
 		for(Student s : predmet.getSpisakStudenata()) {
 			if(s.getBrojIndeksa().equals(index)) {
 				for (Student student: BazaStudenta.getInstance().getStudenti()) {
 					if (student.getBrojIndeksa().equals(s.getBrojIndeksa())) {
 						predmet.izbrisiStudenta(student.getBrojIndeksa());
 						student.izbrisiPredmet(predmet.getSifraPredmeta());
+						flag=1;
 						break;
 					}
 				}
 				
+			}
+			if (flag==1) {
+				break;
 			}
 			
 		}
