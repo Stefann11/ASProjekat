@@ -12,6 +12,10 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
+import model.BazaPredmeta;
+import model.BazaProfesora;
+import model.BazaStudenta;
+
 public class MyMenuBar  extends JMenuBar {
 
 	/**
@@ -49,9 +53,13 @@ public class MyMenuBar  extends JMenuBar {
 		miNew.setMnemonic(KeyEvent.VK_N);
 		miNew.setAccelerator(KeyStroke.getKeyStroke(
 		        KeyEvent.VK_N, ActionEvent.CTRL_MASK));
+		
 		JMenuItem miClose = new JMenuItem("Close");
 		miClose.addActionListener(new ActionListener() {
 	        public void actionPerformed(ActionEvent ev) {
+	        	BazaPredmeta.getInstance().serijalizacijaPredmeta();
+				BazaStudenta.getInstance().serijalizacijaStudenta();
+				BazaProfesora.getInstance().serijalizacijaProfesora();
 	                System.exit(0);
 	        }
 	    });
