@@ -42,7 +42,7 @@ public class BazaProfesora implements Serializable{
 		this.kolone = new ArrayList<String>();
 		this.kolone.add("Ime");
 		this.kolone.add("Prezime");
-		this.kolone.add("Datum Rodjenja");
+		this.kolone.add("Datum Rođenja");
 		this.kolone.add("Adresa Stanovanja");
 		this.kolone.add("Kontakt Telefon");
 		this.kolone.add("Email Adresa");

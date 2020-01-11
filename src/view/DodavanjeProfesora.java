@@ -124,7 +124,7 @@ public class DodavanjeProfesora extends JDialog implements KeyListener{
 		panel.add(textFieldPrezime, gbc_textFieldPrezime);
 		textFieldPrezime.setColumns(20);
 		
-		JLabel lblNewLabel_1 = new JLabel("Datum rodjenja*");
+		JLabel lblNewLabel_1 = new JLabel("Datum rođenja*");
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel_1.insets = new Insets(10, 30, 10, 10);
@@ -214,7 +214,7 @@ public class DodavanjeProfesora extends JDialog implements KeyListener{
 		panel.add(textFieldKancelarija, gbc_textFieldKancelarija);
 		textFieldKancelarija.setColumns(20);
 		
-		JLabel lblNewLabel_8 = new JLabel("Broj licne karte*");
+		JLabel lblNewLabel_8 = new JLabel("Broj lične karte*");
 		GridBagConstraints gbc_lblNewLabel_8 = new GridBagConstraints();
 		gbc_lblNewLabel_8.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel_8.insets = new Insets(10, 30, 10, 10);
@@ -330,6 +330,7 @@ public class DodavanjeProfesora extends JDialog implements KeyListener{
 				
 				
 				dispose();
+				btnPotvrda.setEnabled(false);
 				textFieldIme.setText("");
 				textFieldPrezime.setText("");
 				textFieldBrojLicne.setText("");

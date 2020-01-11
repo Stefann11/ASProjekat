@@ -323,6 +323,7 @@ public class DodavanjeStudenta extends JDialog implements KeyListener{
 		textFieldEmail.addKeyListener(this);
 		textFieldAdresaStanovanja.addKeyListener(this);
 		textFieldProsek.addKeyListener(keyListener);
+		textFieldProsek.addKeyListener(this);
 		textFieldDatumRodjenja.addKeyListener(this);
 		textFieldDatumUpisa.addKeyListener(this);
 		
@@ -379,6 +380,7 @@ public class DodavanjeStudenta extends JDialog implements KeyListener{
 			
 			
 			dispose();
+			btnPotvrda.setEnabled(false);
 			textFieldIme.setText("");
 			textFieldPrezime.setText("");
 			textFieldBrojIndeksa.setText("");

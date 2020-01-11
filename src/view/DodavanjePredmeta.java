@@ -174,6 +174,7 @@ public class DodavanjePredmeta extends JDialog implements KeyListener{
 				
 				
 				dispose();
+				btnPotvrda.setEnabled(false);
 				textFieldNaziv.setText("");
 				textFieldSifra.setText("");
 				textFieldSemestar.setText("");
