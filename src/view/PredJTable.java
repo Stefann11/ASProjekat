@@ -33,6 +33,7 @@ public class PredJTable extends JTable{
 		this.setRowSelectionAllowed(true);
 		this.setColumnSelectionAllowed(true);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		this.getTableHeader().setReorderingAllowed(false);
 		this.setModel(new PredAbstractTable());
 		new ButtonColumnPredmeti(this, 5);
 		
@@ -60,7 +61,7 @@ public class PredJTable extends JTable{
 		
 		for (int i = 0; i<polja.length;i++) {
 			deo = polja[i].split(":");
-			if (deo[0].equals("sifra")) {
+			if (deo[0].equals("šifra")) {
 				sifra = deo[1];
 			} else if (deo[0].equals("naziv")) {
 				naziv = deo[1];

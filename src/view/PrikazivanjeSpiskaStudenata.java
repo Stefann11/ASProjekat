@@ -27,19 +27,6 @@ public class PrikazivanjeSpiskaStudenata extends JDialog{
 	private static final long serialVersionUID = 6038128757439857324L;
 	
 	
-//	private static PrikazivanjeSpiskaStudenata instance = null;
-//
-//	public static PrikazivanjeSpiskaStudenata getInstance() {
-//		if (instance == null) {
-//			instance = new PrikazivanjeSpiskaStudenata();
-//		}
-//		return instance;
-//	}
-//	
-//	public void dodajStudentaNaCombobox(Student s){
-//		cb.addItem(s.toString());
-//	}
-	
 	public PrikazivanjeSpiskaStudenata() {
 		setModal(false);
 		setTitle("Spisak studenata");
@@ -72,30 +59,12 @@ public class PrikazivanjeSpiskaStudenata extends JDialog{
 		JPanel panelCentral = new JPanel();
 		panelCentral.add(scrollPane);
 		
-//		JPanel panelCentral = new JPanel();
-//		setLayout(new BorderLayout());
-//		panelCentral.add(cb);
+
 		JPanel panelZaDugmice = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         
         
         
         
-//        JComboBox cb = new JComboBox();
-//        int selektovaniRed = MyTabbedPane.getInstance().tabelaPredmeta.getSelectedRow();
-//        if (selektovaniRed<0) {
-//			return;
-//		}
-//        else {
-//        	Predmet predmet = BazaPredmeta.getInstance().getRow(selektovaniRed);
-//        	for(Student student : predmet.getSpisakStudenata()) {
-//        		cb.addItem(student.toString());
-//        	}
-//        }
-//		//setVisible(true);
-//		JPanel panelCentral = new JPanel();
-//		setLayout(new BorderLayout());
-//		panelCentral.add(cb);
-//		JPanel panelZaDugmice = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		
 		
 		JButton btnOdustanak = new JButton("Odustanak");

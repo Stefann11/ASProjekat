@@ -47,7 +47,7 @@ public class BazaProfesora implements Serializable{
 		this.kolone.add("Kontakt Telefon");
 		this.kolone.add("Email Adresa");
 		this.kolone.add("Adresa Kancelarije");
-		this.kolone.add("Broj Licne Karte");
+		this.kolone.add("Broj Lične Karte");
 		this.kolone.add("Titula");
 		this.kolone.add("Zvanje");
 

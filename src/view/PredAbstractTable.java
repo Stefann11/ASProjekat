@@ -12,6 +12,8 @@ public class PredAbstractTable extends AbstractTableModel{
 	 */
 	private static final long serialVersionUID = 847347111885524216L;
 	
+	
+	
 	@Override
 	public boolean isCellEditable(int rowIndex, int columnIndex) {
 		return columnIndex>=5;

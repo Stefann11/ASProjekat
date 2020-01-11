@@ -33,6 +33,7 @@ private static ProfJTable instance = null;
 		this.setRowSelectionAllowed(true);
 		this.setColumnSelectionAllowed(true);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		this.getTableHeader().setReorderingAllowed(false);
 		this.setModel(new ProfAbstractTable());
 		new ButtonColumnPredmeti(this, 10);
 		
@@ -73,7 +74,7 @@ private static ProfJTable instance = null;
 				email = deo[1];
 			} else if (deo[0].equals("adresa kancelarije")) {
 				adresaKancelarije = deo[1];
-			} else if (deo[0].equals("licna karta")) {
+			} else if (deo[0].equals("lična karta")) {
 				licnaKarta = deo[1];
 			} else if (deo[0].equals("titula")) {
 				titula = deo[1];

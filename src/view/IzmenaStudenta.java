@@ -210,7 +210,7 @@ public class IzmenaStudenta extends JDialog implements KeyListener{
 		textFieldBrojIndeksa.setColumns(20);
 		
 		
-		JLabel lblNewLabel_5 = new JLabel("Proseèna ocena*");
+		JLabel lblNewLabel_5 = new JLabel("Prosečna ocena*");
 		GridBagConstraints gbc_lblNewLabel_5 = new GridBagConstraints();
 		gbc_lblNewLabel_5.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel_5.insets = new Insets(10, 30, 10, 10);
