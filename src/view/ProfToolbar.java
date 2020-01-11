@@ -46,6 +46,7 @@ public class ProfToolbar extends JToolBar{
 		JTextField textField = new JTextField();
         textField.setPreferredSize(new Dimension(200, 32));
         panelRight.add(textField);
+        textField.setToolTipText("ime:Xxxxx;prezime:Xxxxx;datum:Xxxxx;adresa stanovanja:Xxxxx;telefon:Xxxxx;email:Xxxxx;adresa kancelarije:Xxxxx;lična karta:Xxxxx;titula:Xxxxx;zvanje:Xxxxx");
 		
 		JButton btnSearch = new JButton();
 		btnSearch.setToolTipText("Trazi profesora");

@@ -61,6 +61,7 @@ public class PredmetToolBar extends JToolBar{
 		JTextField textField = new JTextField();
         textField.setPreferredSize(new Dimension(200, 32));
         panelRight.add(textField);
+        textField.setToolTipText("šifra:Xxxxx;naziv:Xxxxx;semestar:Xxxxx;godina:Xxxxx;profesor:Xxxxx");
 		
 		JButton btnSearch = new JButton();
 		btnSearch.setToolTipText("Trazi predmet");

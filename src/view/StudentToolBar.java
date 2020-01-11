@@ -49,6 +49,7 @@ public class StudentToolBar extends JToolBar{
 		JTextField textField = new JTextField();
         textField.setPreferredSize(new Dimension(200, 32));
         panelRight.add(textField);
+        textField.setToolTipText("indeks:Xxxxx;ime:Xxxxx;prezime:Xxxxx;datum roðenja:xx/xx/xxxx;kontakt telefon:Xxxxx;email adresa:Xxxxx;datum upisa:Xxxxx;godina studija:Xxxxx;status:Xxxxx;prosek:Xxxxx");
 		
 		JButton btnSearch = new JButton();
 		btnSearch.setToolTipText("Trazi Studenta");
