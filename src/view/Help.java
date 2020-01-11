@@ -67,7 +67,8 @@ public class Help extends JDialog{
 					 "Pritiskom prvog dugmeta u toolbaru otvara se dialog za dodavanje novog studenta.\n" + 
 					 "Pritiskom na drugo dugme vrši se izmena SELEKTOVANOG studenta.\n" +
 					 "Odabirom treæeg dugmeta vrši se brisanje SELEKTOVANOG studenta.\n" +
-					 "Unosenjem teksta u tekstualno polje u toolbaru u vidu ime:Xxxx;prezime:Xxxxx;...  .\n" +
+					 "Unosenjem teksta u tekstualno polje u toolbaru u vidu: \n" +
+					 "indeks:Xxxxx;ime:Xxxxx;prezime:Xxxxx;datum rodjenja:xx/xx/xxxx;kontakt telefon:Xxxxx;email adresa:Xxxxx;datum upisa:Xxxxx;godina studija:Xxxxx;status:Xxxxx;prosek:Xxxxx\n" +
 					 "I potom pritiskom na poslednje dugme u toolbaru vrši se pretraga studenata po zadatim obeležjima .\n" +
 					 "Klikom na naziv kolone vrši se sortiranje tabele u opadajuæem/rastuæem redosledu.\n" +
 					 "Klikom na dugme u koloni 'Predmeti' se otvara spisak predmeta koje selektovani student sluša.\n" +
@@ -85,7 +86,8 @@ public class Help extends JDialog{
 					 "Pritiskom prvog dugmeta u toolbaru otvara se dialog za dodavanje novog profesora.\n" + 
 					 "Pritiskom na drugo dugme vrši se izmena SELEKTOVANOG profesora.\n" +
 					 "Odabirom treæeg dugmeta vrši se brisanje SELEKTOVANOG profesora.\n" +
-					 "Unosenjem teksta u tekstualno polje u toolbaru u vidu ime:Xxxx;prezime:Xxxxx;...  .\n" +
+					 "Unosenjem teksta u tekstualno polje u toolbaru u vidu: \n" +
+					 "ime:Xxxxx;prezime:Xxxxx;datum:Xxxxx;adresa stanovanja:Xxxxx;telefon:Xxxxx;email:Xxxxx;adresa kancelarije:Xxxxx;lièna karta:Xxxxx;titula:Xxxxx;zvanje:Xxxxx  \n" +
 					 "I potom pritiskom na poslednje dugme u toolbaru vrši se pretraga profesora po zadatim obeležjima .\n" +
 					 "Klikom na naziv kolone vrši se sortiranje tabele u opadajuæem/rastuæem redosledu.\n" +
 					 "Klikom na dugme u koloni 'Predmeti' se otvara spisak predmeta koje selektovani profesor predaje.\n" +
@@ -106,7 +108,8 @@ public class Help extends JDialog{
 					 "Odabirom èetvrtog dugmeta otvara se dijalog za dodavanje studenta na SELEKTOVANI predmet.\n" +
 					 "Odabirom petog dugmeta otvara se dijalog za dodavanje profesora na SELEKTOVANI predmet.\n" +
 					 "Odabirom šestog dugmeta vrši se brisanje profesora sa SELEKTOVANOG predmeta.\n" +
-					 "Unosenjem teksta u tekstualno polje u toolbaru u vidu šifra:Xxxx;naziv:Xxxxx;...  .\n" +
+					 "Unosenjem teksta u tekstualno polje u toolbaru u vidu: \n" +
+					  "šifra:Xxxxx;naziv:Xxxxx;semestar:Xxxxx;godina:Xxxxx;profesor:Xxxxx  \n" +
 					 "I potom pritiskom na poslednje dugme u toolbaru vrši se pretraga predmeta po zadatim obeležjima .\n" +
 					 "Klikom na naziv kolone vrši se sortiranje tabele u opadajuæem/rastuæem redosledu.\n" +
 					 "Klikom na dugme u koloni 'Spisak studenata' se otvara dijalog koji sadrži spisak studenata koji slušaju selektovani predmet.\n" +

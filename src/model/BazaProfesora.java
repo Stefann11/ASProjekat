@@ -178,6 +178,7 @@ public class BazaProfesora implements Serializable{
 					j++;
 				}
 				for (Predmet pred: BazaPredmeta.getInstance().getPredmeti()) {
+					if(pred.getPredmetniProfesor()!=null) {
 					Profesor profesor = pred.getPredmetniProfesor();
 						if (profesor.getBrojLicneKarte().equals(p.getBrojLicneKarte())) {
 							profesor.ime = ime;
@@ -191,7 +192,7 @@ public class BazaProfesora implements Serializable{
 							profesor.titula = titula;
 							profesor.zvanje = zvanje;
 						}
-					
+					}
 				}
 				if(j==profesori.size()) {		
 		

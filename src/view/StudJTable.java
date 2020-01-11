@@ -34,6 +34,7 @@ public class StudJTable extends JTable{
 		this.setRowSelectionAllowed(true);
 		this.setColumnSelectionAllowed(true);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		this.getTableHeader().setReorderingAllowed(false);
 		this.setModel(new StudAbstractTable());
 		new ButtonColumnPredmeti(this, 11);
 		sorter = new TableRowSorter<>((StudAbstractTable) getModel());
