@@ -68,7 +68,7 @@ public class Help extends JDialog{
 					 "Pritiskom na drugo dugme vrši se izmena SELEKTOVANOG studenta.\n" +
 					 "Odabirom treæeg dugmeta vrši se brisanje SELEKTOVANOG studenta.\n" +
 					 "Unosenjem teksta u tekstualno polje u toolbaru u vidu: \n" +
-					 "indeks:Xxxxx;ime:Xxxxx;prezime:Xxxxx;datum rodjenja:xx/xx/xxxx;kontakt telefon:Xxxxx;email adresa:Xxxxx;datum upisa:Xxxxx;godina studija:Xxxxx;status:Xxxxx;prosek:Xxxxx\n" +
+					 "indeks:Xxxxx;ime:Xxxxx;prezime:Xxxxx;datum roðenja:xx/xx/xxxx;kontakt telefon:Xxxxx;email adresa:Xxxxx;datum upisa:Xxxxx;godina studija:Xxxxx;status:Xxxxx;prosek:Xxxxx\n" +
 					 "I potom pritiskom na poslednje dugme u toolbaru vrši se pretraga studenata po zadatim obeležjima .\n" +
 					 "Klikom na naziv kolone vrši se sortiranje tabele u opadajuæem/rastuæem redosledu.\n" +
 					 "Klikom na dugme u koloni 'Predmeti' se otvara spisak predmeta koje selektovani student sluša.\n" +

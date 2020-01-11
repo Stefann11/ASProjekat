@@ -43,7 +43,7 @@ public class BazaStudenta implements Serializable{
 		this.kolone.add("Indeks");
 		this.kolone.add("Ime");
 		this.kolone.add("Prezime");
-		this.kolone.add("Datum rodjenja");
+		this.kolone.add("Datum rođenja");
 		this.kolone.add("Adresa stanovanja");
 		this.kolone.add("Kontakt telefon");
 		this.kolone.add("Email adresa");

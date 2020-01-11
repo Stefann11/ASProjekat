@@ -66,7 +66,7 @@ public class StudJTable extends JTable{
 				ime = deo[1];
 			} else if (deo[0].equals("prezime")) {
 				prezime = deo[1];	
-			} else if (deo[0].equals("datum rodjenja")) {
+			} else if (deo[0].equals("datum roðenja")) {
 				datumRodjenja = deo[1];
 			} else if (deo[0].equals("adresa stanovanja")) {
 				adresaStanovanja = deo[1];
