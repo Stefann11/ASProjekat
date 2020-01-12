@@ -16,7 +16,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -368,14 +367,20 @@ public class DodavanjeStudenta extends JDialog implements KeyListener{
 				String email = textFieldEmail.getText();
 				Status status = Status.valueOf(placaFaks);
 				//double prosecnaOcena = Double.parseDouble(textFieldProsek.getText());
-					
-				StudentiController.getInstance().DodajStudenta(ime,prezime,DatumRodjenja,adresaStanovanja, telefon, email, brojIndeksa,DatumUpisa,trenutnaGodStud, status,prosecnaOcena);
 				
+				if (DatumRodjenja.compareTo(DatumUpisa)>0) {
+					JOptionPane.showMessageDialog(null, "Datum upisa mora da bude posle datuma rođenja!");
+				} else {	
+				StudentiController.getInstance().DodajStudenta(ime,prezime,DatumRodjenja,adresaStanovanja, telefon, email, brojIndeksa,DatumUpisa,trenutnaGodStud, status,prosecnaOcena);
+				}
 				
 			} catch (ParseException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+			
+			
+				
 			
 			
 			
@@ -392,6 +397,7 @@ public class DodavanjeStudenta extends JDialog implements KeyListener{
 			textFieldDatumUpisa.setText("");
 			comboBox.setSelectedIndex(0);
 			buttonGroup.clearSelection();
+			
 		}
 			}
 			}

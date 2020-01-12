@@ -431,9 +431,11 @@ public class IzmenaStudenta extends JDialog implements KeyListener{
 				String email = textFieldEmail.getText();
 				Status status = Status.valueOf(placaFaks);
 				
-					
+				if (DatumRodjenja.compareTo(DatumUpisa)>0) {
+					JOptionPane.showMessageDialog(null, "Datum upisa mora da bude posle datuma rođenja!");
+				} else {	
 				StudentiController.getInstance().izmeniStudenta(selektovaniRed, ime,prezime,DatumRodjenja,adresaStanovanja, telefon, email, brojIndeksa,DatumUpisa,trenutnaGodStud, status,prosecnaOcena);
-				
+				} 
 				
 			} catch (ParseException e1) {
 				// TODO Auto-generated catch block
